@@ -1517,11 +1517,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					/Users/mikeash/Development/Projects/Creatures,
-				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "$(SYSTEM_APPS_DIR)/eSellerate\\ SDK/eSellerate\\ Demos/GeckoSoft\\ for\\ Project\\ Builder";
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				PRODUCT_NAME = Creatures;
 				SECTORDER_FLAGS = "";
@@ -1548,11 +1544,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					/Users/mikeash/Development/Projects/Creatures,
-				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "$(SYSTEM_APPS_DIR)/eSellerate\\ SDK/eSellerate\\ Demos/GeckoSoft\\ for\\ Project\\ Builder";
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				PRODUCT_NAME = Creatures;
 				SECTORDER_FLAGS = "";
@@ -1576,11 +1568,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					/Users/mikeash/Development/Projects/Creatures,
-				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "$(SYSTEM_APPS_DIR)/eSellerate\\ SDK/eSellerate\\ Demos/GeckoSoft\\ for\\ Project\\ Builder";
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				PRODUCT_NAME = Creatures;
 				SECTORDER_FLAGS = "";
