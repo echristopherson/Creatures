@@ -16,26 +16,6 @@
 				29B9732BFDCFA39411CA2CEA /* Sources */,
 				29B9732DFDCFA39411CA2CEA /* Frameworks */,
 			);
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "";
-				HEADER_SEARCH_PATHS = "";
-				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
-					"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.2.7.sdk/usr/lib",
-					/Users/mikeash/Development/Projects/Creatures,
-				);
-				PRECOMPILE_PREFIX_HEADER = YES;
-				PREFIX_HEADER = Creatures_Prefix.h;
-				PRODUCT_NAME = Creatures;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wall",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = app;
-			};
 			dependencies = (
 			);
 			name = Creatures;
@@ -43,7 +23,7 @@
 			productName = Creatures;
 			productReference = 17587328FF379C6511CA2CBB /* Creatures.app */;
 			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
 <plist version=\"1.0\">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
@@ -410,32 +390,6 @@
 		F6EBE98203CC72EF0124F93A /* LineTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EBE98003CC72EF0124F93A /* LineTool.h */; };
 		F6EBE98303CC72EF0124F93A /* LineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EBE98103CC72EF0124F93A /* LineTool.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildStyle section */
-		4A9504CCFFE6A4B311CA0CBA /* Development */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				OPTIMIZATION_CFLAGS = "-O0";
-				ZERO_LINK = NO;
-			};
-			name = Development;
-		};
-		4A9504CDFFE6A4B311CA0CBA /* Deployment */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				ZERO_LINK = NO;
-			};
-			name = Deployment;
-		};
-/* End PBXBuildStyle section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1084,28 +1038,6 @@
 			);
 			buildRules = (
 			);
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_MODEL_PPC64 = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Creatures_Prefix.h;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNINITIALIZED_AUTOS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				GCC_WARN_UNUSED_VALUE = NO;
-				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
-					/Users/mikeash/Development/Projects/Creatures,
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.2;
-				PRODUCT_NAME = Creatures;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = "-Wall";
-				WRAPPER_EXTENSION = app;
-			};
 			dependencies = (
 			);
 			name = "Creatures (Upgraded)";
@@ -1120,17 +1052,18 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = C2B84184093C94EA00975D56 /* Build configuration list for PBXProject "Creatures" */;
-			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.2;
-				SDKROOT = /Developer/SDKs/MacOSX10.2.8.sdk;
-			};
-			buildStyles = (
-				4A9504CCFFE6A4B311CA0CBA /* Development */,
-				4A9504CDFFE6A4B311CA0CBA /* Deployment */,
-			);
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Creatures */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				29B97326FDCFA39411CA2CEA /* Creatures */,
 				C29E01A10546DBE700B0215B /* Creatures (Upgraded) */,
@@ -1499,7 +1432,6 @@
 					"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.2.7.sdk/usr/lib",
 					/Users/mikeash/Development/Projects/Creatures,
 				);
-				OPTIMIZATION_CFLAGS = "-O0";
 				PRECOMPILE_PREFIX_HEADER = YES;
 				PREFIX_HEADER = Creatures_Prefix.h;
 				PRODUCT_NAME = Creatures;
@@ -1586,11 +1518,11 @@
 				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
-					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					/Users/mikeash/Development/Projects/Creatures,
 				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "$(SYSTEM_APPS_DIR)/eSellerate\\ SDK/eSellerate\\ Demos/GeckoSoft\\ for\\ Project\\ Builder";
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
-				OPTIMIZATION_CFLAGS = "-O0";
 				PRODUCT_NAME = Creatures;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = "-Wall";
@@ -1617,9 +1549,10 @@
 				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
-					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					/Users/mikeash/Development/Projects/Creatures,
 				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "$(SYSTEM_APPS_DIR)/eSellerate\\ SDK/eSellerate\\ Demos/GeckoSoft\\ for\\ Project\\ Builder";
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				PRODUCT_NAME = Creatures;
 				SECTORDER_FLAGS = "";
@@ -1644,9 +1577,10 @@
 				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
-					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					/Users/mikeash/Development/Projects/Creatures,
 				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "$(SYSTEM_APPS_DIR)/eSellerate\\ SDK/eSellerate\\ Demos/GeckoSoft\\ for\\ Project\\ Builder";
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				PRODUCT_NAME = Creatures;
 				SECTORDER_FLAGS = "";

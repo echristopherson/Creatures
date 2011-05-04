@@ -1,0 +1,122 @@
+// !$*UTF8*$!
+{
+	073A018C1370FDD700FA5F90 /* Creatures */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Creatures;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	073A018D1370FDD700FA5F90 /* Creatures (Upgraded) */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "Creatures (Upgraded)";
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	073A01961370FDDA00FA5F90 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	073A01971370FDDA00FA5F90 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Development;
+		activeExecutable = 073A018C1370FDD700FA5F90 /* Creatures */;
+		activeTarget = 29B97326FDCFA39411CA2CEA /* Creatures */;
+		codeSenseManager = 073A01971370FDDA00FA5F90 /* Code sense */;
+		executables = (
+			073A018C1370FDD700FA5F90 /* Creatures */,
+			073A018D1370FDD700FA5F90 /* Creatures (Upgraded) */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					341,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 326172119;
+			PBXWorkspaceStateSaveDate = 326172119;
+		};
+		sourceControlManager = 073A01961370FDDA00FA5F90 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97326FDCFA39411CA2CEA /* Creatures */ = {
+		activeExec = 0;
+		executables = (
+			073A018C1370FDD700FA5F90 /* Creatures */,
+		);
+	};
+	C29E01A10546DBE700B0215B /* Creatures (Upgraded) */ = {
+		activeExec = 0;
+		executables = (
+			073A018D1370FDD700FA5F90 /* Creatures (Upgraded) */,
+		);
+	};
+}
