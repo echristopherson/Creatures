@@ -176,6 +176,7 @@ static int sortFunction(id g1, id g2, void *object)
 
 		[table setDelegate:nil]; // keep our changes from generating notifications to ourselves
 
+		NSMutableArray *tableColumnsToRemove = [NSMutableArray new]; // EAC
 		while((obj = [enumerator nextObject]))
 		{
 			int menuIndex = 0;
@@ -201,11 +202,19 @@ static int sortFunction(id g1, id g2, void *object)
 			else
 			{
 				[hiddenTableColumns addObject:obj];
-				[table removeTableColumn:obj];
+				//[table removeTableColumn:obj];
+				// EAC:
+				[tableColumnsToRemove addObject:obj];
 			}
 
 			//[[obj headerCell] setMenu:tableHeaderContextMenu];
 		}
+		// EAC:
+		for(id obj in tableColumnsToRemove) {
+			[table removeTableColumn:obj];
+		}
+		[tableColumnsToRemove release];
+		tableColumnsToRemove = nil;
 		enumerator = [orderArray objectEnumerator];
 		int i = 0;
 		while((obj = [enumerator nextObject]))
