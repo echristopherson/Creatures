@@ -1,0 +1,1718 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXApplicationTarget section */
+		29B97326FDCFA39411CA2CEA /* Creatures */ = {
+			isa = PBXApplicationTarget;
+			buildConfigurationList = C2B8417C093C94EA00975D56 /* Build configuration list for PBXApplicationTarget "Creatures" */;
+			buildPhases = (
+				29B97327FDCFA39411CA2CEA /* Headers */,
+				29B97328FDCFA39411CA2CEA /* Resources */,
+				29B9732BFDCFA39411CA2CEA /* Sources */,
+				29B9732DFDCFA39411CA2CEA /* Frameworks */,
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.2.7.sdk/usr/lib",
+					/Users/mikeash/Development/Projects/Creatures,
+				);
+				PRECOMPILE_PREFIX_HEADER = YES;
+				PREFIX_HEADER = Creatures_Prefix.h;
+				PRODUCT_NAME = Creatures;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			dependencies = (
+			);
+			name = Creatures;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Creatures;
+			productReference = 17587328FF379C6511CA2CBB /* Creatures.app */;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>creatures</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>CreaturesDocument.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>Creatures World</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>????</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+	</array>
+	<key>CFBundleExecutable</key>
+	<string>Creatures</string>
+	<key>CFBundleGetInfoString</key>
+	<string>Creatures beta 4, Copyright 2003 Michael Ash</string>
+	<key>CFBundleIconFile</key>
+	<string>Creatures.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.mikeash.Creatures</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Creatures</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>Creatures beta 4</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>b4</string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	<key>NSPrincipalClass</key>
+	<string>MyApplication</string>
+</dict>
+</plist>
+";
+		};
+/* End PBXApplicationTarget section */
+
+/* Begin PBXBuildFile section */
+		080E96DCFE201CFB7F000001 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		089C165EFE840E0CC02AAC07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		1058C7A3FEA54F0111CA2CBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		29B9732CFDCFA39411CA2CEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		C203017204F42A5F00A800F6 /* Creatures.icns in Resources */ = {isa = PBXBuildFile; fileRef = C203017104F42A5F00A800F6 /* Creatures.icns */; };
+		C204BED104901F23000001C9 /* Arena.h in Headers */ = {isa = PBXBuildFile; fileRef = C204BEC904901F23000001C9 /* Arena.h */; };
+		C204BED204901F23000001C9 /* Barrier.h in Headers */ = {isa = PBXBuildFile; fileRef = C204BECA04901F23000001C9 /* Barrier.h */; };
+		C204BED304901F23000001C9 /* ComputingCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C204BECB04901F23000001C9 /* ComputingCreature.m */; };
+		C204BED404901F23000001C9 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = C204BECC04901F23000001C9 /* Creature.m */; };
+		C204BED504901F23000001C9 /* Creature.h in Headers */ = {isa = PBXBuildFile; fileRef = C204BECD04901F23000001C9 /* Creature.h */; };
+		C204BED604901F23000001C9 /* Arena.m in Sources */ = {isa = PBXBuildFile; fileRef = C204BECE04901F23000001C9 /* Arena.m */; };
+		C204BED704901F23000001C9 /* ComputingCreature.h in Headers */ = {isa = PBXBuildFile; fileRef = C204BECF04901F23000001C9 /* ComputingCreature.h */; };
+		C204BED804901F23000001C9 /* Barrier.m in Sources */ = {isa = PBXBuildFile; fileRef = C204BED004901F23000001C9 /* Barrier.m */; };
+		C204DE09054159F0000001C9 /* zoom_out_cursor.png in Resources */ = {isa = PBXBuildFile; fileRef = C204DE07054159F0000001C9 /* zoom_out_cursor.png */; };
+		C204DE0A054159F0000001C9 /* zoom_in_cursor.png in Resources */ = {isa = PBXBuildFile; fileRef = C204DE08054159F0000001C9 /* zoom_in_cursor.png */; };
+		C204DE0C05415FAE000001C9 /* CreaturesDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = C204DE0B05415FAE000001C9 /* CreaturesDocument.icns */; };
+		C2279C2904BD356F000001C9 /* line_tool.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C2279C2504BD356F000001C9 /* line_tool.tiff */; };
+		C2279C2A04BD356F000001C9 /* inspector_cursor.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C2279C2604BD356F000001C9 /* inspector_cursor.tiff */; };
+		C2279C2B04BD3570000001C9 /* hand_cursor.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C2279C2704BD356F000001C9 /* hand_cursor.tiff */; };
+		C2279C2C04BD3570000001C9 /* square_tool.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C2279C2804BD356F000001C9 /* square_tool.tiff */; };
+		C22FFE1E0438D8B100D0BAF5 /* Language Reference in Resources */ = {isa = PBXBuildFile; fileRef = C22FFE1D0438D8B100D0BAF5 /* Language Reference */; };
+		C243A1A005380D95000001C9 /* Creatures.png in Resources */ = {isa = PBXBuildFile; fileRef = C243A19F05380D95000001C9 /* Creatures.png */; };
+		C243A1A205380DAA000001C9 /* Creatures.png in Resources */ = {isa = PBXBuildFile; fileRef = C243A1A105380DAA000001C9 /* Creatures.png */; };
+		C243A1A505381585000001C9 /* ErrorPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = C243A1A305381585000001C9 /* ErrorPanel.nib */; };
+		C243A1A80538185A000001C9 /* ErrorPanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = C243A1A60538185A000001C9 /* ErrorPanelController.h */; };
+		C243A1A90538185A000001C9 /* ErrorPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = C243A1A70538185A000001C9 /* ErrorPanelController.m */; };
+		C243A1B2053835DB000001C9 /* MyApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = C243A1B0053835DB000001C9 /* MyApplication.h */; };
+		C243A1B3053835DB000001C9 /* MyApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C243A1B1053835DB000001C9 /* MyApplication.m */; };
+		C2442373053DB719000001C9 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2442372053DB719000001C9 /* libcrypto.dylib */; };
+		C2442378053DC91A000001C9 /* EnterRegistration.nib in Resources */ = {isa = PBXBuildFile; fileRef = C2442376053DC919000001C9 /* EnterRegistration.nib */; };
+		C244237B053DC9E4000001C9 /* EnterRegistrationController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2442379053DC9E3000001C9 /* EnterRegistrationController.h */; };
+		C244237C053DC9E4000001C9 /* EnterRegistrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C244237A053DC9E4000001C9 /* EnterRegistrationController.m */; };
+		C245EFE704FF1B6200A800F6 /* NSViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C245EFE504FF1B6200A800F6 /* NSViewAdditions.h */; };
+		C245EFE804FF1B6200A800F6 /* NSViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C245EFE604FF1B6200A800F6 /* NSViewAdditions.m */; };
+		C24C892A056D30850075603A /* MAStringTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C891C056D30840075603A /* MAStringTable.m */; };
+		C24C892B056D30850075603A /* MAStringTable.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C891D056D30840075603A /* MAStringTable.h */; };
+		C24C892C056D30850075603A /* MAObjectStack.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C891E056D30840075603A /* MAObjectStack.m */; };
+		C24C892D056D30850075603A /* MAObjectStack.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C891F056D30840075603A /* MAObjectStack.h */; };
+		C24C892E056D30850075603A /* MAObjectSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C8920056D30840075603A /* MAObjectSet.m */; };
+		C24C892F056D30850075603A /* MAObjectSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C8921056D30840075603A /* MAObjectSet.h */; };
+		C24C8930056D30850075603A /* MAObjectOffsetTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C8922056D30840075603A /* MAObjectOffsetTable.m */; };
+		C24C8931056D30850075603A /* MAObjectOffsetTable.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C8923056D30840075603A /* MAObjectOffsetTable.h */; };
+		C24C8932056D30850075603A /* MAObjectOffsetStack.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C8924056D30840075603A /* MAObjectOffsetStack.m */; };
+		C24C8933056D30850075603A /* MAObjectOffsetStack.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C8925056D30840075603A /* MAObjectOffsetStack.h */; };
+		C24C8934056D30850075603A /* MAKeyedUnarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C8926056D30840075603A /* MAKeyedUnarchiver.m */; };
+		C24C8935056D30850075603A /* MAKeyedUnarchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C8927056D30840075603A /* MAKeyedUnarchiver.h */; };
+		C24C8936056D30850075603A /* MAKeyedArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C8928056D30840075603A /* MAKeyedArchiver.m */; };
+		C24C8937056D30850075603A /* MAKeyedArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C8929056D30840075603A /* MAKeyedArchiver.h */; };
+		C24C8938056D30850075603A /* MAStringTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C891C056D30840075603A /* MAStringTable.m */; };
+		C24C8939056D30850075603A /* MAStringTable.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C891D056D30840075603A /* MAStringTable.h */; };
+		C24C893A056D30850075603A /* MAObjectStack.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C891E056D30840075603A /* MAObjectStack.m */; };
+		C24C893B056D30850075603A /* MAObjectStack.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C891F056D30840075603A /* MAObjectStack.h */; };
+		C24C893C056D30850075603A /* MAObjectSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C8920056D30840075603A /* MAObjectSet.m */; };
+		C24C893D056D30850075603A /* MAObjectSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C8921056D30840075603A /* MAObjectSet.h */; };
+		C24C893E056D30850075603A /* MAObjectOffsetTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C8922056D30840075603A /* MAObjectOffsetTable.m */; };
+		C24C893F056D30850075603A /* MAObjectOffsetTable.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C8923056D30840075603A /* MAObjectOffsetTable.h */; };
+		C24C8940056D30850075603A /* MAObjectOffsetStack.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C8924056D30840075603A /* MAObjectOffsetStack.m */; };
+		C24C8941056D30850075603A /* MAObjectOffsetStack.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C8925056D30840075603A /* MAObjectOffsetStack.h */; };
+		C24C8942056D30850075603A /* MAKeyedUnarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C8926056D30840075603A /* MAKeyedUnarchiver.m */; };
+		C24C8943056D30850075603A /* MAKeyedUnarchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C8927056D30840075603A /* MAKeyedUnarchiver.h */; };
+		C24C8944056D30850075603A /* MAKeyedArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C8928056D30840075603A /* MAKeyedArchiver.m */; };
+		C24C8945056D30850075603A /* MAKeyedArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = C24C8929056D30840075603A /* MAKeyedArchiver.h */; };
+		C24D54BE0546935700DF1631 /* CornerViewScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = C24D54BC0546935700DF1631 /* CornerViewScrollView.h */; };
+		C24D54BF0546935700DF1631 /* CornerViewScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C24D54BD0546935700DF1631 /* CornerViewScrollView.m */; };
+		C24FD66B05547567007784F8 /* controlpanelscreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C24FD66A05547567007784F8 /* controlpanelscreenshot.png */; };
+		C24FD66C05547567007784F8 /* controlpanelscreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C24FD66A05547567007784F8 /* controlpanelscreenshot.png */; };
+		C27BE7CE053EBD16000001C9 /* RegistrationSplashController.h in Headers */ = {isa = PBXBuildFile; fileRef = C27BE7CC053EBD16000001C9 /* RegistrationSplashController.h */; };
+		C27BE7CF053EBD16000001C9 /* RegistrationSplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27BE7CD053EBD16000001C9 /* RegistrationSplashController.m */; };
+		C27BE7D2053EC3F9000001C9 /* RegistrationSplash.nib in Resources */ = {isa = PBXBuildFile; fileRef = C27BE7D0053EC3F9000001C9 /* RegistrationSplash.nib */; };
+		C27E7AEF04DE94EC00A800F6 /* ZoomTool.h in Headers */ = {isa = PBXBuildFile; fileRef = C27E7AED04DE94EC00A800F6 /* ZoomTool.h */; };
+		C27E7AF004DE94EC00A800F6 /* ZoomTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C27E7AEE04DE94EC00A800F6 /* ZoomTool.m */; };
+		C27E7B1304E2914F00A800F6 /* Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = C27E7B1104E2914F00A800F6 /* Debug.h */; };
+		C27E7B1404E2914F00A800F6 /* Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = C27E7B1204E2914F00A800F6 /* Debug.m */; };
+		C27E7B1604E2B5A200A800F6 /* Creatures_Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = C27E7B1504E2B5A200A800F6 /* Creatures_Prefix.h */; };
+		C27E7B1D04E3E22C00A800F6 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C27E7B1C04E3E22C00A800F6 /* index.html */; };
+		C280144D056D74C600A1C266 /* MANSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C280144B056D74C600A1C266 /* MANSDataAdditions.h */; };
+		C280144E056D74C600A1C266 /* MANSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C280144C056D74C600A1C266 /* MANSDataAdditions.m */; };
+		C280144F056D74C600A1C266 /* MANSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C280144B056D74C600A1C266 /* MANSDataAdditions.h */; };
+		C2801450056D74C600A1C266 /* MANSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C280144C056D74C600A1C266 /* MANSDataAdditions.m */; };
+		C2846CBF0470AA0800000102 /* Guide.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2846CBE0470AA0800000102 /* Guide.txt */; };
+		C28FACF404DBAAE800A800F6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C28FACF304DBAAE800A800F6 /* Credits.rtf */; };
+		C28FAD0004DBB59200A800F6 /* arenascreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACF704DBB59200A800F6 /* arenascreenshot.png */; };
+		C28FAD0104DBB59300A800F6 /* arenasettings.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACF804DBB59200A800F6 /* arenasettings.png */; };
+		C28FAD0204DBB59300A800F6 /* drawscreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACF904DBB59200A800F6 /* drawscreenshot.png */; };
+		C28FAD0304DBB59300A800F6 /* familytree.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACFA04DBB59200A800F6 /* familytree.png */; };
+		C28FAD0404DBB59300A800F6 /* genomeassembler.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACFB04DBB59200A800F6 /* genomeassembler.png */; };
+		C28FAD0504DBB59300A800F6 /* genomelist.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACFC04DBB59200A800F6 /* genomelist.png */; };
+		C28FAD0604DBB59300A800F6 /* genomewindow.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACFD04DBB59200A800F6 /* genomewindow.png */; };
+		C28FAD0704DBB59400A800F6 /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = C28FACFE04DBB59200A800F6 /* help.html */; };
+		C28FAD0904DBC07600A800F6 /* help_language_reference.html in Resources */ = {isa = PBXBuildFile; fileRef = C28FAD0804DBC07600A800F6 /* help_language_reference.html */; };
+		C28FAD0C04DBED0600A800F6 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C28FAD0B04DBED0600A800F6 /* index.html */; };
+		C28FAD0E04DBED2100A800F6 /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FAD0D04DBED2100A800F6 /* screenshot.png */; };
+		C29E01A30546DBE700B0215B /* CreaturesView.h in Headers */ = {isa = PBXBuildFile; fileRef = F52D6AC8018887C301AFB2DA /* CreaturesView.h */; };
+		C29E01A40546DBE700B0215B /* Genome.h in Headers */ = {isa = PBXBuildFile; fileRef = F52D6AFA018B664301AFB2DA /* Genome.h */; };
+		C29E01A50546DBE700B0215B /* GenomeListController.h in Headers */ = {isa = PBXBuildFile; fileRef = F52D6B01018C3EF001AFB2DA /* GenomeListController.h */; };
+		C29E01A60546DBE700B0215B /* GenomeWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = F548EEAA019052B60158F8A2 /* GenomeWindowController.h */; };
+		C29E01A70546DBE700B0215B /* FamilyTreeWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = F5DEE6400242B2CF01B86E95 /* FamilyTreeWindowController.h */; };
+		C29E01A80546DBE700B0215B /* FamilyTreeView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5DEE6440242B37B01B86E95 /* FamilyTreeView.h */; };
+		C29E01A90546DBE700B0215B /* GenomeGraphic.h in Headers */ = {isa = PBXBuildFile; fileRef = F53274B8024555A401876B3C /* GenomeGraphic.h */; };
+		C29E01AA0546DBE700B0215B /* CreatureController.h in Headers */ = {isa = PBXBuildFile; fileRef = F55A29BA02B2E68C0100010A /* CreatureController.h */; };
+		C29E01AB0546DBE700B0215B /* PixmapUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = F5DAD45502BAA671014454CE /* PixmapUtils.h */; };
+		C29E01AC0546DBE700B0215B /* SquareTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B1003C7327301A0E9AE /* SquareTool.h */; };
+		C29E01AD0546DBE700B0215B /* DrawingTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B1403C7328101A0E9AE /* DrawingTool.h */; };
+		C29E01AE0546DBE700B0215B /* InspectTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B1C03C73E2B01A0E9AE /* InspectTool.h */; };
+		C29E01AF0546DBE700B0215B /* RegionTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B2003C73FC301A0E9AE /* RegionTool.h */; };
+		C29E01B00546DBE700B0215B /* Region.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B2403C7414B01A0E9AE /* Region.h */; };
+		C29E01B10546DBE700B0215B /* RegionCreateTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B2803C7490901A0E9AE /* RegionCreateTool.h */; };
+		C29E01B20546DBE700B0215B /* RegionSelectTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B3B03C752EA01A0E9AE /* RegionSelectTool.h */; };
+		C29E01B30546DBE700B0215B /* RegionInspectorController.h in Headers */ = {isa = PBXBuildFile; fileRef = F6A0969703C78B26013EDAE9 /* RegionInspectorController.h */; };
+		C29E01B40546DBE700B0215B /* LineTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EBE98003CC72EF0124F93A /* LineTool.h */; };
+		C29E01B50546DBE700B0215B /* StackTrace.h in Headers */ = {isa = PBXBuildFile; fileRef = F6BE137C03D0C0C001DD2558 /* StackTrace.h */; };
+		C29E01B60546DBE700B0215B /* VirtualMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F8E247046CA01200000103 /* VirtualMachine.h */; };
+		C29E01B70546DBE700B0215B /* VirtualMachineAssembler.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F8E249046CA01200000103 /* VirtualMachineAssembler.h */; };
+		C29E01B80546DBE700B0215B /* GenomeAssemblerController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2D4BC93048C7500000001C9 /* GenomeAssemblerController.h */; };
+		C29E01B90546DBE700B0215B /* VirtualMachineError.h in Headers */ = {isa = PBXBuildFile; fileRef = C2D4BC99048D0BD9000001C9 /* VirtualMachineError.h */; };
+		C29E01BA0546DBE700B0215B /* GenomeDragAcceptTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CFD1E204900C3D000001C9 /* GenomeDragAcceptTextField.h */; };
+		C29E01BB0546DBE700B0215B /* Arena.h in Headers */ = {isa = PBXBuildFile; fileRef = C204BEC904901F23000001C9 /* Arena.h */; };
+		C29E01BC0546DBE700B0215B /* Barrier.h in Headers */ = {isa = PBXBuildFile; fileRef = C204BECA04901F23000001C9 /* Barrier.h */; };
+		C29E01BD0546DBE700B0215B /* Creature.h in Headers */ = {isa = PBXBuildFile; fileRef = C204BECD04901F23000001C9 /* Creature.h */; };
+		C29E01BE0546DBE700B0215B /* ComputingCreature.h in Headers */ = {isa = PBXBuildFile; fileRef = C204BECF04901F23000001C9 /* ComputingCreature.h */; };
+		C29E01BF0546DBE700B0215B /* HandTool.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CC0AF004BCD35F000001C9 /* HandTool.h */; };
+		C29E01C00546DBE700B0215B /* GenomeBox.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B5267B04BCF1B5000001C9 /* GenomeBox.h */; };
+		C29E01C10546DBE700B0215B /* NoSelectionTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E26E5F04BE47AD000001C9 /* NoSelectionTableView.h */; };
+		C29E01C20546DBE700B0215B /* GenomeLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E26E6304BE4C1B000001C9 /* GenomeLibrary.h */; };
+		C29E01C30546DBE700B0215B /* SimpleWebController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2D39CC904D4FA8000A800F6 /* SimpleWebController.h */; };
+		C29E01C40546DBE700B0215B /* ZoomTool.h in Headers */ = {isa = PBXBuildFile; fileRef = C27E7AED04DE94EC00A800F6 /* ZoomTool.h */; };
+		C29E01C50546DBE700B0215B /* Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = C27E7B1104E2914F00A800F6 /* Debug.h */; };
+		C29E01C60546DBE700B0215B /* Creatures_Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = C27E7B1504E2B5A200A800F6 /* Creatures_Prefix.h */; };
+		C29E01C70546DBE700B0215B /* NSViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C245EFE504FF1B6200A800F6 /* NSViewAdditions.h */; };
+		C29E01C80546DBE700B0215B /* ToolInteractionView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2FDC9EE05309C7E000001C9 /* ToolInteractionView.h */; };
+		C29E01C90546DBE700B0215B /* CreatureInspectorWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2ED4CE90535F9D8000001C9 /* CreatureInspectorWindowController.h */; };
+		C29E01CA0546DBE700B0215B /* ErrorPanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = C243A1A60538185A000001C9 /* ErrorPanelController.h */; };
+		C29E01CB0546DBE700B0215B /* MyApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = C243A1B0053835DB000001C9 /* MyApplication.h */; };
+		C29E01CF0546DBE700B0215B /* EnterRegistrationController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2442379053DC9E3000001C9 /* EnterRegistrationController.h */; };
+		C29E01D00546DBE700B0215B /* RegistrationSplashController.h in Headers */ = {isa = PBXBuildFile; fileRef = C27BE7CC053EBD16000001C9 /* RegistrationSplashController.h */; };
+		C29E01D10546DBE700B0215B /* CornerViewScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = C24D54BC0546935700DF1631 /* CornerViewScrollView.h */; };
+		C29E01D30546DBE700B0215B /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		C29E01D40546DBE700B0215B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		C29E01D50546DBE700B0215B /* Disassembly.nib in Resources */ = {isa = PBXBuildFile; fileRef = F52D6AF1018B4DE701AFB2DA /* Disassembly.nib */; };
+		C29E01D60546DBE700B0215B /* Genome.nib in Resources */ = {isa = PBXBuildFile; fileRef = F52D6AFE018C334A01AFB2DA /* Genome.nib */; };
+		C29E01D70546DBE700B0215B /* GenomeWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = F548EEA401904F6F0158F8A2 /* GenomeWindow.nib */; };
+		C29E01D80546DBE700B0215B /* FamilyTreeWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = F5DEE6480242B48801B86E95 /* FamilyTreeWindow.nib */; };
+		C29E01D90546DBE700B0215B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F53274C4024745E701876B3C /* Localizable.strings */; };
+		C29E01DB0546DBE700B0215B /* RegionInspector.nib in Resources */ = {isa = PBXBuildFile; fileRef = F6A0969B03C7914C013EDAE9 /* RegionInspector.nib */; };
+		C29E01DC0546DBE700B0215B /* GenomeGraphicView.nib in Resources */ = {isa = PBXBuildFile; fileRef = F6365B2203D360CE018975DB /* GenomeGraphicView.nib */; };
+		C29E01DE0546DBE700B0215B /* defaultprogram.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2F8E255046CB0F000000103 /* defaultprogram.txt */; };
+		C29E01E10546DBE700B0215B /* GenomeAssembler.nib in Resources */ = {isa = PBXBuildFile; fileRef = C2ED4CE50535F971000001C9 /* GenomeAssembler.nib */; };
+		C29E01E20546DBE700B0215B /* line_tool.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C2279C2504BD356F000001C9 /* line_tool.tiff */; };
+		C29E01E30546DBE700B0215B /* inspector_cursor.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C2279C2604BD356F000001C9 /* inspector_cursor.tiff */; };
+		C29E01E40546DBE700B0215B /* hand_cursor.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C2279C2704BD356F000001C9 /* hand_cursor.tiff */; };
+		C29E01E50546DBE700B0215B /* square_tool.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C2279C2804BD356F000001C9 /* square_tool.tiff */; };
+		C29E01E60546DBE700B0215B /* SimpleWebWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = C2ED4CE70535F97A000001C9 /* SimpleWebWindow.nib */; };
+		C29E01E70546DBE700B0215B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C28FACF304DBAAE800A800F6 /* Credits.rtf */; };
+		C29E01E80546DBE700B0215B /* arenascreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACF704DBB59200A800F6 /* arenascreenshot.png */; };
+		C29E01E90546DBE700B0215B /* arenasettings.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACF804DBB59200A800F6 /* arenasettings.png */; };
+		C29E01EA0546DBE700B0215B /* drawscreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACF904DBB59200A800F6 /* drawscreenshot.png */; };
+		C29E01EB0546DBE700B0215B /* familytree.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACFA04DBB59200A800F6 /* familytree.png */; };
+		C29E01EC0546DBE700B0215B /* genomeassembler.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACFB04DBB59200A800F6 /* genomeassembler.png */; };
+		C29E01ED0546DBE700B0215B /* genomelist.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACFC04DBB59200A800F6 /* genomelist.png */; };
+		C29E01EE0546DBE700B0215B /* genomewindow.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FACFD04DBB59200A800F6 /* genomewindow.png */; };
+		C29E01EF0546DBE700B0215B /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = C28FACFE04DBB59200A800F6 /* help.html */; };
+		C29E01F00546DBE700B0215B /* help_language_reference.html in Resources */ = {isa = PBXBuildFile; fileRef = C28FAD0804DBC07600A800F6 /* help_language_reference.html */; };
+		C29E01F10546DBE700B0215B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C28FAD0B04DBED0600A800F6 /* index.html */; };
+		C29E01F20546DBE700B0215B /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C28FAD0D04DBED2100A800F6 /* screenshot.png */; };
+		C29E01F30546DBE700B0215B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C27E7B1C04E3E22C00A800F6 /* index.html */; };
+		C29E01F40546DBE700B0215B /* Creatures.icns in Resources */ = {isa = PBXBuildFile; fileRef = C203017104F42A5F00A800F6 /* Creatures.icns */; };
+		C29E01F50546DBE700B0215B /* creatureinspectorwindow.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C0C21705375316000001C9 /* creatureinspectorwindow.png */; };
+		C29E01F60546DBE700B0215B /* Creatures.png in Resources */ = {isa = PBXBuildFile; fileRef = C243A19F05380D95000001C9 /* Creatures.png */; };
+		C29E01F70546DBE700B0215B /* Creatures.png in Resources */ = {isa = PBXBuildFile; fileRef = C243A1A105380DAA000001C9 /* Creatures.png */; };
+		C29E01F80546DBE700B0215B /* ErrorPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = C243A1A305381585000001C9 /* ErrorPanel.nib */; };
+		C29E01FB0546DBE700B0215B /* EnterRegistration.nib in Resources */ = {isa = PBXBuildFile; fileRef = C2442376053DC919000001C9 /* EnterRegistration.nib */; };
+		C29E01FC0546DBE700B0215B /* RegistrationSplash.nib in Resources */ = {isa = PBXBuildFile; fileRef = C27BE7D0053EC3F9000001C9 /* RegistrationSplash.nib */; };
+		C29E01FD0546DBE700B0215B /* zoom_out_cursor.png in Resources */ = {isa = PBXBuildFile; fileRef = C204DE07054159F0000001C9 /* zoom_out_cursor.png */; };
+		C29E01FE0546DBE700B0215B /* zoom_in_cursor.png in Resources */ = {isa = PBXBuildFile; fileRef = C204DE08054159F0000001C9 /* zoom_in_cursor.png */; };
+		C29E01FF0546DBE700B0215B /* CreaturesDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = C204DE0B05415FAE000001C9 /* CreaturesDocument.icns */; };
+		C29E02010546DBE700B0215B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		C29E02020546DBE700B0215B /* CreaturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D6AC9018887C301AFB2DA /* CreaturesView.m */; };
+		C29E02030546DBE700B0215B /* Genome.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D6AFB018B664301AFB2DA /* Genome.m */; };
+		C29E02040546DBE700B0215B /* GenomeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D6B02018C3EF001AFB2DA /* GenomeListController.m */; };
+		C29E02050546DBE700B0215B /* GenomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F548EEAB019052B60158F8A2 /* GenomeWindowController.m */; };
+		C29E02060546DBE700B0215B /* FamilyTreeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DEE6410242B2CF01B86E95 /* FamilyTreeWindowController.m */; };
+		C29E02070546DBE700B0215B /* FamilyTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DEE6450242B37B01B86E95 /* FamilyTreeView.m */; };
+		C29E02080546DBE700B0215B /* GenomeGraphic.m in Sources */ = {isa = PBXBuildFile; fileRef = F53274B9024555A401876B3C /* GenomeGraphic.m */; };
+		C29E02090546DBE700B0215B /* CreatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A29BB02B2E68C0100010A /* CreatureController.m */; };
+		C29E020A0546DBE700B0215B /* PixmapUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DAD45602BAA671014454CE /* PixmapUtils.m */; };
+		C29E020B0546DBE700B0215B /* SquareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B1103C7327301A0E9AE /* SquareTool.m */; };
+		C29E020C0546DBE700B0215B /* DrawingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B1503C7328101A0E9AE /* DrawingTool.m */; };
+		C29E020D0546DBE700B0215B /* InspectTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B1D03C73E2B01A0E9AE /* InspectTool.m */; };
+		C29E020E0546DBE700B0215B /* RegionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B2103C73FC301A0E9AE /* RegionTool.m */; };
+		C29E020F0546DBE700B0215B /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B2503C7414B01A0E9AE /* Region.m */; };
+		C29E02100546DBE700B0215B /* RegionCreateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B2903C7490901A0E9AE /* RegionCreateTool.m */; };
+		C29E02110546DBE700B0215B /* RegionSelectTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B3C03C752EA01A0E9AE /* RegionSelectTool.m */; };
+		C29E02120546DBE700B0215B /* RegionInspectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A0969803C78B26013EDAE9 /* RegionInspectorController.m */; };
+		C29E02130546DBE700B0215B /* LineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EBE98103CC72EF0124F93A /* LineTool.m */; };
+		C29E02140546DBE700B0215B /* StackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BE137D03D0C0C001DD2558 /* StackTrace.m */; };
+		C29E02150546DBE700B0215B /* VirtualMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F8E248046CA01200000103 /* VirtualMachine.m */; };
+		C29E02160546DBE700B0215B /* VirtualMachineAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F8E24A046CA01200000103 /* VirtualMachineAssembler.m */; };
+		C29E02170546DBE700B0215B /* GenomeAssemblerController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4BC94048C7500000001C9 /* GenomeAssemblerController.m */; };
+		C29E02180546DBE700B0215B /* VirtualMachineError.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4BC9A048D0BD9000001C9 /* VirtualMachineError.m */; };
+		C29E02190546DBE700B0215B /* GenomeDragAcceptTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFD1E304900C3D000001C9 /* GenomeDragAcceptTextField.m */; };
+		C29E021A0546DBE700B0215B /* ComputingCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C204BECB04901F23000001C9 /* ComputingCreature.m */; };
+		C29E021B0546DBE700B0215B /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = C204BECC04901F23000001C9 /* Creature.m */; };
+		C29E021C0546DBE700B0215B /* Arena.m in Sources */ = {isa = PBXBuildFile; fileRef = C204BECE04901F23000001C9 /* Arena.m */; };
+		C29E021D0546DBE700B0215B /* Barrier.m in Sources */ = {isa = PBXBuildFile; fileRef = C204BED004901F23000001C9 /* Barrier.m */; };
+		C29E021E0546DBE700B0215B /* HandTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC0AF104BCD35F000001C9 /* HandTool.m */; };
+		C29E021F0546DBE700B0215B /* GenomeBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B5267C04BCF1B5000001C9 /* GenomeBox.m */; };
+		C29E02200546DBE700B0215B /* NoSelectionTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E26E6004BE47AD000001C9 /* NoSelectionTableView.m */; };
+		C29E02210546DBE700B0215B /* GenomeLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E26E6404BE4C1B000001C9 /* GenomeLibrary.m */; };
+		C29E02220546DBE700B0215B /* SimpleWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D39CCA04D4FA8000A800F6 /* SimpleWebController.m */; };
+		C29E02230546DBE700B0215B /* ZoomTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C27E7AEE04DE94EC00A800F6 /* ZoomTool.m */; };
+		C29E02240546DBE700B0215B /* Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = C27E7B1204E2914F00A800F6 /* Debug.m */; };
+		C29E02250546DBE700B0215B /* NSViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C245EFE604FF1B6200A800F6 /* NSViewAdditions.m */; };
+		C29E02260546DBE700B0215B /* ToolInteractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FDC9EF05309C7E000001C9 /* ToolInteractionView.m */; };
+		C29E02270546DBE700B0215B /* CreatureInspectorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2ED4CEA0535F9D8000001C9 /* CreatureInspectorWindowController.m */; };
+		C29E02280546DBE700B0215B /* ErrorPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = C243A1A70538185A000001C9 /* ErrorPanelController.m */; };
+		C29E02290546DBE700B0215B /* MyApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C243A1B1053835DB000001C9 /* MyApplication.m */; };
+		C29E022B0546DBE700B0215B /* EnterRegistrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C244237A053DC9E4000001C9 /* EnterRegistrationController.m */; };
+		C29E022C0546DBE700B0215B /* RegistrationSplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27BE7CD053EBD16000001C9 /* RegistrationSplashController.m */; };
+		C29E022D0546DBE700B0215B /* CornerViewScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C24D54BD0546935700DF1631 /* CornerViewScrollView.m */; };
+		C29E022F0546DBE700B0215B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C29E02300546DBE700B0215B /* ExceptionHandling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6BE138003D0C0F101DD2558 /* ExceptionHandling.framework */; };
+		C29E02310546DBE700B0215B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ED5AA304B401F400F9CE20 /* Carbon.framework */; };
+		C29E02320546DBE700B0215B /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ED5AA504B4025B00F9CE20 /* QuickTime.framework */; };
+		C29E02350546DBE700B0215B /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2442372053DB719000001C9 /* libcrypto.dylib */; };
+		C2B5267D04BCF1B5000001C9 /* GenomeBox.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B5267B04BCF1B5000001C9 /* GenomeBox.h */; };
+		C2B5267E04BCF1B5000001C9 /* GenomeBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B5267C04BCF1B5000001C9 /* GenomeBox.m */; };
+		C2C0C21805375317000001C9 /* creatureinspectorwindow.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C0C21705375316000001C9 /* creatureinspectorwindow.png */; };
+		C2CC0AF204BCD35F000001C9 /* HandTool.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CC0AF004BCD35F000001C9 /* HandTool.h */; };
+		C2CC0AF304BCD35F000001C9 /* HandTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC0AF104BCD35F000001C9 /* HandTool.m */; };
+		C2CFD1E404900C3D000001C9 /* GenomeDragAcceptTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CFD1E204900C3D000001C9 /* GenomeDragAcceptTextField.h */; };
+		C2CFD1E504900C3D000001C9 /* GenomeDragAcceptTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFD1E304900C3D000001C9 /* GenomeDragAcceptTextField.m */; };
+		C2D39CCB04D4FA8000A800F6 /* SimpleWebController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2D39CC904D4FA8000A800F6 /* SimpleWebController.h */; };
+		C2D39CCC04D4FA8000A800F6 /* SimpleWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D39CCA04D4FA8000A800F6 /* SimpleWebController.m */; };
+		C2D4BC95048C7500000001C9 /* GenomeAssemblerController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2D4BC93048C7500000001C9 /* GenomeAssemblerController.h */; };
+		C2D4BC96048C7500000001C9 /* GenomeAssemblerController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4BC94048C7500000001C9 /* GenomeAssemblerController.m */; };
+		C2D4BC9B048D0BD9000001C9 /* VirtualMachineError.h in Headers */ = {isa = PBXBuildFile; fileRef = C2D4BC99048D0BD9000001C9 /* VirtualMachineError.h */; };
+		C2D4BC9C048D0BD9000001C9 /* VirtualMachineError.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4BC9A048D0BD9000001C9 /* VirtualMachineError.m */; };
+		C2D700AF05494F290052505E /* zoom_in_image.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D700AD05494F290052505E /* zoom_in_image.png */; };
+		C2D700B005494F290052505E /* zoom_out_image.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D700AE05494F290052505E /* zoom_out_image.png */; };
+		C2D700B105494F290052505E /* zoom_in_image.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D700AD05494F290052505E /* zoom_in_image.png */; };
+		C2D700B205494F290052505E /* zoom_out_image.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D700AE05494F290052505E /* zoom_out_image.png */; };
+		C2D700B405494F6C0052505E /* reload_image.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D700B305494F6C0052505E /* reload_image.png */; };
+		C2D700B505494F6D0052505E /* reload_image.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D700B305494F6C0052505E /* reload_image.png */; };
+		C2D9D4BD056D786D005964A3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D9D4BC056D786D005964A3 /* libz.dylib */; };
+		C2D9D4BE056D786D005964A3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D9D4BC056D786D005964A3 /* libz.dylib */; };
+		C2E26E6104BE47AD000001C9 /* NoSelectionTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E26E5F04BE47AD000001C9 /* NoSelectionTableView.h */; };
+		C2E26E6204BE47AD000001C9 /* NoSelectionTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E26E6004BE47AD000001C9 /* NoSelectionTableView.m */; };
+		C2E26E6504BE4C1B000001C9 /* GenomeLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E26E6304BE4C1B000001C9 /* GenomeLibrary.h */; };
+		C2E26E6604BE4C1B000001C9 /* GenomeLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E26E6404BE4C1B000001C9 /* GenomeLibrary.m */; };
+		C2E8F8B9047058E900000102 /* Report.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2E8F8B8047058E900000102 /* Report.txt */; };
+		C2ED4CE60535F971000001C9 /* GenomeAssembler.nib in Resources */ = {isa = PBXBuildFile; fileRef = C2ED4CE50535F971000001C9 /* GenomeAssembler.nib */; };
+		C2ED4CE80535F97A000001C9 /* SimpleWebWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = C2ED4CE70535F97A000001C9 /* SimpleWebWindow.nib */; };
+		C2ED4CEB0535F9D8000001C9 /* CreatureInspectorWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2ED4CE90535F9D8000001C9 /* CreatureInspectorWindowController.h */; };
+		C2ED4CEC0535F9D8000001C9 /* CreatureInspectorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2ED4CEA0535F9D8000001C9 /* CreatureInspectorWindowController.m */; };
+		C2ED5AA404B401F400F9CE20 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ED5AA304B401F400F9CE20 /* Carbon.framework */; };
+		C2ED5AA604B4025B00F9CE20 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ED5AA504B4025B00F9CE20 /* QuickTime.framework */; };
+		C2F8E24B046CA01200000103 /* VirtualMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F8E247046CA01200000103 /* VirtualMachine.h */; };
+		C2F8E24C046CA01200000103 /* VirtualMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F8E248046CA01200000103 /* VirtualMachine.m */; };
+		C2F8E24D046CA01200000103 /* VirtualMachineAssembler.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F8E249046CA01200000103 /* VirtualMachineAssembler.h */; };
+		C2F8E24E046CA01200000103 /* VirtualMachineAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F8E24A046CA01200000103 /* VirtualMachineAssembler.m */; };
+		C2F8E256046CB0F000000103 /* defaultprogram.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2F8E255046CB0F000000103 /* defaultprogram.txt */; };
+		C2FDC9F005309C7E000001C9 /* ToolInteractionView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2FDC9EE05309C7E000001C9 /* ToolInteractionView.h */; };
+		C2FDC9F105309C80000001C9 /* ToolInteractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FDC9EF05309C7E000001C9 /* ToolInteractionView.m */; };
+		C2FF619C05399E8A000001C9 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = C2FF619B05399E8A000001C9 /* TODO */; };
+		F52D6ACA018887C301AFB2DA /* CreaturesView.h in Headers */ = {isa = PBXBuildFile; fileRef = F52D6AC8018887C301AFB2DA /* CreaturesView.h */; };
+		F52D6ACB018887C301AFB2DA /* CreaturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D6AC9018887C301AFB2DA /* CreaturesView.m */; };
+		F52D6AF3018B4DE701AFB2DA /* Disassembly.nib in Resources */ = {isa = PBXBuildFile; fileRef = F52D6AF1018B4DE701AFB2DA /* Disassembly.nib */; };
+		F52D6AFC018B664301AFB2DA /* Genome.h in Headers */ = {isa = PBXBuildFile; fileRef = F52D6AFA018B664301AFB2DA /* Genome.h */; };
+		F52D6AFD018B664401AFB2DA /* Genome.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D6AFB018B664301AFB2DA /* Genome.m */; };
+		F52D6B00018C334A01AFB2DA /* Genome.nib in Resources */ = {isa = PBXBuildFile; fileRef = F52D6AFE018C334A01AFB2DA /* Genome.nib */; };
+		F52D6B03018C3EF001AFB2DA /* GenomeListController.h in Headers */ = {isa = PBXBuildFile; fileRef = F52D6B01018C3EF001AFB2DA /* GenomeListController.h */; };
+		F52D6B04018C3EF001AFB2DA /* GenomeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D6B02018C3EF001AFB2DA /* GenomeListController.m */; };
+		F53274BA024555A401876B3C /* GenomeGraphic.h in Headers */ = {isa = PBXBuildFile; fileRef = F53274B8024555A401876B3C /* GenomeGraphic.h */; };
+		F53274BB024555A401876B3C /* GenomeGraphic.m in Sources */ = {isa = PBXBuildFile; fileRef = F53274B9024555A401876B3C /* GenomeGraphic.m */; };
+		F53274C6024745E701876B3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F53274C4024745E701876B3C /* Localizable.strings */; };
+		F548EEA601904F6F0158F8A2 /* GenomeWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = F548EEA401904F6F0158F8A2 /* GenomeWindow.nib */; };
+		F548EEAC019052B60158F8A2 /* GenomeWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = F548EEAA019052B60158F8A2 /* GenomeWindowController.h */; };
+		F548EEAD019052B60158F8A2 /* GenomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F548EEAB019052B60158F8A2 /* GenomeWindowController.m */; };
+		F55A29BC02B2E68C0100010A /* CreatureController.h in Headers */ = {isa = PBXBuildFile; fileRef = F55A29BA02B2E68C0100010A /* CreatureController.h */; };
+		F55A29BD02B2E68D0100010A /* CreatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A29BB02B2E68C0100010A /* CreatureController.m */; };
+		F5DAD45702BAA671014454CE /* PixmapUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = F5DAD45502BAA671014454CE /* PixmapUtils.h */; };
+		F5DAD45802BAA671014454CE /* PixmapUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DAD45602BAA671014454CE /* PixmapUtils.m */; };
+		F5DEE6420242B2CF01B86E95 /* FamilyTreeWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = F5DEE6400242B2CF01B86E95 /* FamilyTreeWindowController.h */; };
+		F5DEE6430242B2CF01B86E95 /* FamilyTreeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DEE6410242B2CF01B86E95 /* FamilyTreeWindowController.m */; };
+		F5DEE6460242B37B01B86E95 /* FamilyTreeView.h in Headers */ = {isa = PBXBuildFile; fileRef = F5DEE6440242B37B01B86E95 /* FamilyTreeView.h */; };
+		F5DEE6470242B37B01B86E95 /* FamilyTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DEE6450242B37B01B86E95 /* FamilyTreeView.m */; };
+		F5DEE64A0242B48801B86E95 /* FamilyTreeWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = F5DEE6480242B48801B86E95 /* FamilyTreeWindow.nib */; };
+		F5FCD5F802D8C4E00100010A /* log in Resources */ = {isa = PBXBuildFile; fileRef = F5FCD5F702D8C4E00100010A /* log */; };
+		F6365B2403D360CE018975DB /* GenomeGraphicView.nib in Resources */ = {isa = PBXBuildFile; fileRef = F6365B2203D360CE018975DB /* GenomeGraphicView.nib */; };
+		F6A0969903C78B26013EDAE9 /* RegionInspectorController.h in Headers */ = {isa = PBXBuildFile; fileRef = F6A0969703C78B26013EDAE9 /* RegionInspectorController.h */; };
+		F6A0969A03C78B26013EDAE9 /* RegionInspectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A0969803C78B26013EDAE9 /* RegionInspectorController.m */; };
+		F6A0969D03C7914C013EDAE9 /* RegionInspector.nib in Resources */ = {isa = PBXBuildFile; fileRef = F6A0969B03C7914C013EDAE9 /* RegionInspector.nib */; };
+		F6B33B1203C7327301A0E9AE /* SquareTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B1003C7327301A0E9AE /* SquareTool.h */; };
+		F6B33B1303C7327301A0E9AE /* SquareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B1103C7327301A0E9AE /* SquareTool.m */; };
+		F6B33B1603C7328101A0E9AE /* DrawingTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B1403C7328101A0E9AE /* DrawingTool.h */; };
+		F6B33B1703C7328101A0E9AE /* DrawingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B1503C7328101A0E9AE /* DrawingTool.m */; };
+		F6B33B1E03C73E2B01A0E9AE /* InspectTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B1C03C73E2B01A0E9AE /* InspectTool.h */; };
+		F6B33B1F03C73E2B01A0E9AE /* InspectTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B1D03C73E2B01A0E9AE /* InspectTool.m */; };
+		F6B33B2203C73FC301A0E9AE /* RegionTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B2003C73FC301A0E9AE /* RegionTool.h */; };
+		F6B33B2303C73FC301A0E9AE /* RegionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B2103C73FC301A0E9AE /* RegionTool.m */; };
+		F6B33B2603C7414B01A0E9AE /* Region.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B2403C7414B01A0E9AE /* Region.h */; };
+		F6B33B2703C7414B01A0E9AE /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B2503C7414B01A0E9AE /* Region.m */; };
+		F6B33B2A03C7490901A0E9AE /* RegionCreateTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B2803C7490901A0E9AE /* RegionCreateTool.h */; };
+		F6B33B2B03C7490901A0E9AE /* RegionCreateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B2903C7490901A0E9AE /* RegionCreateTool.m */; };
+		F6B33B3D03C752EA01A0E9AE /* RegionSelectTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B33B3B03C752EA01A0E9AE /* RegionSelectTool.h */; };
+		F6B33B3E03C752EA01A0E9AE /* RegionSelectTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B33B3C03C752EA01A0E9AE /* RegionSelectTool.m */; };
+		F6BE137E03D0C0C001DD2558 /* StackTrace.h in Headers */ = {isa = PBXBuildFile; fileRef = F6BE137C03D0C0C001DD2558 /* StackTrace.h */; };
+		F6BE137F03D0C0C001DD2558 /* StackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BE137D03D0C0C001DD2558 /* StackTrace.m */; };
+		F6BE138603D0C0F101DD2558 /* ExceptionHandling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6BE138003D0C0F101DD2558 /* ExceptionHandling.framework */; };
+		F6EBE98203CC72EF0124F93A /* LineTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EBE98003CC72EF0124F93A /* LineTool.h */; };
+		F6EBE98303CC72EF0124F93A /* LineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EBE98103CC72EF0124F93A /* LineTool.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		4A9504CCFFE6A4B311CA0CBA /* Development */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OPTIMIZATION_CFLAGS = "-O0";
+				ZERO_LINK = NO;
+			};
+			name = Development;
+		};
+		4A9504CDFFE6A4B311CA0CBA /* Deployment */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		17587328FF379C6511CA2CBB /* Creatures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = Creatures.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		C203017104F42A5F00A800F6 /* Creatures.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Creatures.icns; sourceTree = "<group>"; };
+		C204BEC904901F23000001C9 /* Arena.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arena.h; sourceTree = "<group>"; };
+		C204BECA04901F23000001C9 /* Barrier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barrier.h; sourceTree = "<group>"; };
+		C204BECB04901F23000001C9 /* ComputingCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComputingCreature.m; sourceTree = "<group>"; };
+		C204BECC04901F23000001C9 /* Creature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Creature.m; sourceTree = "<group>"; };
+		C204BECD04901F23000001C9 /* Creature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Creature.h; sourceTree = "<group>"; };
+		C204BECE04901F23000001C9 /* Arena.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arena.m; sourceTree = "<group>"; };
+		C204BECF04901F23000001C9 /* ComputingCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComputingCreature.h; sourceTree = "<group>"; };
+		C204BED004901F23000001C9 /* Barrier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barrier.m; sourceTree = "<group>"; };
+		C204DE07054159F0000001C9 /* zoom_out_cursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zoom_out_cursor.png; sourceTree = "<group>"; };
+		C204DE08054159F0000001C9 /* zoom_in_cursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zoom_in_cursor.png; sourceTree = "<group>"; };
+		C204DE0B05415FAE000001C9 /* CreaturesDocument.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = CreaturesDocument.icns; sourceTree = "<group>"; };
+		C2279C2504BD356F000001C9 /* line_tool.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = line_tool.tiff; sourceTree = "<group>"; };
+		C2279C2604BD356F000001C9 /* inspector_cursor.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = inspector_cursor.tiff; sourceTree = "<group>"; };
+		C2279C2704BD356F000001C9 /* hand_cursor.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = hand_cursor.tiff; sourceTree = "<group>"; };
+		C2279C2804BD356F000001C9 /* square_tool.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = square_tool.tiff; sourceTree = "<group>"; };
+		C22C5ADB04F1702A00A800F6 /* changelog */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog; sourceTree = "<group>"; };
+		C22FFE1D0438D8B100D0BAF5 /* Language Reference */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Language Reference"; sourceTree = "<group>"; };
+		C243A19F05380D95000001C9 /* Creatures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Creatures.png; sourceTree = "<group>"; };
+		C243A1A105380DAA000001C9 /* Creatures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Creatures.png; sourceTree = "<group>"; };
+		C243A1A405381585000001C9 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ErrorPanel.nib; sourceTree = "<group>"; };
+		C243A1A60538185A000001C9 /* ErrorPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorPanelController.h; sourceTree = "<group>"; };
+		C243A1A70538185A000001C9 /* ErrorPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorPanelController.m; sourceTree = "<group>"; };
+		C243A1B0053835DB000001C9 /* MyApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyApplication.h; path = "Window Controllers/MyApplication.h"; sourceTree = "<group>"; };
+		C243A1B1053835DB000001C9 /* MyApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyApplication.m; path = "Window Controllers/MyApplication.m"; sourceTree = "<group>"; };
+		C2442372053DB719000001C9 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
+		C2442377053DC919000001C9 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/EnterRegistration.nib; sourceTree = "<group>"; };
+		C2442379053DC9E3000001C9 /* EnterRegistrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterRegistrationController.h; sourceTree = "<group>"; };
+		C244237A053DC9E4000001C9 /* EnterRegistrationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterRegistrationController.m; sourceTree = "<group>"; };
+		C245EFE504FF1B6200A800F6 /* NSViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSViewAdditions.h; sourceTree = "<group>"; };
+		C245EFE604FF1B6200A800F6 /* NSViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSViewAdditions.m; sourceTree = "<group>"; };
+		C24C891C056D30840075603A /* MAStringTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAStringTable.m; sourceTree = "<group>"; };
+		C24C891D056D30840075603A /* MAStringTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAStringTable.h; sourceTree = "<group>"; };
+		C24C891E056D30840075603A /* MAObjectStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAObjectStack.m; sourceTree = "<group>"; };
+		C24C891F056D30840075603A /* MAObjectStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAObjectStack.h; sourceTree = "<group>"; };
+		C24C8920056D30840075603A /* MAObjectSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAObjectSet.m; sourceTree = "<group>"; };
+		C24C8921056D30840075603A /* MAObjectSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAObjectSet.h; sourceTree = "<group>"; };
+		C24C8922056D30840075603A /* MAObjectOffsetTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAObjectOffsetTable.m; sourceTree = "<group>"; };
+		C24C8923056D30840075603A /* MAObjectOffsetTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAObjectOffsetTable.h; sourceTree = "<group>"; };
+		C24C8924056D30840075603A /* MAObjectOffsetStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAObjectOffsetStack.m; sourceTree = "<group>"; };
+		C24C8925056D30840075603A /* MAObjectOffsetStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAObjectOffsetStack.h; sourceTree = "<group>"; };
+		C24C8926056D30840075603A /* MAKeyedUnarchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAKeyedUnarchiver.m; sourceTree = "<group>"; };
+		C24C8927056D30840075603A /* MAKeyedUnarchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAKeyedUnarchiver.h; sourceTree = "<group>"; };
+		C24C8928056D30840075603A /* MAKeyedArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAKeyedArchiver.m; sourceTree = "<group>"; };
+		C24C8929056D30840075603A /* MAKeyedArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAKeyedArchiver.h; sourceTree = "<group>"; };
+		C24D54BC0546935700DF1631 /* CornerViewScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CornerViewScrollView.h; sourceTree = "<group>"; };
+		C24D54BD0546935700DF1631 /* CornerViewScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CornerViewScrollView.m; sourceTree = "<group>"; };
+		C24FD66A05547567007784F8 /* controlpanelscreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controlpanelscreenshot.png; sourceTree = "<group>"; };
+		C27BE7CC053EBD16000001C9 /* RegistrationSplashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationSplashController.h; sourceTree = "<group>"; };
+		C27BE7CD053EBD16000001C9 /* RegistrationSplashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationSplashController.m; sourceTree = "<group>"; };
+		C27BE7D1053EC3F9000001C9 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/RegistrationSplash.nib; sourceTree = "<group>"; };
+		C27E7AED04DE94EC00A800F6 /* ZoomTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomTool.h; sourceTree = "<group>"; };
+		C27E7AEE04DE94EC00A800F6 /* ZoomTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomTool.m; sourceTree = "<group>"; };
+		C27E7B1104E2914F00A800F6 /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
+		C27E7B1204E2914F00A800F6 /* Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debug.m; sourceTree = "<group>"; };
+		C27E7B1504E2B5A200A800F6 /* Creatures_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Creatures_Prefix.h; sourceTree = "<group>"; };
+		C27E7B1C04E3E22C00A800F6 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		C280144B056D74C600A1C266 /* MANSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANSDataAdditions.h; sourceTree = "<group>"; };
+		C280144C056D74C600A1C266 /* MANSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANSDataAdditions.m; sourceTree = "<group>"; };
+		C2846CBE0470AA0800000102 /* Guide.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Guide.txt; sourceTree = "<group>"; };
+		C28FACF304DBAAE800A800F6 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		C28FACF704DBB59200A800F6 /* arenascreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arenascreenshot.png; sourceTree = "<group>"; };
+		C28FACF804DBB59200A800F6 /* arenasettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arenasettings.png; sourceTree = "<group>"; };
+		C28FACF904DBB59200A800F6 /* drawscreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drawscreenshot.png; sourceTree = "<group>"; };
+		C28FACFA04DBB59200A800F6 /* familytree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = familytree.png; sourceTree = "<group>"; };
+		C28FACFB04DBB59200A800F6 /* genomeassembler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = genomeassembler.png; sourceTree = "<group>"; };
+		C28FACFC04DBB59200A800F6 /* genomelist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = genomelist.png; sourceTree = "<group>"; };
+		C28FACFD04DBB59200A800F6 /* genomewindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = genomewindow.png; sourceTree = "<group>"; };
+		C28FACFE04DBB59200A800F6 /* help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help.html; sourceTree = "<group>"; };
+		C28FAD0804DBC07600A800F6 /* help_language_reference.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help_language_reference.html; sourceTree = "<group>"; };
+		C28FAD0B04DBED0600A800F6 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		C28FAD0D04DBED2100A800F6 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
+		C29E02370546DBE700B0215B /* Info-Creatures__Upgraded_.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info-Creatures__Upgraded_.plist"; sourceTree = "<group>"; };
+		C29E02380546DBE700B0215B /* Creatures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Creatures.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2B5267B04BCF1B5000001C9 /* GenomeBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenomeBox.h; sourceTree = "<group>"; };
+		C2B5267C04BCF1B5000001C9 /* GenomeBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenomeBox.m; sourceTree = "<group>"; };
+		C2C0C21705375316000001C9 /* creatureinspectorwindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = creatureinspectorwindow.png; sourceTree = "<group>"; };
+		C2CC0AF004BCD35F000001C9 /* HandTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandTool.h; sourceTree = "<group>"; };
+		C2CC0AF104BCD35F000001C9 /* HandTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandTool.m; sourceTree = "<group>"; };
+		C2CFD1E204900C3D000001C9 /* GenomeDragAcceptTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenomeDragAcceptTextField.h; sourceTree = "<group>"; };
+		C2CFD1E304900C3D000001C9 /* GenomeDragAcceptTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenomeDragAcceptTextField.m; sourceTree = "<group>"; };
+		C2D39CC904D4FA8000A800F6 /* SimpleWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleWebController.h; sourceTree = "<group>"; };
+		C2D39CCA04D4FA8000A800F6 /* SimpleWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleWebController.m; sourceTree = "<group>"; };
+		C2D39CCD04D4FBB900A800F6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/SimpleWebWindow.nib; sourceTree = "<group>"; };
+		C2D4BC93048C7500000001C9 /* GenomeAssemblerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenomeAssemblerController.h; sourceTree = "<group>"; };
+		C2D4BC94048C7500000001C9 /* GenomeAssemblerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenomeAssemblerController.m; sourceTree = "<group>"; };
+		C2D4BC97048C76D1000001C9 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/GenomeAssembler.nib; sourceTree = "<group>"; };
+		C2D4BC99048D0BD9000001C9 /* VirtualMachineError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualMachineError.h; sourceTree = "<group>"; };
+		C2D4BC9A048D0BD9000001C9 /* VirtualMachineError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualMachineError.m; sourceTree = "<group>"; };
+		C2D700AD05494F290052505E /* zoom_in_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zoom_in_image.png; sourceTree = "<group>"; };
+		C2D700AE05494F290052505E /* zoom_out_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zoom_out_image.png; sourceTree = "<group>"; };
+		C2D700B305494F6C0052505E /* reload_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload_image.png; sourceTree = "<group>"; };
+		C2D9D4BC056D786D005964A3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = /usr/lib/libz.dylib; sourceTree = "<absolute>"; };
+		C2E26E5F04BE47AD000001C9 /* NoSelectionTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoSelectionTableView.h; sourceTree = "<group>"; };
+		C2E26E6004BE47AD000001C9 /* NoSelectionTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoSelectionTableView.m; sourceTree = "<group>"; };
+		C2E26E6304BE4C1B000001C9 /* GenomeLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenomeLibrary.h; sourceTree = "<group>"; };
+		C2E26E6404BE4C1B000001C9 /* GenomeLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenomeLibrary.m; sourceTree = "<group>"; };
+		C2E8F8B8047058E900000102 /* Report.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Report.txt; sourceTree = "<group>"; };
+		C2ED4CE90535F9D8000001C9 /* CreatureInspectorWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatureInspectorWindowController.h; sourceTree = "<group>"; };
+		C2ED4CEA0535F9D8000001C9 /* CreatureInspectorWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatureInspectorWindowController.m; sourceTree = "<group>"; };
+		C2ED5AA304B401F400F9CE20 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		C2ED5AA504B4025B00F9CE20 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
+		C2F8E247046CA01200000103 /* VirtualMachine.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = VirtualMachine.h; sourceTree = "<group>"; };
+		C2F8E248046CA01200000103 /* VirtualMachine.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = VirtualMachine.m; sourceTree = "<group>"; };
+		C2F8E249046CA01200000103 /* VirtualMachineAssembler.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = VirtualMachineAssembler.h; sourceTree = "<group>"; };
+		C2F8E24A046CA01200000103 /* VirtualMachineAssembler.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = VirtualMachineAssembler.m; sourceTree = "<group>"; };
+		C2F8E255046CB0F000000103 /* defaultprogram.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = defaultprogram.txt; sourceTree = "<group>"; };
+		C2FDC9EE05309C7E000001C9 /* ToolInteractionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolInteractionView.h; sourceTree = "<group>"; };
+		C2FDC9EF05309C7E000001C9 /* ToolInteractionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolInteractionView.m; sourceTree = "<group>"; };
+		C2FF619B05399E8A000001C9 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		F52D6AC8018887C301AFB2DA /* CreaturesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreaturesView.h; sourceTree = "<group>"; };
+		F52D6AC9018887C301AFB2DA /* CreaturesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreaturesView.m; sourceTree = "<group>"; };
+		F52D6AF2018B4DE701AFB2DA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Disassembly.nib; sourceTree = "<group>"; };
+		F52D6AFA018B664301AFB2DA /* Genome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genome.h; sourceTree = "<group>"; };
+		F52D6AFB018B664301AFB2DA /* Genome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genome.m; sourceTree = "<group>"; };
+		F52D6AFF018C334A01AFB2DA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Genome.nib; sourceTree = "<group>"; };
+		F52D6B01018C3EF001AFB2DA /* GenomeListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenomeListController.h; sourceTree = "<group>"; };
+		F52D6B02018C3EF001AFB2DA /* GenomeListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenomeListController.m; sourceTree = "<group>"; };
+		F53274B8024555A401876B3C /* GenomeGraphic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenomeGraphic.h; sourceTree = "<group>"; };
+		F53274B9024555A401876B3C /* GenomeGraphic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenomeGraphic.m; sourceTree = "<group>"; };
+		F53274C5024745E701876B3C /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F548EEA501904F6F0158F8A2 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/GenomeWindow.nib; sourceTree = "<group>"; };
+		F548EEAA019052B60158F8A2 /* GenomeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenomeWindowController.h; sourceTree = "<group>"; };
+		F548EEAB019052B60158F8A2 /* GenomeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenomeWindowController.m; sourceTree = "<group>"; };
+		F55A29BA02B2E68C0100010A /* CreatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatureController.h; sourceTree = "<group>"; };
+		F55A29BB02B2E68C0100010A /* CreatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatureController.m; sourceTree = "<group>"; };
+		F5DAD45502BAA671014454CE /* PixmapUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixmapUtils.h; sourceTree = "<group>"; };
+		F5DAD45602BAA671014454CE /* PixmapUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixmapUtils.m; sourceTree = "<group>"; };
+		F5DEE6400242B2CF01B86E95 /* FamilyTreeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyTreeWindowController.h; sourceTree = "<group>"; };
+		F5DEE6410242B2CF01B86E95 /* FamilyTreeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyTreeWindowController.m; sourceTree = "<group>"; };
+		F5DEE6440242B37B01B86E95 /* FamilyTreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyTreeView.h; sourceTree = "<group>"; };
+		F5DEE6450242B37B01B86E95 /* FamilyTreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyTreeView.m; sourceTree = "<group>"; };
+		F5DEE6490242B48801B86E95 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FamilyTreeWindow.nib; sourceTree = "<group>"; };
+		F5FCD5F702D8C4E00100010A /* log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = log; sourceTree = "<group>"; };
+		F6365B2303D360CE018975DB /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/GenomeGraphicView.nib; sourceTree = "<group>"; };
+		F6A0969703C78B26013EDAE9 /* RegionInspectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionInspectorController.h; sourceTree = "<group>"; };
+		F6A0969803C78B26013EDAE9 /* RegionInspectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionInspectorController.m; sourceTree = "<group>"; };
+		F6A0969C03C7914C013EDAE9 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/RegionInspector.nib; sourceTree = "<group>"; };
+		F6B33B1003C7327301A0E9AE /* SquareTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareTool.h; sourceTree = "<group>"; };
+		F6B33B1103C7327301A0E9AE /* SquareTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareTool.m; sourceTree = "<group>"; };
+		F6B33B1403C7328101A0E9AE /* DrawingTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingTool.h; sourceTree = "<group>"; };
+		F6B33B1503C7328101A0E9AE /* DrawingTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingTool.m; sourceTree = "<group>"; };
+		F6B33B1C03C73E2B01A0E9AE /* InspectTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspectTool.h; sourceTree = "<group>"; };
+		F6B33B1D03C73E2B01A0E9AE /* InspectTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspectTool.m; sourceTree = "<group>"; };
+		F6B33B2003C73FC301A0E9AE /* RegionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionTool.h; sourceTree = "<group>"; };
+		F6B33B2103C73FC301A0E9AE /* RegionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionTool.m; sourceTree = "<group>"; };
+		F6B33B2403C7414B01A0E9AE /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		F6B33B2503C7414B01A0E9AE /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
+		F6B33B2803C7490901A0E9AE /* RegionCreateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionCreateTool.h; sourceTree = "<group>"; };
+		F6B33B2903C7490901A0E9AE /* RegionCreateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionCreateTool.m; sourceTree = "<group>"; };
+		F6B33B3B03C752EA01A0E9AE /* RegionSelectTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionSelectTool.h; sourceTree = "<group>"; };
+		F6B33B3C03C752EA01A0E9AE /* RegionSelectTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionSelectTool.m; sourceTree = "<group>"; };
+		F6BE137C03D0C0C001DD2558 /* StackTrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackTrace.h; sourceTree = "<group>"; };
+		F6BE137D03D0C0C001DD2558 /* StackTrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackTrace.m; sourceTree = "<group>"; };
+		F6BE138003D0C0F101DD2558 /* ExceptionHandling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExceptionHandling.framework; path = /System/Library/Frameworks/ExceptionHandling.framework; sourceTree = "<absolute>"; };
+		F6EBE98003CC72EF0124F93A /* LineTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineTool.h; sourceTree = "<group>"; };
+		F6EBE98103CC72EF0124F93A /* LineTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineTool.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		29B9732DFDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1058C7A3FEA54F0111CA2CBB /* Cocoa.framework in Frameworks */,
+				F6BE138603D0C0F101DD2558 /* ExceptionHandling.framework in Frameworks */,
+				C2ED5AA404B401F400F9CE20 /* Carbon.framework in Frameworks */,
+				C2ED5AA604B4025B00F9CE20 /* QuickTime.framework in Frameworks */,
+				C2442373053DB719000001C9 /* libcrypto.dylib in Frameworks */,
+				C2D9D4BE056D786D005964A3 /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29E022E0546DBE700B0215B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C29E022F0546DBE700B0215B /* Cocoa.framework in Frameworks */,
+				C29E02300546DBE700B0215B /* ExceptionHandling.framework in Frameworks */,
+				C29E02310546DBE700B0215B /* Carbon.framework in Frameworks */,
+				C29E02320546DBE700B0215B /* QuickTime.framework in Frameworks */,
+				C29E02350546DBE700B0215B /* libcrypto.dylib in Frameworks */,
+				C2D9D4BD056D786D005964A3 /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C24C891B056D302F0075603A /* MAKeyedArchiver */,
+				C204BEC704901E21000001C9 /* Misc Model Classes */,
+				C204BEC604901DFE000001C9 /* Arena Classes */,
+				C204BEC504901DBA000001C9 /* Custom Views */,
+				C204BEC404901D76000001C9 /* Window Controllers */,
+				C2F8E246046C9FA600000103 /* Virtual Machine */,
+				F6B33B0F03C7326301A0E9AE /* Tool Classes */,
+				F55A29BA02B2E68C0100010A /* CreatureController.h */,
+				F55A29BB02B2E68C0100010A /* CreatureController.m */,
+				C243A1B0053835DB000001C9 /* MyApplication.h */,
+				C243A1B1053835DB000001C9 /* MyApplication.m */,
+				F5DAD45502BAA671014454CE /* PixmapUtils.h */,
+				F5DAD45602BAA671014454CE /* PixmapUtils.m */,
+				F6BE137C03D0C0C001DD2558 /* StackTrace.h */,
+				F6BE137D03D0C0C001DD2558 /* StackTrace.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				F6BE138003D0C0F101DD2558 /* ExceptionHandling.framework */,
+				C2ED5AA304B401F400F9CE20 /* Carbon.framework */,
+				C2ED5AA504B4025B00F9CE20 /* QuickTime.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17587328FF379C6511CA2CBB /* Creatures.app */,
+				C29E02380546DBE700B0215B /* Creatures.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Creatures */ = {
+			isa = PBXGroup;
+			children = (
+				C22C5ADB04F1702A00A800F6 /* changelog */,
+				F5FCD5F702D8C4E00100010A /* log */,
+				C22FFE1D0438D8B100D0BAF5 /* Language Reference */,
+				C2FF619B05399E8A000001C9 /* TODO */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				C2E8F8B8047058E900000102 /* Report.txt */,
+				C2846CBE0470AA0800000102 /* Guide.txt */,
+				C28FAD0A04DBECD400A800F6 /* Web Site */,
+				C29E02370546DBE700B0215B /* Info-Creatures__Upgraded_.plist */,
+			);
+			name = Creatures;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C27E7B1504E2B5A200A800F6 /* Creatures_Prefix.h */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				C27E7B1104E2914F00A800F6 /* Debug.h */,
+				C27E7B1204E2914F00A800F6 /* Debug.m */,
+				C2442372053DB719000001C9 /* libcrypto.dylib */,
+				C2D9D4BC056D786D005964A3 /* libz.dylib */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				C2442376053DC919000001C9 /* EnterRegistration.nib */,
+				C243A1A305381585000001C9 /* ErrorPanel.nib */,
+				F52D6AF1018B4DE701AFB2DA /* Disassembly.nib */,
+				F52D6AFE018C334A01AFB2DA /* Genome.nib */,
+				F548EEA401904F6F0158F8A2 /* GenomeWindow.nib */,
+				C2ED4CE50535F971000001C9 /* GenomeAssembler.nib */,
+				F5DEE6480242B48801B86E95 /* FamilyTreeWindow.nib */,
+				F6365B2203D360CE018975DB /* GenomeGraphicView.nib */,
+				F6A0969B03C7914C013EDAE9 /* RegionInspector.nib */,
+				C27BE7D0053EC3F9000001C9 /* RegistrationSplash.nib */,
+				C2ED4CE70535F97A000001C9 /* SimpleWebWindow.nib */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				F53274C4024745E701876B3C /* Localizable.strings */,
+				C2F8E255046CB0F000000103 /* defaultprogram.txt */,
+				C203017104F42A5F00A800F6 /* Creatures.icns */,
+				C204DE0B05415FAE000001C9 /* CreaturesDocument.icns */,
+				C2279C2504BD356F000001C9 /* line_tool.tiff */,
+				C2279C2604BD356F000001C9 /* inspector_cursor.tiff */,
+				C2279C2704BD356F000001C9 /* hand_cursor.tiff */,
+				C2D700B305494F6C0052505E /* reload_image.png */,
+				C2279C2804BD356F000001C9 /* square_tool.tiff */,
+				C204DE08054159F0000001C9 /* zoom_in_cursor.png */,
+				C2D700AD05494F290052505E /* zoom_in_image.png */,
+				C204DE07054159F0000001C9 /* zoom_out_cursor.png */,
+				C2D700AE05494F290052505E /* zoom_out_image.png */,
+				C28FACF304DBAAE800A800F6 /* Credits.rtf */,
+				C28FACF504DBB59200A800F6 /* Help */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C204BEC404901D76000001C9 /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C2ED4CE90535F9D8000001C9 /* CreatureInspectorWindowController.h */,
+				C2ED4CEA0535F9D8000001C9 /* CreatureInspectorWindowController.m */,
+				C2442379053DC9E3000001C9 /* EnterRegistrationController.h */,
+				C244237A053DC9E4000001C9 /* EnterRegistrationController.m */,
+				C243A1A60538185A000001C9 /* ErrorPanelController.h */,
+				C243A1A70538185A000001C9 /* ErrorPanelController.m */,
+				F5DEE6400242B2CF01B86E95 /* FamilyTreeWindowController.h */,
+				F5DEE6410242B2CF01B86E95 /* FamilyTreeWindowController.m */,
+				C2D4BC93048C7500000001C9 /* GenomeAssemblerController.h */,
+				C2D4BC94048C7500000001C9 /* GenomeAssemblerController.m */,
+				F52D6B01018C3EF001AFB2DA /* GenomeListController.h */,
+				F52D6B02018C3EF001AFB2DA /* GenomeListController.m */,
+				F548EEAA019052B60158F8A2 /* GenomeWindowController.h */,
+				F548EEAB019052B60158F8A2 /* GenomeWindowController.m */,
+				F6A0969703C78B26013EDAE9 /* RegionInspectorController.h */,
+				F6A0969803C78B26013EDAE9 /* RegionInspectorController.m */,
+				C27BE7CC053EBD16000001C9 /* RegistrationSplashController.h */,
+				C27BE7CD053EBD16000001C9 /* RegistrationSplashController.m */,
+				C2D39CC904D4FA8000A800F6 /* SimpleWebController.h */,
+				C2D39CCA04D4FA8000A800F6 /* SimpleWebController.m */,
+			);
+			path = "Window Controllers";
+			sourceTree = "<group>";
+		};
+		C204BEC504901DBA000001C9 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				C204BEC804901E44000001C9 /* Family Tree */,
+				F52D6AC8018887C301AFB2DA /* CreaturesView.h */,
+				F52D6AC9018887C301AFB2DA /* CreaturesView.m */,
+				C2CFD1E204900C3D000001C9 /* GenomeDragAcceptTextField.h */,
+				C2CFD1E304900C3D000001C9 /* GenomeDragAcceptTextField.m */,
+				C2E26E5F04BE47AD000001C9 /* NoSelectionTableView.h */,
+				C2E26E6004BE47AD000001C9 /* NoSelectionTableView.m */,
+				C245EFE504FF1B6200A800F6 /* NSViewAdditions.h */,
+				C245EFE604FF1B6200A800F6 /* NSViewAdditions.m */,
+				C2FDC9EE05309C7E000001C9 /* ToolInteractionView.h */,
+				C2FDC9EF05309C7E000001C9 /* ToolInteractionView.m */,
+				C24D54BC0546935700DF1631 /* CornerViewScrollView.h */,
+				C24D54BD0546935700DF1631 /* CornerViewScrollView.m */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		C204BEC604901DFE000001C9 /* Arena Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C204BEC904901F23000001C9 /* Arena.h */,
+				C204BECE04901F23000001C9 /* Arena.m */,
+				C204BECA04901F23000001C9 /* Barrier.h */,
+				C204BED004901F23000001C9 /* Barrier.m */,
+				C204BECF04901F23000001C9 /* ComputingCreature.h */,
+				C204BECB04901F23000001C9 /* ComputingCreature.m */,
+				C204BECD04901F23000001C9 /* Creature.h */,
+				C204BECC04901F23000001C9 /* Creature.m */,
+			);
+			path = "Arena Classes";
+			sourceTree = "<group>";
+		};
+		C204BEC704901E21000001C9 /* Misc Model Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F52D6AFA018B664301AFB2DA /* Genome.h */,
+				F52D6AFB018B664301AFB2DA /* Genome.m */,
+				C2E26E6304BE4C1B000001C9 /* GenomeLibrary.h */,
+				C2E26E6404BE4C1B000001C9 /* GenomeLibrary.m */,
+				F6B33B2403C7414B01A0E9AE /* Region.h */,
+				F6B33B2503C7414B01A0E9AE /* Region.m */,
+			);
+			path = "Misc Model Classes";
+			sourceTree = "<group>";
+		};
+		C204BEC804901E44000001C9 /* Family Tree */ = {
+			isa = PBXGroup;
+			children = (
+				F5DEE6440242B37B01B86E95 /* FamilyTreeView.h */,
+				F5DEE6450242B37B01B86E95 /* FamilyTreeView.m */,
+				F53274B8024555A401876B3C /* GenomeGraphic.h */,
+				F53274B9024555A401876B3C /* GenomeGraphic.m */,
+				C2B5267B04BCF1B5000001C9 /* GenomeBox.h */,
+				C2B5267C04BCF1B5000001C9 /* GenomeBox.m */,
+			);
+			path = "Family Tree";
+			sourceTree = "<group>";
+		};
+		C24C891B056D302F0075603A /* MAKeyedArchiver */ = {
+			isa = PBXGroup;
+			children = (
+				C24C891D056D30840075603A /* MAStringTable.h */,
+				C24C891C056D30840075603A /* MAStringTable.m */,
+				C24C891F056D30840075603A /* MAObjectStack.h */,
+				C24C891E056D30840075603A /* MAObjectStack.m */,
+				C24C8921056D30840075603A /* MAObjectSet.h */,
+				C24C8920056D30840075603A /* MAObjectSet.m */,
+				C24C8923056D30840075603A /* MAObjectOffsetTable.h */,
+				C24C8922056D30840075603A /* MAObjectOffsetTable.m */,
+				C24C8925056D30840075603A /* MAObjectOffsetStack.h */,
+				C24C8924056D30840075603A /* MAObjectOffsetStack.m */,
+				C24C8927056D30840075603A /* MAKeyedUnarchiver.h */,
+				C24C8926056D30840075603A /* MAKeyedUnarchiver.m */,
+				C24C8929056D30840075603A /* MAKeyedArchiver.h */,
+				C24C8928056D30840075603A /* MAKeyedArchiver.m */,
+				C280144B056D74C600A1C266 /* MANSDataAdditions.h */,
+				C280144C056D74C600A1C266 /* MANSDataAdditions.m */,
+			);
+			path = MAKeyedArchiver;
+			sourceTree = "<group>";
+		};
+		C27E7B1B04E3E20700A800F6 /* beta */ = {
+			isa = PBXGroup;
+			children = (
+				C27E7B1C04E3E22C00A800F6 /* index.html */,
+			);
+			path = beta;
+			sourceTree = "<group>";
+		};
+		C28FACF504DBB59200A800F6 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				C28FACF704DBB59200A800F6 /* arenascreenshot.png */,
+				C28FACF804DBB59200A800F6 /* arenasettings.png */,
+				C24FD66A05547567007784F8 /* controlpanelscreenshot.png */,
+				C243A19F05380D95000001C9 /* Creatures.png */,
+				C2C0C21705375316000001C9 /* creatureinspectorwindow.png */,
+				C28FACF904DBB59200A800F6 /* drawscreenshot.png */,
+				C28FACFA04DBB59200A800F6 /* familytree.png */,
+				C28FACFB04DBB59200A800F6 /* genomeassembler.png */,
+				C28FACFC04DBB59200A800F6 /* genomelist.png */,
+				C28FACFD04DBB59200A800F6 /* genomewindow.png */,
+				C28FACFE04DBB59200A800F6 /* help.html */,
+				C28FAD0804DBC07600A800F6 /* help_language_reference.html */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		C28FAD0A04DBECD400A800F6 /* Web Site */ = {
+			isa = PBXGroup;
+			children = (
+				C27E7B1B04E3E20700A800F6 /* beta */,
+				C243A1A105380DAA000001C9 /* Creatures.png */,
+				C28FAD0B04DBED0600A800F6 /* index.html */,
+				C28FAD0D04DBED2100A800F6 /* screenshot.png */,
+			);
+			path = "Web Site";
+			sourceTree = "<group>";
+		};
+		C2F8E246046C9FA600000103 /* Virtual Machine */ = {
+			isa = PBXGroup;
+			children = (
+				C2F8E247046CA01200000103 /* VirtualMachine.h */,
+				C2F8E248046CA01200000103 /* VirtualMachine.m */,
+				C2F8E249046CA01200000103 /* VirtualMachineAssembler.h */,
+				C2F8E24A046CA01200000103 /* VirtualMachineAssembler.m */,
+				C2D4BC99048D0BD9000001C9 /* VirtualMachineError.h */,
+				C2D4BC9A048D0BD9000001C9 /* VirtualMachineError.m */,
+			);
+			path = "Virtual Machine";
+			sourceTree = "<group>";
+		};
+		F6B33B0F03C7326301A0E9AE /* Tool Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F6B33B1403C7328101A0E9AE /* DrawingTool.h */,
+				F6B33B1503C7328101A0E9AE /* DrawingTool.m */,
+				C2CC0AF004BCD35F000001C9 /* HandTool.h */,
+				C2CC0AF104BCD35F000001C9 /* HandTool.m */,
+				F6B33B1C03C73E2B01A0E9AE /* InspectTool.h */,
+				F6B33B1D03C73E2B01A0E9AE /* InspectTool.m */,
+				F6EBE98003CC72EF0124F93A /* LineTool.h */,
+				F6EBE98103CC72EF0124F93A /* LineTool.m */,
+				F6B33B2003C73FC301A0E9AE /* RegionTool.h */,
+				F6B33B2103C73FC301A0E9AE /* RegionTool.m */,
+				F6B33B2803C7490901A0E9AE /* RegionCreateTool.h */,
+				F6B33B2903C7490901A0E9AE /* RegionCreateTool.m */,
+				F6B33B3B03C752EA01A0E9AE /* RegionSelectTool.h */,
+				F6B33B3C03C752EA01A0E9AE /* RegionSelectTool.m */,
+				F6B33B1003C7327301A0E9AE /* SquareTool.h */,
+				F6B33B1103C7327301A0E9AE /* SquareTool.m */,
+				C27E7AED04DE94EC00A800F6 /* ZoomTool.h */,
+				C27E7AEE04DE94EC00A800F6 /* ZoomTool.m */,
+			);
+			path = "Tool Classes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		29B97327FDCFA39411CA2CEA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52D6ACA018887C301AFB2DA /* CreaturesView.h in Headers */,
+				F52D6AFC018B664301AFB2DA /* Genome.h in Headers */,
+				F52D6B03018C3EF001AFB2DA /* GenomeListController.h in Headers */,
+				F548EEAC019052B60158F8A2 /* GenomeWindowController.h in Headers */,
+				F5DEE6420242B2CF01B86E95 /* FamilyTreeWindowController.h in Headers */,
+				F5DEE6460242B37B01B86E95 /* FamilyTreeView.h in Headers */,
+				F53274BA024555A401876B3C /* GenomeGraphic.h in Headers */,
+				F55A29BC02B2E68C0100010A /* CreatureController.h in Headers */,
+				F5DAD45702BAA671014454CE /* PixmapUtils.h in Headers */,
+				F6B33B1203C7327301A0E9AE /* SquareTool.h in Headers */,
+				F6B33B1603C7328101A0E9AE /* DrawingTool.h in Headers */,
+				F6B33B1E03C73E2B01A0E9AE /* InspectTool.h in Headers */,
+				F6B33B2203C73FC301A0E9AE /* RegionTool.h in Headers */,
+				F6B33B2603C7414B01A0E9AE /* Region.h in Headers */,
+				F6B33B2A03C7490901A0E9AE /* RegionCreateTool.h in Headers */,
+				F6B33B3D03C752EA01A0E9AE /* RegionSelectTool.h in Headers */,
+				F6A0969903C78B26013EDAE9 /* RegionInspectorController.h in Headers */,
+				F6EBE98203CC72EF0124F93A /* LineTool.h in Headers */,
+				F6BE137E03D0C0C001DD2558 /* StackTrace.h in Headers */,
+				C2F8E24B046CA01200000103 /* VirtualMachine.h in Headers */,
+				C2F8E24D046CA01200000103 /* VirtualMachineAssembler.h in Headers */,
+				C2D4BC95048C7500000001C9 /* GenomeAssemblerController.h in Headers */,
+				C2D4BC9B048D0BD9000001C9 /* VirtualMachineError.h in Headers */,
+				C2CFD1E404900C3D000001C9 /* GenomeDragAcceptTextField.h in Headers */,
+				C204BED104901F23000001C9 /* Arena.h in Headers */,
+				C204BED204901F23000001C9 /* Barrier.h in Headers */,
+				C204BED504901F23000001C9 /* Creature.h in Headers */,
+				C204BED704901F23000001C9 /* ComputingCreature.h in Headers */,
+				C2CC0AF204BCD35F000001C9 /* HandTool.h in Headers */,
+				C2B5267D04BCF1B5000001C9 /* GenomeBox.h in Headers */,
+				C2E26E6104BE47AD000001C9 /* NoSelectionTableView.h in Headers */,
+				C2E26E6504BE4C1B000001C9 /* GenomeLibrary.h in Headers */,
+				C2D39CCB04D4FA8000A800F6 /* SimpleWebController.h in Headers */,
+				C27E7AEF04DE94EC00A800F6 /* ZoomTool.h in Headers */,
+				C27E7B1304E2914F00A800F6 /* Debug.h in Headers */,
+				C27E7B1604E2B5A200A800F6 /* Creatures_Prefix.h in Headers */,
+				C245EFE704FF1B6200A800F6 /* NSViewAdditions.h in Headers */,
+				C2FDC9F005309C7E000001C9 /* ToolInteractionView.h in Headers */,
+				C2ED4CEB0535F9D8000001C9 /* CreatureInspectorWindowController.h in Headers */,
+				C243A1A80538185A000001C9 /* ErrorPanelController.h in Headers */,
+				C243A1B2053835DB000001C9 /* MyApplication.h in Headers */,
+				C244237B053DC9E4000001C9 /* EnterRegistrationController.h in Headers */,
+				C27BE7CE053EBD16000001C9 /* RegistrationSplashController.h in Headers */,
+				C24D54BE0546935700DF1631 /* CornerViewScrollView.h in Headers */,
+				C24C892B056D30850075603A /* MAStringTable.h in Headers */,
+				C24C892D056D30850075603A /* MAObjectStack.h in Headers */,
+				C24C892F056D30850075603A /* MAObjectSet.h in Headers */,
+				C24C8931056D30850075603A /* MAObjectOffsetTable.h in Headers */,
+				C24C8933056D30850075603A /* MAObjectOffsetStack.h in Headers */,
+				C24C8935056D30850075603A /* MAKeyedUnarchiver.h in Headers */,
+				C24C8937056D30850075603A /* MAKeyedArchiver.h in Headers */,
+				C280144F056D74C600A1C266 /* MANSDataAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29E01A20546DBE700B0215B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C29E01A30546DBE700B0215B /* CreaturesView.h in Headers */,
+				C29E01A40546DBE700B0215B /* Genome.h in Headers */,
+				C29E01A50546DBE700B0215B /* GenomeListController.h in Headers */,
+				C29E01A60546DBE700B0215B /* GenomeWindowController.h in Headers */,
+				C29E01A70546DBE700B0215B /* FamilyTreeWindowController.h in Headers */,
+				C29E01A80546DBE700B0215B /* FamilyTreeView.h in Headers */,
+				C29E01A90546DBE700B0215B /* GenomeGraphic.h in Headers */,
+				C29E01AA0546DBE700B0215B /* CreatureController.h in Headers */,
+				C29E01AB0546DBE700B0215B /* PixmapUtils.h in Headers */,
+				C29E01AC0546DBE700B0215B /* SquareTool.h in Headers */,
+				C29E01AD0546DBE700B0215B /* DrawingTool.h in Headers */,
+				C29E01AE0546DBE700B0215B /* InspectTool.h in Headers */,
+				C29E01AF0546DBE700B0215B /* RegionTool.h in Headers */,
+				C29E01B00546DBE700B0215B /* Region.h in Headers */,
+				C29E01B10546DBE700B0215B /* RegionCreateTool.h in Headers */,
+				C29E01B20546DBE700B0215B /* RegionSelectTool.h in Headers */,
+				C29E01B30546DBE700B0215B /* RegionInspectorController.h in Headers */,
+				C29E01B40546DBE700B0215B /* LineTool.h in Headers */,
+				C29E01B50546DBE700B0215B /* StackTrace.h in Headers */,
+				C29E01B60546DBE700B0215B /* VirtualMachine.h in Headers */,
+				C29E01B70546DBE700B0215B /* VirtualMachineAssembler.h in Headers */,
+				C29E01B80546DBE700B0215B /* GenomeAssemblerController.h in Headers */,
+				C29E01B90546DBE700B0215B /* VirtualMachineError.h in Headers */,
+				C29E01BA0546DBE700B0215B /* GenomeDragAcceptTextField.h in Headers */,
+				C29E01BB0546DBE700B0215B /* Arena.h in Headers */,
+				C29E01BC0546DBE700B0215B /* Barrier.h in Headers */,
+				C29E01BD0546DBE700B0215B /* Creature.h in Headers */,
+				C29E01BE0546DBE700B0215B /* ComputingCreature.h in Headers */,
+				C29E01BF0546DBE700B0215B /* HandTool.h in Headers */,
+				C29E01C00546DBE700B0215B /* GenomeBox.h in Headers */,
+				C29E01C10546DBE700B0215B /* NoSelectionTableView.h in Headers */,
+				C29E01C20546DBE700B0215B /* GenomeLibrary.h in Headers */,
+				C29E01C30546DBE700B0215B /* SimpleWebController.h in Headers */,
+				C29E01C40546DBE700B0215B /* ZoomTool.h in Headers */,
+				C29E01C50546DBE700B0215B /* Debug.h in Headers */,
+				C29E01C60546DBE700B0215B /* Creatures_Prefix.h in Headers */,
+				C29E01C70546DBE700B0215B /* NSViewAdditions.h in Headers */,
+				C29E01C80546DBE700B0215B /* ToolInteractionView.h in Headers */,
+				C29E01C90546DBE700B0215B /* CreatureInspectorWindowController.h in Headers */,
+				C29E01CA0546DBE700B0215B /* ErrorPanelController.h in Headers */,
+				C29E01CB0546DBE700B0215B /* MyApplication.h in Headers */,
+				C29E01CF0546DBE700B0215B /* EnterRegistrationController.h in Headers */,
+				C29E01D00546DBE700B0215B /* RegistrationSplashController.h in Headers */,
+				C29E01D10546DBE700B0215B /* CornerViewScrollView.h in Headers */,
+				C24C8939056D30850075603A /* MAStringTable.h in Headers */,
+				C24C893B056D30850075603A /* MAObjectStack.h in Headers */,
+				C24C893D056D30850075603A /* MAObjectSet.h in Headers */,
+				C24C893F056D30850075603A /* MAObjectOffsetTable.h in Headers */,
+				C24C8941056D30850075603A /* MAObjectOffsetStack.h in Headers */,
+				C24C8943056D30850075603A /* MAKeyedUnarchiver.h in Headers */,
+				C24C8945056D30850075603A /* MAKeyedArchiver.h in Headers */,
+				C280144D056D74C600A1C266 /* MANSDataAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C29E01A10546DBE700B0215B /* Creatures (Upgraded) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2B84180093C94EA00975D56 /* Build configuration list for PBXNativeTarget "Creatures (Upgraded)" */;
+			buildPhases = (
+				C29E01A20546DBE700B0215B /* Headers */,
+				C29E01D20546DBE700B0215B /* Resources */,
+				C29E02000546DBE700B0215B /* Sources */,
+				C29E022E0546DBE700B0215B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_MODEL_PPC64 = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Creatures_Prefix.h;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					/Users/mikeash/Development/Projects/Creatures,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				PRODUCT_NAME = Creatures;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wall";
+				WRAPPER_EXTENSION = app;
+			};
+			dependencies = (
+			);
+			name = "Creatures (Upgraded)";
+			productInstallPath = "$(HOME)/Applications";
+			productName = Creatures;
+			productReference = C29E02380546DBE700B0215B /* Creatures.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C2B84184093C94EA00975D56 /* Build configuration list for PBXProject "Creatures" */;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				SDKROOT = /Developer/SDKs/MacOSX10.2.8.sdk;
+			};
+			buildStyles = (
+				4A9504CCFFE6A4B311CA0CBA /* Development */,
+				4A9504CDFFE6A4B311CA0CBA /* Deployment */,
+			);
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Creatures */;
+			projectDirPath = "";
+			targets = (
+				29B97326FDCFA39411CA2CEA /* Creatures */,
+				C29E01A10546DBE700B0215B /* Creatures (Upgraded) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		29B97328FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				080E96DCFE201CFB7F000001 /* MainMenu.nib in Resources */,
+				089C165EFE840E0CC02AAC07 /* InfoPlist.strings in Resources */,
+				F52D6AF3018B4DE701AFB2DA /* Disassembly.nib in Resources */,
+				F52D6B00018C334A01AFB2DA /* Genome.nib in Resources */,
+				F548EEA601904F6F0158F8A2 /* GenomeWindow.nib in Resources */,
+				F5DEE64A0242B48801B86E95 /* FamilyTreeWindow.nib in Resources */,
+				F53274C6024745E701876B3C /* Localizable.strings in Resources */,
+				F5FCD5F802D8C4E00100010A /* log in Resources */,
+				F6A0969D03C7914C013EDAE9 /* RegionInspector.nib in Resources */,
+				F6365B2403D360CE018975DB /* GenomeGraphicView.nib in Resources */,
+				C22FFE1E0438D8B100D0BAF5 /* Language Reference in Resources */,
+				C2F8E256046CB0F000000103 /* defaultprogram.txt in Resources */,
+				C2E8F8B9047058E900000102 /* Report.txt in Resources */,
+				C2846CBF0470AA0800000102 /* Guide.txt in Resources */,
+				C2ED4CE60535F971000001C9 /* GenomeAssembler.nib in Resources */,
+				C2279C2904BD356F000001C9 /* line_tool.tiff in Resources */,
+				C2279C2A04BD356F000001C9 /* inspector_cursor.tiff in Resources */,
+				C2279C2B04BD3570000001C9 /* hand_cursor.tiff in Resources */,
+				C2279C2C04BD3570000001C9 /* square_tool.tiff in Resources */,
+				C2ED4CE80535F97A000001C9 /* SimpleWebWindow.nib in Resources */,
+				C28FACF404DBAAE800A800F6 /* Credits.rtf in Resources */,
+				C28FAD0004DBB59200A800F6 /* arenascreenshot.png in Resources */,
+				C28FAD0104DBB59300A800F6 /* arenasettings.png in Resources */,
+				C28FAD0204DBB59300A800F6 /* drawscreenshot.png in Resources */,
+				C28FAD0304DBB59300A800F6 /* familytree.png in Resources */,
+				C28FAD0404DBB59300A800F6 /* genomeassembler.png in Resources */,
+				C28FAD0504DBB59300A800F6 /* genomelist.png in Resources */,
+				C28FAD0604DBB59300A800F6 /* genomewindow.png in Resources */,
+				C28FAD0704DBB59400A800F6 /* help.html in Resources */,
+				C28FAD0904DBC07600A800F6 /* help_language_reference.html in Resources */,
+				C28FAD0C04DBED0600A800F6 /* index.html in Resources */,
+				C28FAD0E04DBED2100A800F6 /* screenshot.png in Resources */,
+				C27E7B1D04E3E22C00A800F6 /* index.html in Resources */,
+				C203017204F42A5F00A800F6 /* Creatures.icns in Resources */,
+				C2C0C21805375317000001C9 /* creatureinspectorwindow.png in Resources */,
+				C243A1A005380D95000001C9 /* Creatures.png in Resources */,
+				C243A1A205380DAA000001C9 /* Creatures.png in Resources */,
+				C243A1A505381585000001C9 /* ErrorPanel.nib in Resources */,
+				C2FF619C05399E8A000001C9 /* TODO in Resources */,
+				C2442378053DC91A000001C9 /* EnterRegistration.nib in Resources */,
+				C27BE7D2053EC3F9000001C9 /* RegistrationSplash.nib in Resources */,
+				C204DE09054159F0000001C9 /* zoom_out_cursor.png in Resources */,
+				C204DE0A054159F0000001C9 /* zoom_in_cursor.png in Resources */,
+				C204DE0C05415FAE000001C9 /* CreaturesDocument.icns in Resources */,
+				C2D700AF05494F290052505E /* zoom_in_image.png in Resources */,
+				C2D700B005494F290052505E /* zoom_out_image.png in Resources */,
+				C2D700B405494F6C0052505E /* reload_image.png in Resources */,
+				C24FD66B05547567007784F8 /* controlpanelscreenshot.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29E01D20546DBE700B0215B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C29E01D30546DBE700B0215B /* MainMenu.nib in Resources */,
+				C29E01D40546DBE700B0215B /* InfoPlist.strings in Resources */,
+				C29E01D50546DBE700B0215B /* Disassembly.nib in Resources */,
+				C29E01D60546DBE700B0215B /* Genome.nib in Resources */,
+				C29E01D70546DBE700B0215B /* GenomeWindow.nib in Resources */,
+				C29E01D80546DBE700B0215B /* FamilyTreeWindow.nib in Resources */,
+				C29E01D90546DBE700B0215B /* Localizable.strings in Resources */,
+				C29E01DB0546DBE700B0215B /* RegionInspector.nib in Resources */,
+				C29E01DC0546DBE700B0215B /* GenomeGraphicView.nib in Resources */,
+				C29E01DE0546DBE700B0215B /* defaultprogram.txt in Resources */,
+				C29E01E10546DBE700B0215B /* GenomeAssembler.nib in Resources */,
+				C29E01E20546DBE700B0215B /* line_tool.tiff in Resources */,
+				C29E01E30546DBE700B0215B /* inspector_cursor.tiff in Resources */,
+				C29E01E40546DBE700B0215B /* hand_cursor.tiff in Resources */,
+				C29E01E50546DBE700B0215B /* square_tool.tiff in Resources */,
+				C29E01E60546DBE700B0215B /* SimpleWebWindow.nib in Resources */,
+				C29E01E70546DBE700B0215B /* Credits.rtf in Resources */,
+				C29E01E80546DBE700B0215B /* arenascreenshot.png in Resources */,
+				C29E01E90546DBE700B0215B /* arenasettings.png in Resources */,
+				C29E01EA0546DBE700B0215B /* drawscreenshot.png in Resources */,
+				C29E01EB0546DBE700B0215B /* familytree.png in Resources */,
+				C29E01EC0546DBE700B0215B /* genomeassembler.png in Resources */,
+				C29E01ED0546DBE700B0215B /* genomelist.png in Resources */,
+				C29E01EE0546DBE700B0215B /* genomewindow.png in Resources */,
+				C29E01EF0546DBE700B0215B /* help.html in Resources */,
+				C29E01F00546DBE700B0215B /* help_language_reference.html in Resources */,
+				C29E01F10546DBE700B0215B /* index.html in Resources */,
+				C29E01F20546DBE700B0215B /* screenshot.png in Resources */,
+				C29E01F30546DBE700B0215B /* index.html in Resources */,
+				C29E01F40546DBE700B0215B /* Creatures.icns in Resources */,
+				C29E01F50546DBE700B0215B /* creatureinspectorwindow.png in Resources */,
+				C29E01F60546DBE700B0215B /* Creatures.png in Resources */,
+				C29E01F70546DBE700B0215B /* Creatures.png in Resources */,
+				C29E01F80546DBE700B0215B /* ErrorPanel.nib in Resources */,
+				C29E01FB0546DBE700B0215B /* EnterRegistration.nib in Resources */,
+				C29E01FC0546DBE700B0215B /* RegistrationSplash.nib in Resources */,
+				C29E01FD0546DBE700B0215B /* zoom_out_cursor.png in Resources */,
+				C29E01FE0546DBE700B0215B /* zoom_in_cursor.png in Resources */,
+				C29E01FF0546DBE700B0215B /* CreaturesDocument.icns in Resources */,
+				C2D700B105494F290052505E /* zoom_in_image.png in Resources */,
+				C2D700B205494F290052505E /* zoom_out_image.png in Resources */,
+				C2D700B505494F6D0052505E /* reload_image.png in Resources */,
+				C24FD66C05547567007784F8 /* controlpanelscreenshot.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		29B9732BFDCFA39411CA2CEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29B9732CFDCFA39411CA2CEA /* main.m in Sources */,
+				F52D6ACB018887C301AFB2DA /* CreaturesView.m in Sources */,
+				F52D6AFD018B664401AFB2DA /* Genome.m in Sources */,
+				F52D6B04018C3EF001AFB2DA /* GenomeListController.m in Sources */,
+				F548EEAD019052B60158F8A2 /* GenomeWindowController.m in Sources */,
+				F5DEE6430242B2CF01B86E95 /* FamilyTreeWindowController.m in Sources */,
+				F5DEE6470242B37B01B86E95 /* FamilyTreeView.m in Sources */,
+				F53274BB024555A401876B3C /* GenomeGraphic.m in Sources */,
+				F55A29BD02B2E68D0100010A /* CreatureController.m in Sources */,
+				F5DAD45802BAA671014454CE /* PixmapUtils.m in Sources */,
+				F6B33B1303C7327301A0E9AE /* SquareTool.m in Sources */,
+				F6B33B1703C7328101A0E9AE /* DrawingTool.m in Sources */,
+				F6B33B1F03C73E2B01A0E9AE /* InspectTool.m in Sources */,
+				F6B33B2303C73FC301A0E9AE /* RegionTool.m in Sources */,
+				F6B33B2703C7414B01A0E9AE /* Region.m in Sources */,
+				F6B33B2B03C7490901A0E9AE /* RegionCreateTool.m in Sources */,
+				F6B33B3E03C752EA01A0E9AE /* RegionSelectTool.m in Sources */,
+				F6A0969A03C78B26013EDAE9 /* RegionInspectorController.m in Sources */,
+				F6EBE98303CC72EF0124F93A /* LineTool.m in Sources */,
+				F6BE137F03D0C0C001DD2558 /* StackTrace.m in Sources */,
+				C2F8E24C046CA01200000103 /* VirtualMachine.m in Sources */,
+				C2F8E24E046CA01200000103 /* VirtualMachineAssembler.m in Sources */,
+				C2D4BC96048C7500000001C9 /* GenomeAssemblerController.m in Sources */,
+				C2D4BC9C048D0BD9000001C9 /* VirtualMachineError.m in Sources */,
+				C2CFD1E504900C3D000001C9 /* GenomeDragAcceptTextField.m in Sources */,
+				C204BED304901F23000001C9 /* ComputingCreature.m in Sources */,
+				C204BED404901F23000001C9 /* Creature.m in Sources */,
+				C204BED604901F23000001C9 /* Arena.m in Sources */,
+				C204BED804901F23000001C9 /* Barrier.m in Sources */,
+				C2CC0AF304BCD35F000001C9 /* HandTool.m in Sources */,
+				C2B5267E04BCF1B5000001C9 /* GenomeBox.m in Sources */,
+				C2E26E6204BE47AD000001C9 /* NoSelectionTableView.m in Sources */,
+				C2E26E6604BE4C1B000001C9 /* GenomeLibrary.m in Sources */,
+				C2D39CCC04D4FA8000A800F6 /* SimpleWebController.m in Sources */,
+				C27E7AF004DE94EC00A800F6 /* ZoomTool.m in Sources */,
+				C27E7B1404E2914F00A800F6 /* Debug.m in Sources */,
+				C245EFE804FF1B6200A800F6 /* NSViewAdditions.m in Sources */,
+				C2FDC9F105309C80000001C9 /* ToolInteractionView.m in Sources */,
+				C2ED4CEC0535F9D8000001C9 /* CreatureInspectorWindowController.m in Sources */,
+				C243A1A90538185A000001C9 /* ErrorPanelController.m in Sources */,
+				C243A1B3053835DB000001C9 /* MyApplication.m in Sources */,
+				C244237C053DC9E4000001C9 /* EnterRegistrationController.m in Sources */,
+				C27BE7CF053EBD16000001C9 /* RegistrationSplashController.m in Sources */,
+				C24D54BF0546935700DF1631 /* CornerViewScrollView.m in Sources */,
+				C24C892A056D30850075603A /* MAStringTable.m in Sources */,
+				C24C892C056D30850075603A /* MAObjectStack.m in Sources */,
+				C24C892E056D30850075603A /* MAObjectSet.m in Sources */,
+				C24C8930056D30850075603A /* MAObjectOffsetTable.m in Sources */,
+				C24C8932056D30850075603A /* MAObjectOffsetStack.m in Sources */,
+				C24C8934056D30850075603A /* MAKeyedUnarchiver.m in Sources */,
+				C24C8936056D30850075603A /* MAKeyedArchiver.m in Sources */,
+				C2801450056D74C600A1C266 /* MANSDataAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29E02000546DBE700B0215B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C29E02010546DBE700B0215B /* main.m in Sources */,
+				C29E02020546DBE700B0215B /* CreaturesView.m in Sources */,
+				C29E02030546DBE700B0215B /* Genome.m in Sources */,
+				C29E02040546DBE700B0215B /* GenomeListController.m in Sources */,
+				C29E02050546DBE700B0215B /* GenomeWindowController.m in Sources */,
+				C29E02060546DBE700B0215B /* FamilyTreeWindowController.m in Sources */,
+				C29E02070546DBE700B0215B /* FamilyTreeView.m in Sources */,
+				C29E02080546DBE700B0215B /* GenomeGraphic.m in Sources */,
+				C29E02090546DBE700B0215B /* CreatureController.m in Sources */,
+				C29E020A0546DBE700B0215B /* PixmapUtils.m in Sources */,
+				C29E020B0546DBE700B0215B /* SquareTool.m in Sources */,
+				C29E020C0546DBE700B0215B /* DrawingTool.m in Sources */,
+				C29E020D0546DBE700B0215B /* InspectTool.m in Sources */,
+				C29E020E0546DBE700B0215B /* RegionTool.m in Sources */,
+				C29E020F0546DBE700B0215B /* Region.m in Sources */,
+				C29E02100546DBE700B0215B /* RegionCreateTool.m in Sources */,
+				C29E02110546DBE700B0215B /* RegionSelectTool.m in Sources */,
+				C29E02120546DBE700B0215B /* RegionInspectorController.m in Sources */,
+				C29E02130546DBE700B0215B /* LineTool.m in Sources */,
+				C29E02140546DBE700B0215B /* StackTrace.m in Sources */,
+				C29E02150546DBE700B0215B /* VirtualMachine.m in Sources */,
+				C29E02160546DBE700B0215B /* VirtualMachineAssembler.m in Sources */,
+				C29E02170546DBE700B0215B /* GenomeAssemblerController.m in Sources */,
+				C29E02180546DBE700B0215B /* VirtualMachineError.m in Sources */,
+				C29E02190546DBE700B0215B /* GenomeDragAcceptTextField.m in Sources */,
+				C29E021A0546DBE700B0215B /* ComputingCreature.m in Sources */,
+				C29E021B0546DBE700B0215B /* Creature.m in Sources */,
+				C29E021C0546DBE700B0215B /* Arena.m in Sources */,
+				C29E021D0546DBE700B0215B /* Barrier.m in Sources */,
+				C29E021E0546DBE700B0215B /* HandTool.m in Sources */,
+				C29E021F0546DBE700B0215B /* GenomeBox.m in Sources */,
+				C29E02200546DBE700B0215B /* NoSelectionTableView.m in Sources */,
+				C29E02210546DBE700B0215B /* GenomeLibrary.m in Sources */,
+				C29E02220546DBE700B0215B /* SimpleWebController.m in Sources */,
+				C29E02230546DBE700B0215B /* ZoomTool.m in Sources */,
+				C29E02240546DBE700B0215B /* Debug.m in Sources */,
+				C29E02250546DBE700B0215B /* NSViewAdditions.m in Sources */,
+				C29E02260546DBE700B0215B /* ToolInteractionView.m in Sources */,
+				C29E02270546DBE700B0215B /* CreatureInspectorWindowController.m in Sources */,
+				C29E02280546DBE700B0215B /* ErrorPanelController.m in Sources */,
+				C29E02290546DBE700B0215B /* MyApplication.m in Sources */,
+				C29E022B0546DBE700B0215B /* EnterRegistrationController.m in Sources */,
+				C29E022C0546DBE700B0215B /* RegistrationSplashController.m in Sources */,
+				C29E022D0546DBE700B0215B /* CornerViewScrollView.m in Sources */,
+				C24C8938056D30850075603A /* MAStringTable.m in Sources */,
+				C24C893A056D30850075603A /* MAObjectStack.m in Sources */,
+				C24C893C056D30850075603A /* MAObjectSet.m in Sources */,
+				C24C893E056D30850075603A /* MAObjectOffsetTable.m in Sources */,
+				C24C8940056D30850075603A /* MAObjectOffsetStack.m in Sources */,
+				C24C8942056D30850075603A /* MAKeyedUnarchiver.m in Sources */,
+				C24C8944056D30850075603A /* MAKeyedArchiver.m in Sources */,
+				C280144E056D74C600A1C266 /* MANSDataAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+		C243A1A305381585000001C9 /* ErrorPanel.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C243A1A405381585000001C9 /* English */,
+			);
+			name = ErrorPanel.nib;
+			sourceTree = "<group>";
+		};
+		C2442376053DC919000001C9 /* EnterRegistration.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2442377053DC919000001C9 /* English */,
+			);
+			name = EnterRegistration.nib;
+			sourceTree = "<group>";
+		};
+		C27BE7D0053EC3F9000001C9 /* RegistrationSplash.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C27BE7D1053EC3F9000001C9 /* English */,
+			);
+			name = RegistrationSplash.nib;
+			sourceTree = "<group>";
+		};
+		C2ED4CE50535F971000001C9 /* GenomeAssembler.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2D4BC97048C76D1000001C9 /* English */,
+			);
+			name = GenomeAssembler.nib;
+			sourceTree = "<group>";
+		};
+		C2ED4CE70535F97A000001C9 /* SimpleWebWindow.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2D39CCD04D4FBB900A800F6 /* English */,
+			);
+			name = SimpleWebWindow.nib;
+			sourceTree = "<group>";
+		};
+		F52D6AF1018B4DE701AFB2DA /* Disassembly.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F52D6AF2018B4DE701AFB2DA /* English */,
+			);
+			name = Disassembly.nib;
+			sourceTree = "<group>";
+		};
+		F52D6AFE018C334A01AFB2DA /* Genome.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F52D6AFF018C334A01AFB2DA /* English */,
+			);
+			name = Genome.nib;
+			sourceTree = "<group>";
+		};
+		F53274C4024745E701876B3C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F53274C5024745E701876B3C /* English */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F548EEA401904F6F0158F8A2 /* GenomeWindow.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F548EEA501904F6F0158F8A2 /* English */,
+			);
+			name = GenomeWindow.nib;
+			sourceTree = "<group>";
+		};
+		F5DEE6480242B48801B86E95 /* FamilyTreeWindow.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5DEE6490242B48801B86E95 /* English */,
+			);
+			name = FamilyTreeWindow.nib;
+			sourceTree = "<group>";
+		};
+		F6365B2203D360CE018975DB /* GenomeGraphicView.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6365B2303D360CE018975DB /* English */,
+			);
+			name = GenomeGraphicView.nib;
+			sourceTree = "<group>";
+		};
+		F6A0969B03C7914C013EDAE9 /* RegionInspector.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6A0969C03C7914C013EDAE9 /* English */,
+			);
+			name = RegionInspector.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C2B8417D093C94EA00975D56 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.2.7.sdk/usr/lib",
+					/Users/mikeash/Development/Projects/Creatures,
+				);
+				OPTIMIZATION_CFLAGS = "-O0";
+				PRECOMPILE_PREFIX_HEADER = YES;
+				PREFIX_HEADER = Creatures_Prefix.h;
+				PRODUCT_NAME = Creatures;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Development;
+		};
+		C2B8417E093C94EA00975D56 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.2.7.sdk/usr/lib",
+					/Users/mikeash/Development/Projects/Creatures,
+				);
+				PRECOMPILE_PREFIX_HEADER = YES;
+				PREFIX_HEADER = Creatures_Prefix.h;
+				PRODUCT_NAME = Creatures;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		C2B8417F093C94EA00975D56 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.2.7.sdk/usr/lib",
+					/Users/mikeash/Development/Projects/Creatures,
+				);
+				PRECOMPILE_PREFIX_HEADER = YES;
+				PREFIX_HEADER = Creatures_Prefix.h;
+				PRODUCT_NAME = Creatures;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			name = Default;
+		};
+		C2B84181093C94EA00975D56 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_PPC64 = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Creatures_Prefix.h;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					/Users/mikeash/Development/Projects/Creatures,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				OPTIMIZATION_CFLAGS = "-O0";
+				PRODUCT_NAME = Creatures;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wall";
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Development;
+		};
+		C2B84182093C94EA00975D56 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_PPC64 = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Creatures_Prefix.h;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					/Users/mikeash/Development/Projects/Creatures,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				PRODUCT_NAME = Creatures;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wall";
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		C2B84183093C94EA00975D56 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_MODEL_PPC64 = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Creatures_Prefix.h;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Info-Creatures__Upgraded_.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SYSTEM_APPS_DIR)/eSellerate SDK/eSellerate Demos/GeckoSoft for Project Builder",
+					/Users/mikeash/Development/Projects/Creatures,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				PRODUCT_NAME = Creatures;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wall";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Default;
+		};
+		C2B84185093C94EA00975D56 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				SDKROOT = /Developer/SDKs/MacOSX10.2.8.sdk;
+			};
+			name = Development;
+		};
+		C2B84186093C94EA00975D56 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				SDKROOT = /Developer/SDKs/MacOSX10.2.8.sdk;
+			};
+			name = Deployment;
+		};
+		C2B84187093C94EA00975D56 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				SDKROOT = /Developer/SDKs/MacOSX10.2.8.sdk;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C2B8417C093C94EA00975D56 /* Build configuration list for PBXApplicationTarget "Creatures" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2B8417D093C94EA00975D56 /* Development */,
+				C2B8417E093C94EA00975D56 /* Deployment */,
+				C2B8417F093C94EA00975D56 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		C2B84180093C94EA00975D56 /* Build configuration list for PBXNativeTarget "Creatures (Upgraded)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2B84181093C94EA00975D56 /* Development */,
+				C2B84182093C94EA00975D56 /* Deployment */,
+				C2B84183093C94EA00975D56 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		C2B84184093C94EA00975D56 /* Build configuration list for PBXProject "Creatures" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2B84185093C94EA00975D56 /* Development */,
+				C2B84186093C94EA00975D56 /* Deployment */,
+				C2B84187093C94EA00975D56 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

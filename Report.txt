@@ -1,0 +1,210 @@
+Michael Ash
+Intro to Artificial Intelligence
+Spring 2003
+
+
+Creatures is an experiment in artificial life and genetic programming. The goal is to construct an artificial world, consisting of plants and animals, where the animals are controlled by evolved computer programs.
+
+First, we wish to create a world that is varied and interesting, without being overwhelming. The world consists of three main components; food, animals, and barriers. The animals eat the food, and the barriers just get in the way. Food grows as time passes, growing next to other food. So a large patch of food will tend to get larger, and an area that is completely eaten though will remain void of food until a neighboring patch can grow there. As food tends to grow faster when there is more food, this creates the typical boom and bust cycle of ecological systems, and providing good bottlenecks for selecting the best programs.
+
+An important part of this is deciding the representation of the controlling programs. I settled on an assembly language for a virtual machine as the representation. The assembly language has a typical RISC-like instruction set, with load/store commands that operate on memory, and a bunch of registers and commands that operate on them. It is important to make this assembly language not only Turing-complete, but expressive as well. It seems that if a human has trouble expressing his desires in an assembly language, a genetic algorithm may also have trouble coming up with good programs. In an earlier version of the program, I used an instruction set that was incredibly sparse and difficult to use, and evolution took a very long time to work. Once I changed over to the new assembly language, programming became easier for both me and the computer.
+
+As an example of the new speed; there is a typical mutation that shows up in nearly every run that begins in an arena filled with food and no barriers, and with few animals (a favorite starting scenario of mine). The mutation takes the very inefficient search pattern of the default animal program, where the animals turns as soon as it finds food, and changes it so the animal continues in a straight line until it has enough energy to spawn a child. This results in the animal making straight-line tracks through the food, which is a very efficient way to gather food in this scenario. This mutation typically appeared around step 30,000 with the old assembly language. With the new one, it often appears by step 5,000, a much faster rate.
+
+Please see the enclosed Language Reference for a description of the old and new assembly languages.
+
+In retrospect, I would have liked to use LISP as the represtation for the controlling programs, because LISP is much more expressive as far as higher-level language concepts are concerned. LISP would, I believ, also be easier to understand. Programs produced with genetic programming are amazingly difficult to understand, particularly if they have been left to run for a long time. Since they are created more-or-less at random, there is no coherent organization behind them and they use things that are simply not logical to a human brain, and that don't resemble at all the way a human would organize a program.
+
+The creations of genetic algorithms are also notorious for how they always "cheat". I put it in quotes because it's not really cheating, of course, but it appears to be, because the genetic algorithm is never aware of the human's intentions. Instead, it does whatever works to increase its fitness score, even if it's something the human doesn't want used, or never intended. A classic example comes from using FPGAs to create circuits with genetic algorithms. These circuits often end up with sections that are not connected to anything, and yet the circuit stops working if they are removed. The circuit is using capacitance between the sections to get things done, which is an effect that human desigers go out of their way to avoid, because it's seen as a detrimental effect rather than a beneficial one.
+
+One example from this project comes from the debugging process. Genetic algorithms in this case were very good at exposing the bugs in my artificial world simulation. At one point I had a bug where an animal's energy could get set to the floating-point NaN (Not a Number) value. Any modification to an NaN has no effect, and comparing it with the minimum energy to see if it didn't have enough energy to live always failed, so in effect these animals became immortal unless eaten. The animals quickly figured out how to exploit my bug to get an energy of NaN, at which point they spread like a carpet, reproducing without movement, until they filled the entire world.
+
+Another example may be a result of another bug, but I never did quite figure out what was going on. This is a solitary example, which is very strange since most mutations are either beneficial enough to spread throughout the population, or detrimental to the point where the animal soon dies. This strange program appeared shortly after I added the ability for animals to eat other animals into the simulation. There evolved an animal that somehow had an enormous quantity of energy, and its life consisted of running constantly in a circle. At first this behavior is not so strange. A common effect of a bad mutation is to break an animal's movement code and make it run in a circle. But this animal ran in a circle for a while, and then spawned some children. The children went to eat some food, and then they came back to the parent, who then proceeded to eat them! This worked as a somewhat inefficient method of gathering energy, since an animal gives energy proportional to the energy it has when it's eaten. But this was a solitary mutation. The animal always ate its children, and never spawned any independent ones, so there was always just one. And eventually it got a detrimental mutation and died.
+
+
+One of the interesting parts of this project was deciding how the assembly-language programs should be mutated. I finally decided on five mutation types with various effects. The routines to handle these mutations can be found in ComputingCreature.m.
+
+lengthMutate: This mutation changes the length of the program's code. I decided that the programs should be able to change their length in case that could be beneficial. In fact, one adaptation I observed to a program of gradually increasing mutation rates was to increase the size of the program. This makes the animal more resistant to mutations because the mutation's location is chosen randomly. Since the program is large, but the animal uses only a small part of it, the chances of the mutation having a detrimental effect are reduced. This mutation randomly either removes one instruction, or inserts a blank (zero-filled) instruction at a random point in the program.
+
+addSubMutate: This mutation adds or subtracts the instruction at a random point in the program. It randomly either acts on the raw value of the instruction (treating the instruction as a normal 32-bit integer) or acts on the opcode of the instruction, changing the opcode while leaving the operands alone. This allows the slight varying of constants in the code. Also, since similar opcodes are arranged in sequential order (for example, the various Jump opcode variants are all in order), then the chance of a successful mutation is increased because the change may not be too drastic.
+
+operandMutate: This mutation randomly mutates the operands of the instruction at a point in memory. The exact effects of this mutation depend on the instruction, because each instruction type has different opcodes. Basically, it picks a random field of that instruction and sets that field to a random value. This allows programs to subtly change by making a change to just one opcode of one instruction.
+
+changeToRandomOpcodeMutate: This mutation selects an instruction in memory and sets its opcode to a random opcode within the range of valid opcodes. This allows the program to change from one opcode to another, valid opcode.
+
+copyMutate: This mutation copies a random range of the program into another location. The idea is to allow the duplication of functionality, by potentially copying useful structures into other locations where they may also be useful.
+
+
+I have included below two annotated program listings from animals at the 100,000th timestep in two different simulations. They both work in a fairly similar manner, but the way they accomplish what they do is extremely different.
+
+The main things to look for here are the very strange and roundabout way that these programs accomplish what they want done. There are lots of instructions with no effect, and lots of other instructions that express a simple idea in a complicated way. But genetic programming doesn't believe that simpler is better, it just uses whatever works.
+
+This program comes from a 200x200 arena with a standard mutation and food-growth rate. The arena was filled with food value of 50, then 10% barriers and finally 1% animals. This was what appeared to be a typical animal alive at this point in time.
+
+		# These first lines only get executed once the animal has spawned, or when
+		# a new animal first awakens as a child. It consists of a single movement,
+		# followed by a change in direction.
+L0:	NOP	# (134217727)
+L1:	Trap	4	r5
+L2:	JNEZ	r0	r1	# This line seems to have no effect, which is typical of genetic programs.
+L3:	Trap	0	r0
+
+		# Lines 4 through 10 appear to be the main loop
+L4:	LdI	r0	0	# This line does nothing; r0's value is overwritten on line 6
+L5:	Trap	7	r14	# A sleep opcode, to slow down the animal's movement.
+L6:	Trap	4	r0	# Move forward, store the success or failure into register 4.
+L7:	NOP	# (-134217728)
+L8:	NOP	# (-1)
+L9:	Div	r0	r0	r0	# Divide r0 by itself and place the result into r0 also.
+L10:	JNEZ abs	r0	4	# If r0 does not contain 0, jump back to line 4.
+		# The loop termination mechanism here is pretty bizarre. The division on line 9
+		# should always produce a 1 in r0, since dividing a number by itself is always 1.
+		# However division by zero apparently produces a 0 in the result register. Thus,
+		# the loop termination conditions translate into, "jump to line 4 if r0 contains 1".
+		# The loop as a whole translates to "Move forward until you bump into something."
+		# This is the exact same theme as the loop from the default program, but expressed
+		# in an entirely different way. This sort of baroque, indirect, strange expression
+		# of a simple concept is a common feature of evolved programs. But do note that
+		# it works just fine, it just seems bizarre to a human programmer.
+
+L11:	JLTZ	r0	r0	# Jump if r0 is less than 0; this should pretty much never happen here.
+L12:	Trap	3	r22	# Eat. This comes right after a failure to move, which was probably tue to hitting food.
+
+		# Lines 13 through 21 appear to have no effect. Register 0 is overwritten later, and
+		# register 31 is never used for anything.
+L13:	Load	r0	r0
+L14:	NOP	# (0)
+L15:	NOP	# (1)
+L16:	NOP	# (1)
+L17:	NOP	# (1)
+L18:	Mod	r0	r0	r0
+L19:	NOP	# (0)
+L20:	Move	r0	r0	r0
+L21:	Cmp	r31	r31	r31
+
+		# Starting here, we have the energy comparison and spawn code.
+L22:	Trap	1	r0
+L23:	LdI	r1	300	# This is the value to compare for energy. The default program has 300,
+					# even though the spawn energy is typically set to 200. Oddly enough this
+					# is not changed. Apparently 300 must be some sort of optimal value,
+					# or is at least not suboptimal enough to be worth changing.
+					
+L24:	Cmp	r0	r1	r2
+L25:	NOP	# (-1)
+L26:	NOP	# (0)
+L27:	JLTZ abs	r2	r30 # If we don't have enough energy, make an absolute jump to r30.
+							# r30 is never used, so it should contain 0. This is another
+							#typically baroque way of saying, jump to line 0.
+
+L28:	Trap	2	r31	# Otherwise there's enough energy to spawn, and this spawns.
+L29:	JLTZ	r0	r1	# Since r0 still contains the current energy, it should never be less than zero,
+						# and so this line should never have any effect (again typical).
+L30:	NOP	# (0)
+L31:	NOP	# (65760)
+L32:	Trap	0	r0	# Set the move direction with the contents of r0. Since move direction
+						# is taken mod 4, and r0 is a relatively large number (the current energy)
+						# this can be considered to be a more or less random value.
+L33:	NOP	# (0)
+L34:	JNEZ abs	r0	0	# Jump to line 0 no matter what. Nearly every program ends with this
+							# line or something very similar, even though the default starting
+							# program doesn't have it. This is because running off the end of
+							# the program results in an unrecoverable error and the eventual
+							# death of the animal, so not having this is a quick way to die.
+
+The basic theme is similar to the original program; go forward until food is found, eat it, test the current energy and spawn if it's possible, then repeat. But it is much more efficient than the original program, and the code is much more bizarre.
+
+The second program is taken from an arena with the same setup as the first, but with no barriers. It has the same basic theme, but the implementation of that theme is completely different.
+
+L0:	Mod	r0	r22	r0
+L1:	NOP	# (0)
+L2:	Sub	r0	r3	r24
+L3:	Trap	0	r0
+
+		# Lines 4 through 12 appear to be the main loop, which consists again
+		# of continuous forward movement until a barrier is reached. Notice
+		# how different this loop is from the last program's loop, yet it
+		# expresses the exact same idea.
+		#
+		# Most of the statements here appear to have no effect, except for line 7, 10, and 12.
+L4:	NOP	# (0)
+L5:	LdI	r10	-4087
+L6:	NOP	# (0)
+L7:	Trap	4	r0	# Move forward.
+L8:	Div	r31	r20	r31
+L9:	NOP	# (0)
+L10:	Trap	10	r23	# Sleep for a timestep.
+L11:	NOP	# (0)
+L12:	JNEZ abs	r0	4	# Jump to line 4 if the move was successful.
+
+
+L13:	Div	r0	r0	r0
+L14:	NOP	# (0)
+
+		# This is another typical useless no-effect line. r0 contains either 1 or 0 at
+		# this point. If it contains 0, the jump doesn't happen and execution continues
+		# as normal. If it contains 1, it jumps to line 16, which is the next line anyway.
+		# This sort of instruction that does nothing in a weird way is a typical construction
+		# in these programs.
+L15:	JGTZ	r0	r0
+L16:	Trap	3	r0	# Try to eat whatever the animal bumped in to.
+L17:	NOP	# (0)
+
+L18:	LdI	r0	208	# Load 208 into r0....
+L19:	Mul	r0	r0	r0	# Square it....
+L20:	Trap	1	r0	# And then overwrite it with the current amount of energy the animal has.
+
+L21:	Trap	7	r0	# Sleep.
+L22:	JNEZ	r0	r0	# This jump will always be attempted, since the current energy is never 0.
+						# But it will almost always fail, because r0's current energy is almost
+						# certainly beyond the bounds of the program; in that case execution simply
+						# continues at the next line. But there is a chance if energy is low, depending
+						# on what exactly is in r0, execution could skip over all the spawning
+						# procedure and go back to eating, which is what it would need to do anyway.
+						
+L23:	LdI	r1	300	# Again 300, no change here either.
+L24:	Cmp	r0	r1	r2
+
+		# More statements with no effect.
+L25:	Mod	r18	r0	r0
+L26:	LdI	r0	224
+L27:	NOP	# (0)
+L28:	Add	r31	r31	r31
+
+L29:	JLTZ abs	r2	0	# If there is not enough energy, go back to line 0.
+
+L30:	NOP	# (-1)
+L31:	NOP	# (134217726)
+L32:	JGTZ abs	r0	r1	# This is another jump that's always true but always fails because
+							# the jump destination is always outside of the memory space.
+							
+L33:	NOP	# (0)
+L34:	Div	r0	r1	r17
+L35:	JLTZ	r0	r0	# r0 cannot be less than zero, so this instruction again has no effect.
+L36:	NOP	# (1)
+L37:	Move	r0	r0	r24
+L38:	Mul	r21	r0	r0
+L39:	Trap	2	r0	# Spawn and put the result into r0.
+
+L40:	NOP	# (0)
+
+L41:	Jump abs	r0	r0	# Jump unconditionally to r0. At this point, r0 contains either
+							# 0 (if the spawn failed) or 1 (if the spawn succeeded), so this
+							# jumps to line 0 or 1. Interestingly enough, both lines 0 and 1
+							# appear to have no effect or purpose, meaning that there is no
+							# real point in jumping to r0. Again, a strange roundabout way
+							# to accomplish the goal of going back to the beginning of the program.
+
+L42:	Move	r0	r2	r0
+L43:	NOP	# (0)
+
+L44:	Jump abs	r0	0	# Again this guard to prevent the fatal error of running off the end
+							# of the program. It's especially interesting that this is still here,
+							# since the program will almost never get here. Line 41 will take
+							# care of redirecting all normal program flow to the beginning
+							# of the program. But it still has some value; the mysterious line 22,
+							# the almost-certainly-failed jump into la-la land, does have a small but
+							# nonzero chance of landing on line 42, 43, or 44, at which point a different
+							# instruction here would result in certain death for the animal. Apparently
+							# that chance is significant enough to guard against mutations on this
+							# instruction.
+							

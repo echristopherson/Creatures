@@ -1,0 +1,54 @@
+# default program for new creatures
+#
+# a simple algorithm: move until you can't, eat what's there, turn, repeat
+# after eating, check current energy, if it's enough, spawn a copy
+#
+# filled with lots of sleeps so that there is ample room for improvement
+
+mainloop:
+slp	r0	# sleep
+
+ldI		r0	1
+
+slp	r0	# sleep
+
+dir	r0	# turn
+
+no_turn:
+slp	r0	# sleep
+
+fwd	r0	# move
+
+slp	r0	# sleep
+
+jnez	r0	no_turn	# loop if move successful
+
+# if we get here that mean we can't move, so eat!
+
+eat	r0	#eat
+
+slp	r0	# sleep
+
+enrg	r0	# get current energy
+
+slp	r0	# sleep
+
+ldI		r1	300
+
+slp	r0	# sleep
+
+cmp		r0	r1	r2
+
+slp	r0	# sleep
+
+jltz	r2	mainloop	# if energy is less than 300, go to beginning
+
+# if we get here, we have enough energy to spawn!
+
+slp	r0	# sleep
+
+spwn	r0	# spawn
+
+slp	r0	# sleep
+
+jump	mainloop	# now go back to the beginning no matter what

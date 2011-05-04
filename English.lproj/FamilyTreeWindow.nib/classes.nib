@@ -1,0 +1,31 @@
+{
+    IBClasses = (
+        {
+            CLASS = CornerViewScrollView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {cornerView = NSView; }; 
+            SUPERCLASS = NSScrollView; 
+        }, 
+        {
+            ACTIONS = {centerFirstGenome = id; reloadTree = id; zoomIn = id; zoomOut = id; }; 
+            CLASS = FamilyTreeView; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = ToolInteractionView; 
+        }, 
+        {
+            CLASS = FamilyTreeWindowController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {treeView = FamilyTreeView; }; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {zoomIn = id; zoomOut = id; }; 
+            CLASS = ToolInteractionView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {controller = CreatureController; }; 
+            SUPERCLASS = NSQuickDrawView; 
+        }
+    ); 
+    IBVersion = 1; 
+}

@@ -1,0 +1,25 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = SimpleWebController; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {
+            ACTIONS = {
+                goBack = id; 
+                goForward = id; 
+                makeTextLarger = id; 
+                makeTextSmaller = id; 
+                reload = id; 
+                stopLoading = id; 
+                takeStringURLFrom = id; 
+            }; 
+            CLASS = WebView; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSView; 
+        }
+    ); 
+    IBVersion = 1; 
+}

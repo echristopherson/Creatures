@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key># Genome %@  --  mutations %d
+
+%@</key>
+	<string># Genome %@  --  mutations %d
+
+%@</string>
+	<key>%@ --DESTROYED--</key>
+	<string>%@ --DESTROYED--</string>
+	<key>%d - present</key>
+	<string>%d - present</string>
+	<key>%d days</key>
+	<string>%d days</string>
+	<key>%d is out of range (must be between -32768 and 32767)</key>
+	<string>%d is out of range (must be between -32768 and 32767)</string>
+	<key>%d times</key>
+	<string>%d times</string>
+	<key>1 day</key>
+	<string>1 day</string>
+	<key>1 time</key>
+	<string>1 time</string>
+	<key>An unspecified error occured.</key>
+	<string>An unspecified error occured.</string>
+	<key>An unspecified fatal error occured during the eSellerate purchase process.</key>
+	<string>An unspecified fatal error occured during the eSellerate purchase process.</string>
+	<key>Any unsaved changes will be lost. %d creatures will die unremembered.</key>
+	<string>Any unsaved changes will be lost. %d creatures will die unremembered.</string>
+	<key>Are you sure you want to make an arena of this size?</key>
+	<string>Are you sure you want to make an arena of this size?</string>
+	<key>Arenas larger than 300x200 cannot be created with the unregistered version of Creatures. Please register creatures to enable this feature.</key>
+	<string>Arenas larger than 300x200 cannot be created with the unregistered version of Creatures. Please register creatures to enable this feature.</string>
+	<key>Badly formed number %@</key>
+	<string>Badly formed number %@</string>
+	<key>Cancel</key>
+	<string>Cancel</string>
+	<key>Could not find the eSellerate Engine.</key>
+	<string>Could not find the eSellerate Engine.</string>
+	<key>Could not install the eSellerate Engine.</key>
+	<string>Could not install the eSellerate Engine.</string>
+	<key>Creatures New Window</key>
+	<string>Creatures</string>
+	<key>Creatures cannot run on this version of Mac OS.</key>
+	<string>Creatures cannot run on this version of Mac OS.</string>
+	<key>Creatures requires at least Mac OS 10.2 (Jaguar). You will not be able to run it on your current system. Sorry....</key>
+	<string>Creatures requires at least Mac OS 10.2 (Jaguar). You will not be able to run it on your current system. Sorry....</string>
+	<key>Do you want to save the current Creatures world?</key>
+	<string>Do you want to save the current Creatures world?</string>
+	<key>Don't Save</key>
+	<string>Don't Save</string>
+	<key>File is corrupt or of the wrong format.</key>
+	<string></string>
+	<key>Got the following error: %@</key>
+	<string>Got the following error: %@</string>
+	<key>Help File</key>
+	<string>Help File</string>
+	<key>Illegal register %@</key>
+	<string>Illegal register %@</string>
+	<key>Internal error, opcode = %d</key>
+	<string>Internal error, opcode = %d</string>
+	<key>Internal error: bad opcode %d with label operand</key>
+	<string>Internal error: bad opcode %d with label operand</string>
+	<key>Label %@ already defined</key>
+	<string>Label %@ already defined</string>
+	<key>Large arenas will use a great deal of memory and may run slowly. This arena will use %dMB of memory, or more.</key>
+	<string>Large arenas will use a great deal of memory and may run slowly. This arena will use %dMB of memory, or more.</string>
+	<key>Make sure you typed the name and serial number correctly, including uppercase/lowercase letters.</key>
+	<string>Make sure you typed the name and serial number correctly, including uppercase/lowercase letters.</string>
+	<key>Missing operand</key>
+	<string>Missing operand</string>
+	<key>Name/Serial Number invalid!</key>
+	<string>Name/Serial Number invalid!</string>
+	<key>Name: %@
+Copies:%@
+
+Thanks for registering!</key>
+	<string>File is corrupt or of the wrong format.Copies: %@
+
+Thanks for registering!</string>
+	<key>No</key>
+	<string>No</string>
+	<key>OK</key>
+	<string>OK</string>
+	<key>Please make your arena at least as large as 100x50.</key>
+	<string>Please make your arena at least as large as 100x50.</string>
+	<key>Quit</key>
+	<string>Quit</string>
+	<key>Registration successful!</key>
+	<string>Registration successful!</string>
+	<key>Run</key>
+	<string>Run</string>
+	<key>Save</key>
+	<string>Save</string>
+	<key>Saving is not available in the unregistered version of Creatures. Please register to enable this feature.</key>
+	<string>Saving is not available in the unregistered version of Creatures. Please register to enable this feature.</string>
+	<key>Saving to the Genome Library is not available in the unregistered version of Creatures. Please register to enable this feature.</key>
+	<string>Saving to the Genome Library is not available in the unregistered version of Creatures. Please register to enable this feature.</string>
+	<key>Special opcode %d out of range</key>
+	<string>Special opcode %d out of range</string>
+	<key>Stop</key>
+	<string>Stop</string>
+	<key>Thank you for registering Creatures!</key>
+	<string>Thank you for registering Creatures!</string>
+	<key>The file %@ could not be opened!</key>
+	<string>The file %@ could not be opened!</string>
+	<key>The file could not be saved!</key>
+	<string>The file could not be saved!</string>
+	<key>The following error occured: %@</key>
+	<string>The following error occured: %@</string>
+	<key>This copy of Creatures is registered to:</key>
+	<string>This copy of Creatures is registered to:</string>
+	<key>Unexpected text after operand: %@</key>
+	<string>Unexpected text after operand: %@</string>
+	<key>Unknown label %@</key>
+	<string>Unknown label %@</string>
+	<key>Unknown opcode %@</key>
+	<string>Unknown opcode %@</string>
+	<key>Yes</key>
+	<string>Yes</string>
+	<key>You are free to try Creatures, but if you like it, please register. You have used Creatures %@ in %@.</key>
+	<string>You are free to try Creatures, but if you like it, please register. You have used Creatures %@ in %@.</string>
+	<key>You cannot create an arena smaller than 100x50.</key>
+	<string>You cannot create an arena smaller than 100x50.</string>
+	<key>line %d: %@</key>
+	<string>line %d: %@</string>
+	<key>the file was created with a newer version of Creatures and can't be read.</key>
+	<string>the file was created with a newer version of Creatures and can't be read.</string>
+</dict>
+</plist>

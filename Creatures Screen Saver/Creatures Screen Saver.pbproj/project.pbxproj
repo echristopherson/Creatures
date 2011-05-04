@@ -1,0 +1,1019 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 38;
+	objects = {
+		06F27B2DFFEEEFEF11CA0E56 = {
+			isa = PBXFrameworkReference;
+			name = ScreenSaver.framework;
+			path = /System/Library/Frameworks/ScreenSaver.framework;
+			refType = 0;
+		};
+		06F27B2EFFEEEFEF11CA0E56 = {
+			isa = PBXBundleReference;
+			path = "Creatures Screen Saver.saver";
+			refType = 3;
+		};
+		06F27B2FFFEEEFEF11CA0E56 = {
+			fileRef = 06F27B2DFFEEEFEF11CA0E56;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		06F27B30FFEEEFEF11CA0E56 = {
+			buildRules = (
+			);
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				OPTIMIZATION_CFLAGS = "-O0";
+			};
+			isa = PBXBuildStyle;
+			name = Development;
+		};
+		06F27B31FFEEEFEF11CA0E56 = {
+			buildRules = (
+			);
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			isa = PBXBuildStyle;
+			name = Deployment;
+		};
+//060
+//061
+//062
+//063
+//064
+//080
+//081
+//082
+//083
+//084
+		089C1669FE841209C02AAC07 = {
+			buildStyles = (
+				06F27B30FFEEEFEF11CA0E56,
+				06F27B31FFEEEFEF11CA0E56,
+			);
+			isa = PBXProject;
+			mainGroup = 089C166AFE841209C02AAC07;
+			projectDirPath = "";
+			targets = (
+				089C1673FE841209C02AAC07,
+			);
+		};
+		089C166AFE841209C02AAC07 = {
+			children = (
+				08FB77AFFE84173DC02AAC07,
+				089C167CFE841241C02AAC07,
+				089C1671FE841209C02AAC07,
+				19C28FB8FE9D52D311CA2CBB,
+			);
+			isa = PBXGroup;
+			name = "Creatures Screen Saver";
+			refType = 4;
+		};
+		089C1671FE841209C02AAC07 = {
+			children = (
+				1058C7ACFEA557BF11CA2CBB,
+				1058C7AEFEA557BF11CA2CBB,
+			);
+			isa = PBXGroup;
+			name = "Frameworks and Libraries";
+			refType = 4;
+		};
+		089C1672FE841209C02AAC07 = {
+			isa = PBXFrameworkReference;
+			name = Foundation.framework;
+			path = /System/Library/Frameworks/Foundation.framework;
+			refType = 0;
+		};
+		089C1673FE841209C02AAC07 = {
+			buildPhases = (
+				089C1674FE841209C02AAC07,
+				089C1675FE841209C02AAC07,
+				089C1676FE841209C02AAC07,
+				089C1677FE841209C02AAC07,
+				089C1679FE841209C02AAC07,
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "Creatures Screen Saver";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+				WRAPPER_EXTENSION = saver;
+			};
+			dependencies = (
+			);
+			isa = PBXBundleTarget;
+			name = "Creatures Screen Saver";
+			productInstallPath = "$(HOME)/Library/Screen Savers";
+			productName = "Creatures Screen Saver";
+			productReference = 06F27B2EFFEEEFEF11CA0E56;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>Creatures Screen Saver</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>0.0.1d1</string>
+	<key>NSPrincipalClass</key>
+	<string>Creatures_Screen_SaverView</string>
+</dict>
+</plist>
+";
+			shouldUseHeadermap = 1;
+		};
+		089C1674FE841209C02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+				F500797B0118B23101CA0E54,
+				F674B32903D7032A013F3247,
+				F674B32B03D7032A013F3247,
+				F674B32D03D7032A013F3247,
+				F674B32F03D7032A013F3247,
+				F674B33103D7032A013F3247,
+				F674B33303D7032A013F3247,
+				F674B33503D7032A013F3247,
+				F674B33703D7032A013F3247,
+				F674B33903D7032A013F3247,
+				F674B33B03D7032A013F3247,
+				F674B33D03D7032A013F3247,
+				F674B33F03D7032A013F3247,
+				F674B34103D7032A013F3247,
+				F674B34303D7032A013F3247,
+				F674B34503D7032A013F3247,
+				F674B34703D7032A013F3247,
+				F674B34A03D7032A013F3247,
+				F674B34C03D7032A013F3247,
+				F674B34E03D7032A013F3247,
+				F674B35003D7032A013F3247,
+				F674B35203D7032A013F3247,
+				F674B35403D7032A013F3247,
+				F674B35603D7032A013F3247,
+				F674B35803D7032A013F3247,
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		089C1675FE841209C02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+				089C1680FE841241C02AAC07,
+			);
+			isa = PBXResourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		089C1676FE841209C02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+				F500797C0118B23101CA0E54,
+				F674B32A03D7032A013F3247,
+				F674B32C03D7032A013F3247,
+				F674B32E03D7032A013F3247,
+				F674B33003D7032A013F3247,
+				F674B33203D7032A013F3247,
+				F674B33403D7032A013F3247,
+				F674B33603D7032A013F3247,
+				F674B33803D7032A013F3247,
+				F674B33A03D7032A013F3247,
+				F674B33C03D7032A013F3247,
+				F674B33E03D7032A013F3247,
+				F674B34003D7032A013F3247,
+				F674B34203D7032A013F3247,
+				F674B34403D7032A013F3247,
+				F674B34603D7032A013F3247,
+				F674B34803D7032A013F3247,
+				F674B34903D7032A013F3247,
+				F674B34B03D7032A013F3247,
+				F674B34D03D7032A013F3247,
+				F674B34F03D7032A013F3247,
+				F674B35103D7032A013F3247,
+				F674B35303D7032A013F3247,
+				F674B35503D7032A013F3247,
+				F674B35703D7032A013F3247,
+				F674B35903D7032A013F3247,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		089C1677FE841209C02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+				1058C7AFFEA557BF11CA2CBB,
+				06F27B2FFFEEEFEF11CA0E56,
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		089C1679FE841209C02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		089C167CFE841241C02AAC07 = {
+			children = (
+				089C167DFE841241C02AAC07,
+			);
+			isa = PBXGroup;
+			name = Resources;
+			refType = 4;
+		};
+		089C167DFE841241C02AAC07 = {
+			children = (
+				089C167EFE841241C02AAC07,
+			);
+			isa = PBXVariantGroup;
+			name = InfoPlist.strings;
+			refType = 4;
+		};
+		089C167EFE841241C02AAC07 = {
+			fileEncoding = 10;
+			isa = PBXFileReference;
+			name = English;
+			path = English.lproj/InfoPlist.strings;
+			refType = 4;
+		};
+		089C167FFE841241C02AAC07 = {
+			isa = PBXFrameworkReference;
+			name = AppKit.framework;
+			path = /System/Library/Frameworks/AppKit.framework;
+			refType = 0;
+		};
+		089C1680FE841241C02AAC07 = {
+			fileRef = 089C167DFE841241C02AAC07;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		08FB77AFFE84173DC02AAC07 = {
+			children = (
+				F50079790118B23001CA0E54,
+				F500797A0118B23001CA0E54,
+				F674B2F803D7032A013F3247,
+				F674B2F903D7032A013F3247,
+				F674B2FA03D7032A013F3247,
+				F674B2FB03D7032A013F3247,
+				F674B2FC03D7032A013F3247,
+				F674B2FD03D7032A013F3247,
+				F674B2FE03D7032A013F3247,
+				F674B2FF03D7032A013F3247,
+				F674B30003D7032A013F3247,
+				F674B30103D7032A013F3247,
+				F674B30203D7032A013F3247,
+				F674B30303D7032A013F3247,
+				F674B30403D7032A013F3247,
+				F674B30503D7032A013F3247,
+				F674B30603D7032A013F3247,
+				F674B30703D7032A013F3247,
+				F674B30803D7032A013F3247,
+				F674B30903D7032A013F3247,
+				F674B30A03D7032A013F3247,
+				F674B30B03D7032A013F3247,
+				F674B30C03D7032A013F3247,
+				F674B30D03D7032A013F3247,
+				F674B30E03D7032A013F3247,
+				F674B30F03D7032A013F3247,
+				F674B31003D7032A013F3247,
+				F674B31103D7032A013F3247,
+				F674B31203D7032A013F3247,
+				F674B31303D7032A013F3247,
+				F674B31403D7032A013F3247,
+				F674B31503D7032A013F3247,
+				F674B31603D7032A013F3247,
+				F674B31703D7032A013F3247,
+				F674B31803D7032A013F3247,
+				F674B31903D7032A013F3247,
+				F674B31A03D7032A013F3247,
+				F674B31B03D7032A013F3247,
+				F674B31C03D7032A013F3247,
+				F674B31D03D7032A013F3247,
+				F674B31E03D7032A013F3247,
+				F674B31F03D7032A013F3247,
+				F674B32003D7032A013F3247,
+				F674B32103D7032A013F3247,
+				F674B32203D7032A013F3247,
+				F674B32303D7032A013F3247,
+				F674B32403D7032A013F3247,
+				F674B32503D7032A013F3247,
+				F674B32603D7032A013F3247,
+				F674B32703D7032A013F3247,
+				F674B32803D7032A013F3247,
+			);
+			isa = PBXGroup;
+			name = Classes;
+			refType = 4;
+		};
+//080
+//081
+//082
+//083
+//084
+//100
+//101
+//102
+//103
+//104
+		1058C7ACFEA557BF11CA2CBB = {
+			children = (
+				1058C7ADFEA557BF11CA2CBB,
+				06F27B2DFFEEEFEF11CA0E56,
+			);
+			isa = PBXGroup;
+			name = "Linked Frameworks";
+			refType = 4;
+		};
+		1058C7ADFEA557BF11CA2CBB = {
+			isa = PBXFrameworkReference;
+			name = Cocoa.framework;
+			path = /System/Library/Frameworks/Cocoa.framework;
+			refType = 0;
+		};
+		1058C7AEFEA557BF11CA2CBB = {
+			children = (
+				089C1672FE841209C02AAC07,
+				089C167FFE841241C02AAC07,
+			);
+			isa = PBXGroup;
+			name = "Other Frameworks";
+			refType = 4;
+		};
+		1058C7AFFEA557BF11CA2CBB = {
+			fileRef = 1058C7ADFEA557BF11CA2CBB;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+//100
+//101
+//102
+//103
+//104
+//190
+//191
+//192
+//193
+//194
+		19C28FB8FE9D52D311CA2CBB = {
+			children = (
+				06F27B2EFFEEEFEF11CA0E56,
+			);
+			isa = PBXGroup;
+			name = Products;
+			refType = 4;
+		};
+//190
+//191
+//192
+//193
+//194
+//F50
+//F51
+//F52
+//F53
+//F54
+		F50079790118B23001CA0E54 = {
+			isa = PBXFileReference;
+			path = Creatures_Screen_SaverView.h;
+			refType = 4;
+		};
+		F500797A0118B23001CA0E54 = {
+			isa = PBXFileReference;
+			path = Creatures_Screen_SaverView.m;
+			refType = 4;
+		};
+		F500797B0118B23101CA0E54 = {
+			fileRef = F50079790118B23001CA0E54;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F500797C0118B23101CA0E54 = {
+			fileRef = F500797A0118B23001CA0E54;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+//F50
+//F51
+//F52
+//F53
+//F54
+//F60
+//F61
+//F62
+//F63
+//F64
+		F674B2F803D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = Arena.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/Arena.h";
+			refType = 0;
+		};
+		F674B2F903D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = Arena.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/Arena.m";
+			refType = 0;
+		};
+		F674B2FA03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = Barrier.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/Barrier.h";
+			refType = 0;
+		};
+		F674B2FB03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = Barrier.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/Barrier.m";
+			refType = 0;
+		};
+		F674B2FC03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = ComputingCreature.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/ComputingCreature.h";
+			refType = 0;
+		};
+		F674B2FD03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = ComputingCreature.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/ComputingCreature.m";
+			refType = 0;
+		};
+		F674B2FE03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = Creature.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/Creature.h";
+			refType = 0;
+		};
+		F674B2FF03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = Creature.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/Creature.m";
+			refType = 0;
+		};
+		F674B30003D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = CreatureController.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/CreatureController.h";
+			refType = 0;
+		};
+		F674B30103D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = CreatureController.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/CreatureController.m";
+			refType = 0;
+		};
+		F674B30203D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = CreaturesView.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/CreaturesView.h";
+			refType = 0;
+		};
+		F674B30303D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = CreaturesView.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/CreaturesView.m";
+			refType = 0;
+		};
+		F674B30403D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = DrawingTool.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/DrawingTool.h";
+			refType = 0;
+		};
+		F674B30503D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = DrawingTool.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/DrawingTool.m";
+			refType = 0;
+		};
+		F674B30603D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = FamilyTreeView.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/FamilyTreeView.h";
+			refType = 0;
+		};
+		F674B30703D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = FamilyTreeView.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/FamilyTreeView.m";
+			refType = 0;
+		};
+		F674B30803D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = FamilyTreeWindowController.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/FamilyTreeWindowController.h";
+			refType = 0;
+		};
+		F674B30903D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = FamilyTreeWindowController.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/FamilyTreeWindowController.m";
+			refType = 0;
+		};
+		F674B30A03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = Genome.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/Genome.h";
+			refType = 0;
+		};
+		F674B30B03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = Genome.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/Genome.m";
+			refType = 0;
+		};
+		F674B30C03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = GenomeGraphic.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/GenomeGraphic.h";
+			refType = 0;
+		};
+		F674B30D03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = GenomeGraphic.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/GenomeGraphic.m";
+			refType = 0;
+		};
+		F674B30E03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = GenomeListController.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/GenomeListController.h";
+			refType = 0;
+		};
+		F674B30F03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = GenomeListController.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/GenomeListController.m";
+			refType = 0;
+		};
+		F674B31003D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = GenomeRepresentative.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/GenomeRepresentative.h";
+			refType = 0;
+		};
+		F674B31103D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = GenomeRepresentative.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/GenomeRepresentative.m";
+			refType = 0;
+		};
+		F674B31203D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = GenomeWindowController.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/GenomeWindowController.h";
+			refType = 0;
+		};
+		F674B31303D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = GenomeWindowController.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/GenomeWindowController.m";
+			refType = 0;
+		};
+		F674B31403D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = InspectTool.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/InspectTool.h";
+			refType = 0;
+		};
+		F674B31503D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = InspectTool.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/InspectTool.m";
+			refType = 0;
+		};
+		F674B31603D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = LineTool.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/LineTool.h";
+			refType = 0;
+		};
+		F674B31703D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = LineTool.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/LineTool.m";
+			refType = 0;
+		};
+		F674B31803D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = main.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/main.m";
+			refType = 0;
+		};
+		F674B31903D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = PixmapUtils.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/PixmapUtils.h";
+			refType = 0;
+		};
+		F674B31A03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = PixmapUtils.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/PixmapUtils.m";
+			refType = 0;
+		};
+		F674B31B03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = Region.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/Region.h";
+			refType = 0;
+		};
+		F674B31C03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = Region.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/Region.m";
+			refType = 0;
+		};
+		F674B31D03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = RegionCreateTool.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/RegionCreateTool.h";
+			refType = 0;
+		};
+		F674B31E03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = RegionCreateTool.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/RegionCreateTool.m";
+			refType = 0;
+		};
+		F674B31F03D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = RegionInspectorController.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/RegionInspectorController.h";
+			refType = 0;
+		};
+		F674B32003D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = RegionInspectorController.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/RegionInspectorController.m";
+			refType = 0;
+		};
+		F674B32103D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = RegionSelectTool.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/RegionSelectTool.h";
+			refType = 0;
+		};
+		F674B32203D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = RegionSelectTool.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/RegionSelectTool.m";
+			refType = 0;
+		};
+		F674B32303D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = RegionTool.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/RegionTool.h";
+			refType = 0;
+		};
+		F674B32403D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = RegionTool.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/RegionTool.m";
+			refType = 0;
+		};
+		F674B32503D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = SquareTool.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/SquareTool.h";
+			refType = 0;
+		};
+		F674B32603D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = SquareTool.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/SquareTool.m";
+			refType = 0;
+		};
+		F674B32703D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = StackTrace.h;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/StackTrace.h";
+			refType = 0;
+		};
+		F674B32803D7032A013F3247 = {
+			isa = PBXFileReference;
+			name = StackTrace.m;
+			path = "/Users/mikeash/Development/Projects/Creatures copy/StackTrace.m";
+			refType = 0;
+		};
+		F674B32903D7032A013F3247 = {
+			fileRef = F674B2F803D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B32A03D7032A013F3247 = {
+			fileRef = F674B2F903D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B32B03D7032A013F3247 = {
+			fileRef = F674B2FA03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B32C03D7032A013F3247 = {
+			fileRef = F674B2FB03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B32D03D7032A013F3247 = {
+			fileRef = F674B2FC03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B32E03D7032A013F3247 = {
+			fileRef = F674B2FD03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B32F03D7032A013F3247 = {
+			fileRef = F674B2FE03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33003D7032A013F3247 = {
+			fileRef = F674B2FF03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33103D7032A013F3247 = {
+			fileRef = F674B30003D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33203D7032A013F3247 = {
+			fileRef = F674B30103D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33303D7032A013F3247 = {
+			fileRef = F674B30203D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33403D7032A013F3247 = {
+			fileRef = F674B30303D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33503D7032A013F3247 = {
+			fileRef = F674B30403D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33603D7032A013F3247 = {
+			fileRef = F674B30503D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33703D7032A013F3247 = {
+			fileRef = F674B30603D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33803D7032A013F3247 = {
+			fileRef = F674B30703D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33903D7032A013F3247 = {
+			fileRef = F674B30803D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33A03D7032A013F3247 = {
+			fileRef = F674B30903D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33B03D7032A013F3247 = {
+			fileRef = F674B30A03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33C03D7032A013F3247 = {
+			fileRef = F674B30B03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33D03D7032A013F3247 = {
+			fileRef = F674B30C03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33E03D7032A013F3247 = {
+			fileRef = F674B30D03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B33F03D7032A013F3247 = {
+			fileRef = F674B30E03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34003D7032A013F3247 = {
+			fileRef = F674B30F03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34103D7032A013F3247 = {
+			fileRef = F674B31003D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34203D7032A013F3247 = {
+			fileRef = F674B31103D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34303D7032A013F3247 = {
+			fileRef = F674B31203D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34403D7032A013F3247 = {
+			fileRef = F674B31303D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34503D7032A013F3247 = {
+			fileRef = F674B31403D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34603D7032A013F3247 = {
+			fileRef = F674B31503D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34703D7032A013F3247 = {
+			fileRef = F674B31603D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34803D7032A013F3247 = {
+			fileRef = F674B31703D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34903D7032A013F3247 = {
+			fileRef = F674B31803D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34A03D7032A013F3247 = {
+			fileRef = F674B31903D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34B03D7032A013F3247 = {
+			fileRef = F674B31A03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34C03D7032A013F3247 = {
+			fileRef = F674B31B03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34D03D7032A013F3247 = {
+			fileRef = F674B31C03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34E03D7032A013F3247 = {
+			fileRef = F674B31D03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B34F03D7032A013F3247 = {
+			fileRef = F674B31E03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B35003D7032A013F3247 = {
+			fileRef = F674B31F03D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B35103D7032A013F3247 = {
+			fileRef = F674B32003D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B35203D7032A013F3247 = {
+			fileRef = F674B32103D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B35303D7032A013F3247 = {
+			fileRef = F674B32203D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B35403D7032A013F3247 = {
+			fileRef = F674B32303D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B35503D7032A013F3247 = {
+			fileRef = F674B32403D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B35603D7032A013F3247 = {
+			fileRef = F674B32503D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B35703D7032A013F3247 = {
+			fileRef = F674B32603D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B35803D7032A013F3247 = {
+			fileRef = F674B32703D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F674B35903D7032A013F3247 = {
+			fileRef = F674B32803D7032A013F3247;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+	};
+	rootObject = 089C1669FE841209C02AAC07;
+}

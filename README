@@ -1,0 +1,14 @@
+Michael Ash
+Intro to Artificial Intelligence
+Spring 2003
+Final project readme file
+
+This program requires Mac OS X 10.2 or later. Building it under OS X requires Apple's developer tools to be installed on the computer. If you do not have them, you can download them by signing up for a free Online account at http://developer.apple.com and then getting them from the download area.
+
+Installation of the program is not required, it is runnable from the CD by double-clicking the Creatures program. (At least I think it should be, but obviously as I'm typing this I haven't put it on the CD yet!) Browsing the project should also be possible from the CD. You should be able to read the files from any OS, but of course they will not compile except on Mac OS X. Please note that the files are written in Objective-C, a somewhat obscure object-oriented C dialect. To compile the project, you will probably have to copy the project folder to the hard drive. You can put it anywhere you want.
+
+Please note that, apparences to the contrary, Open and Save do *not* currently work in the program. Using them will probably generate an exception that won't be visible to the user, with the result that simply nothing gets saved. Please don't try them.
+
+The file Guide.txt contains an ugly, poorly-written user's manual. The file Report.txt contains my report on this project. These files may be found in the Creatures directory alongside the source code and other project files.
+
+And there you have it. Please ignore any four-letter words you may find in the comments, some of this code was not written with the idea that other people might see it. :) Enjoy!

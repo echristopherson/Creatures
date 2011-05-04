@@ -1,0 +1,11 @@
+NSArray encodeWithCoder:
+encodes NS.object.0, 1, 2, 3, etc.
+decodes, checks for NS.objects key first
+
+On Jaguar, calls _encodeArrayOfObjects:forKey: (assume it encodes as NS.objects first?)
+
+to decode, on Jaguar, calls _decodeArrayOfObjectsForKey:
+
+more fun, somebody is calling _encodePropertyList:forKey: and _decodePropertyListForKey:
+
+NSString looks for NS.string on Panther

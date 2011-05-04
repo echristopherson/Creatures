@@ -1,0 +1,26 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = GenomeBox; LANGUAGE = ObjC; SUPERCLASS = NSBox; }, 
+        {
+            CLASS = GenomeGraphic; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {insideView = NSView; view = NSView; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = GenomeGraphicNibLoader; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                genomeBox = GenomeBox; 
+                genomeNameField = NSTextField; 
+                insideView = NSView; 
+                mutationsField = NSTextField; 
+                populationField = NSTextField; 
+                view = NSView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

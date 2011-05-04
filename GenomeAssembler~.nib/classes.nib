@@ -1,0 +1,18 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {assembleClicked = id; errorTableClicked = id; saveClicked = id; }; 
+            CLASS = GenomeAssemblerController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                errorDrawer = NSDrawer; 
+                errorTable = NSTableView; 
+                saveButton = NSButton; 
+                textView = NSTextView; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

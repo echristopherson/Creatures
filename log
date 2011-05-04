@@ -1,0 +1,194 @@
+Jul 7 2002
+
+Started log. Thought it would be a good idea. Wanted to make a todo list, so, here it is:
+
+- Make arena size independent of view size.
+- Allow zooming, scrolling, etc. of view.
+- Arena editing tools; adding/erasing food and creatures.
+- Automatic genome deletion (for dead ends, things like that)
+- Fix family tree.
+- Make some networking, portals between arenas, etc.
+- Better disassembly.
+- Code editor for creatures.
+- Debugger-like thing for seeing how creatures work.
+
+Zooming won't work with the current NSBezierPath drawing, since erasing by drawing a black rectangle doesn't work. :( So I need a custom drawing thingy before I can really proceed.
+
+Jul 9 2002
+
+Custom drawing thingy is there, zooming and scrolling works for the most part. The thing left out is scrolling by dragging the mouse around. Also some zoom in/zoom out mouse tools would be good, but that can wait.
+
+I now have the drawing panel roughly laid out, and so I can start in with some editing tools. One of the big things will be the ability to lay down an animal from any recorded genome, but that can wait a while. Using only the default genome will be fine for now.
+
+Next thing to do is get these editing tools actually coded. Then things will be cool.
+
+Jul 12 2002
+
+Some editing tools there; very rudimentary, but hey. One thing that's popped up has been insane memory use, so I think I'm going to try to cut that down some before I go on.
+
+Now some problems with Genome and its representative, they try to add themselves to the Arena... Also some memory errors that I think are caused because I don't call addCreature: in the decode method.
+
+Found the cause of the memory errors. The problem isn't what I said; it's the FoodCreature tracking array is getting overwritten, somehow, with values that belong on the pixmap.
+
+Dec 11 2002
+
+After a long hiatus, I've started working on this program again. This log is useful, I found, because I forgot some of the later things I did with the program.
+
+Dec 13 2002
+
+Notes from #macdev chat:
+
+Everybody seems to be fascinated with this program, good sign! Keep working on it, dammit.
+
+Add a choice for whether the world wraps or not.
+
+Add an opcode to detect if something is in front without trying to move there.
+
+Be able to add uneatable barriers.
+
+"Stop the simulation when the population drops below N"
+
+Filter genomes by the presence of particular opcodes.
+
+Be able to add food without erasing animals.
+
+Mutate by copying a section of the program elsewhere.
+
+Mutate only when replicating.
+
+Everybody wants the features I've already planned to add, like genome editing, creation of a creature with any known genome, etc.
+
+Jan 4 2003
+
+World wrap choice is implemented, as well as changable mutation rates, food growth rates, and spawn energy.
+
+Jan 5 2003
+
+Regions (local settings for mutation rate and food growth) are implemented. They are slow with a high mutation rate, though, because they take a hit-and-miss approach to finding creatures inside their area. My favorite solution is this:
+
+For each X and Y coordinate, have an NSArray (note this is not per pixel, but rather a total of xSize + ySize arrays). This array contains all the regions that cover part of this row or column. Because regions are rectangular, there is never any ambiguity, and a particular point's regions can be deduced exactly.
+
+Set up these arrays as a preflight step, and then consolidate them so that arrays with identical contents (there will be a lot of these) are changed to be several pointers to the same array. Then pointer equality can be used to see if two arrays are the same. When a creature moves, it can compare the arrays at its previous position with the arrays at its new position and see if it has entered or exited any regions very quickly. This way, every region can maintain a list of all creatures inside it without too much overhead.
+
+Optimization being the root of all evil and so forth, I'm not going to implement this scheme just yet.
+
+Opcode for looking in front of the creature is added.
+
+Uneatable barriers are in.
+
+The square tool now gives visual feedback as to what and where it's going to draw.
+
+Jan 8 2003
+
+Added a line tool, but it only draws barriers as lines. Is it useful to draw other things as lines?
+
+Added the ability to bias food growth towards a particular food value. This could be useful for seeing how creatures are affected by a slow change in their food value.
+
+Added an overwrite checkbox to the Food section of the square tool settings, so that the user can place food without killing creatures or destroying barriers.
+
+Added a "stop when population drops below N" option.
+
+
+How to handle Genomes? It's pretty obviously impractical to continue to store every single genome that's ever created. Also, there needs to be the ability to have more than one parent, since the user could create/import genomes from elsewhere, or even just want to have two identical genomes with different identities to distinguish in space or time.
+
+Culling genomes: certain genomes aren't interesting to keep around, and so they should be removed from the tree. When to remove: a genome has no children, no live members, and the total number of members is less than some N. A genome has children but they have all been culled. This basically says, remove all genomes that are not part of the path to active creatures. Certain dead-ends might be interesting to keep around, though. Say then, that if a genome achieves a certain depth of children, it should be saved no matter what. Parents should keep some kind of statistics about their culled children, such as how many there were, how deep, how many total creatures there were, etc.
+
+All algorithms dealing with genomes must be iterative. Recursive algorithms could overflow the stack in actual practice (seen it, it sucks), so don't use them. This includes archiving/unarchiving; all genomes must be archived/unarchived in a flat fashion.
+
+Genomes should get names which indicate, in some sense, parent-child relationships. Genomes should have user-settable comments that are separate from the automatic names. (Idea for names: each genome gets an ID which is basically a unique number for all siblings. Then the name goes, <root ID:depth:parent ID:my ID>.)
+
+Genomes should keep statistics on their members. Interesting things to track: time of first appearance, time of last death, total number of members (already tracked), center of gravity (tracked with birth/death locations), which mutation created the genome, total number of members including child genomes, average lifespan of a member.
+
+Genomes with no active members should be handled differently since they are essentially static. Perhaps subclasses are in order, and somehow switching from one to the other when the time comes.
+
+Once all this is in, I get to fix up the Family Tree window, yay! Family Tree should display a decent number of the statistics outlined above, and allow opening genome info windows directly, as well as searching for a particular genome. Add some kind of filtering as well, such as display tree as rooted from genome X.
+
+Allow users to create genomes. This would be by duplicating existing genomes, editing existing genomes (only if they aren't active, meaning they've never had children or active members), or creating genomes from scratch. Import/export to text files wouldn't be a bad idea either.
+
+
+Couple of other small ideas: have a button in the arena settings window to save the current settings as the default settings. Ok, just one idea. Oh, and a restore from defaults button.
+
+Jan 9 2003
+
+Working on Genome. Added lots of member variables and not a whole lot of additional functionality. Got side tracked while integrating with the genome list view, because of all the new data that could be shown. So as a result, the new list view is pretty spiffy with lots of neat things.
+
+Jan 12 2003
+
+I got massively sidetracked doing some leak hunting, but before that, I found some interesting results. MPWFoundation's object enumerator thingies seem to leak, for some reason, so I had tens of thousands of these throw-away objects just sitting around doing nothing. Then I happened to run leaks and find that I had two leaked GenomeGraphic objects (out of perhaps 15). To find out why, I constructed this massively weird tracing tool; end result, I can generate a stack trace from anywhere in the program with one line of code, and now I have this whack support infrastructure for recording reference counts and stack traces for every single call to retain/release/autorelease.
+
+The stack tracing thing itself is pretty nifty. It generates a fake exception to get NSException to log the numeric stack trace, then calls out to the atos command to turn that into a symbolic trace if it's requested.
+
+The refcount tracking thing is just weird, I dunno if it'll ever be useful, but what the hey.
+
+March 19 2003
+
+Another long hiatus, surprise surprise. Got a decent family tree view in, finally. Some weird problems with it still, but it's looking pretty good now. I really hate NSLand's flipped y coordinates.
+
+I think the big to-do remaining is to add in genome editing, so I'll start on that next.
+
+March 28 2003
+
+I'm contemplating ripping out the assembly language and redoing it, because the one I have now pretty much sucks a nut. It's a decent minimal instruction set, but it's too hard to do mundane tasks in it, which I think inhibits evolutionary change more than the advantages of this set (the small number of opcodes, relative addressing, etc.) help it along.
+
+There's a number of possibilities:
+
+1) Keep the same basic philosophy, but expand the opcodes, make life easier in general and easier for structured programming in particular.
+2) Switch the virtual machine to a stack machine.
+3) Switch to a higher-level language like lisp.
+4) Some kind of compromise like (3), say with directly-embedded stack trees or something.
+
+March 31 2003
+
+Back again, thinking about the whole assembly language problem thing. It's hard for me to envision 3 or 4, which are basically equivalent anyway. So it looks like either 1 or 2, both of which would probably work out nicely.
+
+
+
+
+
+August 4 2003
+
+Lots of work without logging. I want to lay out the things I want to get fixed before beta testing and before release.
+
+Before beta:
+
+I just made a change so that files get archived/unarchived using keys at the top level, instead of the root object idea. That will allow the controller to save its own stuff there should it ever need to, and it's just cleaner overall. The problem is that it doesn't work. This is obviously high-priority, fix-right-away stuff.
+
+Fix up all the horrible crash possibilities involving genome culling.
+
+Expiration date.
+
+Remove region tool and superfluous tool buttons.
+
+Before release:
+
+Implement zooming for the family tree, and better navigation. Enhance the genome window so that you can hilight the genome in the family tree and you can drag directly from the genome window to the genome box.
+
+Clean up the creature inspector and make it so you can get to the genome info window for a given creature from its inspector.
+
+
+August 6 2003
+
+I got both listed beta issues fixed. The save thing was stupid; there's two save routines, and I wasn't calling the new centralized saver from one of them. The genomes thing was complicated. Here's a list of all the crash possibilities:
+
+1) Genome list, displaying or changing a genome that had been culled.
+2) Family tree, double-clicking or dragging a genome that had been culled.
+3) From either one, dragging a genome that was then culled in mid-flight.
+4) Genome info window, getting its genome culled out from underneath it.
+
+1, 2, and 4 are all solveable by putting in a notification for when genomes get destroyed, and then having the UI people take care of things appropriately.
+
+3 was more difficult. I figured out how to get notified when the drags end, and I basically turn off culling during drags. Once the drag ends, all the genomes that would have been culled get culled all in one batch. It's interesting to note that order matters for this delayed cull. Since culling is recursive, a genome can get culled twice if the order is not carefully watched, which can crash.
+
+I pretty much just have to update the docs to reflect these changes, and then I'm all set for a first beta release.
+
+August 8 2003
+
+Working on the program, ran across a really nasty bug in GenomeListController, it's not re-registering the notifications properly when the window is shown a second time. This class should really be the window controller anyway, which will solve all this, so I'll have to do that.
+
+Update: fixed! It was very easy to do. Should have been done a long time ago.
+
+October 14 2003
+
+eSellerate very basic integration, you can purchase and it saves the serial number. Need to add defaults synchronization, and move all eSellerate stuff to a separate file, and make things not work if the user hasn't purchased.
+
+Also need to make sure the purchase menu item disappears after the user has registered.

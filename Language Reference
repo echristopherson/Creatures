@@ -1,0 +1,137 @@
+This is a reference for the language used by the creatures.
+
+Version 0:
+
+This is the evolution of the assembly code that was first used with this program from the very beginning up to about March 2003. It's relatively simple, and very hard to actually get work done with it. I'm hoping to scrap this and start fresh, but I want to document it first.
+
+Code is an array of 32-bit ints. The first 16 bits is the opcode, the second 16 the operand
+all ops work on the full 32 bits of each memory address they modify.
+
+All memory references are PC-relative; this is part of why it's so hard to do useful things.
+
+NOP		Null op. Any opcode that isn't in the list (which is a lot) is automatically a NOP.
+Ld.A	Load the value pointed to by the operand into register A.
+Ld.B	Load the value pointed into register B.
+Ld_PC	Load the PC into register A.
+St.A	Store register A into the value pointed.
+St.B	Store B.
+Swap	Swap A and B.
+
+Add
+Mul
+Sub
+Div		All four of these do A op B -> A.
+
+Cmp		Compare A ? B, store 1, 0, -1 into A for greater, equal, or less than.
+
+JEQZ	Jump to operand if A is 0.
+Jump	Unconditional jump to operand.
+JmpA	Unconditional jump to location in register A.
+JNEQZ	Jump to operand if A is not 0.
+
+
+SetDir	Change the current movement direction, relative to current, and automatically mod 4.
+Ld_Egy	Load the current energy into A.
+
+Spawn	Attempt to spawn a copy into the space directly ahead of us.
+Eat		Attempt to eat the food or creature in the space directly ahead of us.
+Move	Attempt to move into the space directly ahead of us.
+		All three of these return nonzero in A if they're successful, and 0 if not.
+Look	Puts nonzero in A if we can move into the space ahead, 0 if not.
+Give	Give a quantity of energy equal to A to the creature in the square directly ahead.
+
+Sleep	Halt execution until the next time step.
+Send	Send the contents of A to all creatures in the 8 neighbor squares.
+Read	Read the latest recieved message into A.
+
+
+Version 1 notes:
+
+I'm hoping to make a better language than the one above. Here's the basics of what I want:
+
+1) Every instruction should fit into 32 bits.
+2) It should be relatively clear what's going on in even a convoluted program (this is very vague and probably impossible).
+3) There should be ample room for special opcodes that interact with the environment. They should be able to take a register operand.
+4) It should not be impossibly awkward to do simple operations.
+5) Extension of 4, it should be easy to branch to a subroutine and return from one.
+6) It should be possible for a program to read/write its own code.
+
+I like the idea of a stack machine, it seems to fit these well.
+
+
+
+
+Some ideas for the new language/machine:
+
+Registers: PC, SP. PC is initialized to 0, SP is initialized to memsize - 1
+
+Stack grows down. Popping an empty stack or pushing when SP = 0 has no effect (do we want to do this?)
+
+Allow absolute or relative addressing
+Things that take addresses: push, pop, jumps
+These will take a single address. One bit tells if it's relative or absolute.
+
+Things that operate only on the stack: math, comparison, world-interaction
+
+
+
+
+Non-stack machine
+
+Registers, PC, Rn, n from 0 to .
+Allow absolute or relative addressing
+Things that take addresses: load, store, jumps
+Things that work on registers: math, comparison, world-interaction
+
+// These instructions take an extra bit that indicates relative or absolute
+Load address register
+Store address register
+Store register register
+Jumps address register // conditionals can take at least one register.... do they take more??
+		// many variants: unconditional, if equal to zero, if not, if less than, if greater than
+		// each of these has two variants; inline address and from-register address
+
+LoadImmediate value register
+MoveRegister source dest // necessary?
+Add source source dest
+Sub
+Mul
+Div
+Mod
+Cmp // this one may not be necessary, can we accomplish this with sub?
+
+// These all take at most one register, so we can use operand space to differentiate these
+// They act like a single opcode for purposes of opcode space
+Dir		source
+Energy	dest
+Spawn	dest
+Eat		dest
+Move	dest
+Look	dest
+Give	source
+Sleep
+Send	source
+Recieve	dest
+
+Eight relative-or-absolute ops
+Eight normal ops
+Ten special world ops, together they count as a single additional normal op
+
+Allocate five bits to opcode (17 total instructions)
+For relative-or-absolute, one bit to distinguish, total of six
+	26 bits remain
+	Need address, register, and one bit for jumps
+	Address is 16, register is 5, total of 22. Four bits left over.
+	
+Trap instruction allows interaction with the outside world. Here are the trap numbers:
+
+	  0 -- set move direction
+	  1 -- store energy in register
+	  2 -- spawn
+	  3 -- eat
+	  4 -- move
+	  5 -- look
+	  6 -- give energy
+	  7 -- sleep
+	  8 -- send message
+	  9 -- read message

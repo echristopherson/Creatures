@@ -1,0 +1,578 @@
+<HTML>
+<HEAD><TITLE>Creatures Assembly Language Reference</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<P><FONT SIZE="+3">
+Creatures Assembly Language Reference
+</FONT></P>
+
+<P> Back to the <A HREF="help.html">User's Guide</A>.</P>
+
+<P><FONT SIZE="+1">Language Reference Table of Contents</FONT></P>
+<UL>
+	<LI><A HREF="#introduction">Introduction</A></LI>
+	<LI><A HREF="#basics">The Basics</A></LI>
+	<LI><A HREF="#commonsyntax">Common Syntax</A></LI>
+	<LI><A HREF="#instructiontypes">Instruction Types</A>
+		<UL>
+				<LI><A HREF="#loadstore">Load/Store Instructions</A></LI>
+				<LI><A HREF="#loadimmediate">Load Immediate Instruction</A></LI>
+				<LI><A HREF="#nop">NOP Instruction</A></LI>
+				<LI><A HREF="#registeronly">Register-Only Instructions</A></LI>
+				<LI><A HREF="#loadpc">Load PC Instruction</A></LI>
+				<LI><A HREF="#trap">Trap Instructions</A></LI>
+		</UL>
+	</LI>
+	<LI><A HREF="#examples">Examples</A></LI>
+</UL>
+
+<P><FONT SIZE="+2">
+<A ID="introduction">
+Introduction
+</A>
+</FONT></P>
+<P> The animals in Creatures are driven by a computer program running in a virtual machine. The programs can be edited using a custom assembly language in the Genome Assembler window, which you can access from the genome list or from a genome information window. This document describes the assembly language used for these programs so that you can edit genomes or create your own.</P>
+
+<P> This document assumes a certain amount of familiarity with programming, and the general ideas of assembly language programming. If you have not done any programming before, this may not be the best place to start, as debugging problems in your programs is very difficult. There's no traditional input/output and no debugger. However, if you feel up to it, don't let this turn you away.</P>
+
+<P><FONT SIZE="+2">
+<A ID="basics">
+The Basics
+</A>
+</FONT></P>
+
+<P> This section describes the basic principles of the virtual machine and the environment your programs can expect to run in.</P>
+
+<P> A program consists of a series of 32-bit instructions laid out continuously in memory. Addressing is by instruction, so the first instruction is at address 0, the second one is at address 1, and so on. It is not possible to directly address memory more finely than 32-bit granularity. Instructions function as both program and data. If your program needs storage outside of the provided registers, you must use addresses in your program. There is no provision for declaring data sections in your programs, but you can allocate space by using a series of NOPs.</P>
+
+<P> If the PC goes outside the program's address space (less than 0 or greater than the length of the program) then program execution restarts with the first instruction in the program.</P>
+
+<P> Since your program is running inside an animal that exists in a simulated environment, your program can be affected by that environment. There are several trap opcodes that allow interaction with the environment, either gathering information from the outside or causing the animal to do something. Another way your program is affected is how quickly it executes. Your program gets a chance to execute every step in the simulation world. Execution can be stopped in two ways. First, certain trap opcodes cause a halt to execution so that your program will sleep until the next step. Second, your program is limited to running a number of instructions equal to the amount of energy the animal has times ten. If the animal your program is running on has 53.2 energy, you will be able to run 532 instructions before being forcibly kicked off until the next step.</P>
+
+<P> The virtual machine contains a program counter and 32 general purpose integer registers. There are no calling conventions or stack pointers or any special duties for any of the registers. If you get ambitious enough to where you need those, feel free to make up your own.</P>
+
+<P><FONT SIZE="+2">
+<A ID="commonsyntax">
+Common Syntax
+</A>
+</FONT></P>
+
+<P> Although every instruction type has a somewhat different syntax regarding its operands, there are common syntax elements in the assembly language that are covered here.</P>
+
+<P> The basic unit of the assembly language is the line. A line may contain nothing, a label, or a full instruction. It is illegal to split an instruction across more than one line, so line breaks matter.</P>
+
+<P> The assembler is case insensitive with everything. You may specify the JUMP opcode as jump or jUMp or JUmP. The labels HorSE and hORse refer to the same label.</P>
+
+<P> You may place comments in your code by using the # character. Anything between the # and the end of the line is ignored.</P>
+
+<P> This is the basic format of an assembly line:</P>
+
+<CODE> [label:] &lt;opcode&gt; &lt;operands....&gt;</CODE>
+
+<P> The optional label allows you to access this address by name instead of with a hard-coded number; this makes life easier in many different ways. It keeps you from having to count addresses by hand and lets you add and remove instructions in your program without having to change a bunch of hard-coded addresses. Any time an address is needed as an operand, you may use a label name instead, and the label name will be replaced with the address of that label's instruction when you assemble the program. You may also place labels on lines by themselves, in which case they refer to the next instruction to appear in the program.</P>
+
+<P> Labels must be unique in a program. It is illegal to declare two labels with the same name in your program.</P>
+
+<P><FONT SIZE="+2">
+<A ID="instructiontypes">
+Instruction Types
+</A>
+</FONT></P>
+
+<P> The available instructions can be divided into several types. This is a brief overview of the available instruction types.</P>
+
+<P><FONT SIZE="+1">
+<A ID="loadstore">
+Load/Store Instructions
+</A>
+</FONT></P>
+
+<P> Load/Store instructions are the only instructions that deal directly with memory addresses. This includes loading values from memory, storing values to memory, and (although not indicated by the name) jump instructions. The virtual machine is somewhat RISC-like in that all operations other than loading and storing take place in registers.</P>
+
+<P> This is the basic layout of a load/store instruction:</P>
+
+<CODE> &lt;op&gt; [ABS/REL] &lt;reg&gt; &lt;addr&gt;</CODE>
+
+<P> There is one exception to this layout: the JUMP instruction does not take the <CODE>&lt;reg&gt;</CODE> operand.</P>
+
+<P> <CODE>&lt;op&gt;</CODE> is the opcode for this instruction.</P>
+
+<P> Next is an optional ABS or REL keyword. Addressing can be in either absolute or relative mode. In absolute mode, addresses are counted from the beginning of the program. In relative mode, addresses are counted from the location of the current instruction in the program. If you're using labels instead of hard-coded addresses this distinction is not so important, since the correct address is calculated for you. You still may want to think about which one to use in the context of mutations changing your program. Generally you want your program to function in some sense even after it has been altered by a mutation. This makes for a greater chance of an interesting mutation happening. If you do not specify ABS or REL, then the instruction will use absolute addressing by default.</P>
+
+<P> The <CODE>&lt;reg&gt;</CODE> operand specifies which register the instruction uses. The use depends on which opcode is being executed.</P>
+
+<P> The <CODE>&lt;addr&gt;</CODE> operand specifies the address that the instruction refers to. This can either be a label, a numeric address, or a register. If it's a register, than the value in that register is used as the address. An address that is not within the program's bounds (less than 0 or greater than the length of the program) causes the instruction to have no effect.</P>
+
+<P> Instruction reference:</P>
+
+<TT>
+<UL>
+	<LI>Load: Load the value at &lt;addr&gt; and put it into &lt;reg&gt;.</LI>
+	<LI>Stor: Take the value in &lt;reg&gt; and put it at &lt;addr&gt;.</LI>
+	<LI>Jump: Jump unconditionally to &lt;addr&gt;. The value in &lt;reg&gt; is ignored.</LI>
+	<LI>JEQZ: Jump if EQual to Zero. Jump to &lt;addr&gt; if the value in &lt;reg&gt; is equal to zero.</LI>
+	<LI>JNEZ: Jump if Not Equal to Zero. Jump to &lt;addr&gt; if the value in &lt;reg&gt; is not equal to zero.</LI>
+	<LI>JLTZ: Jump if Less Than Zero. Jump to &lt;addr&gt; if the value in &lt;reg&gt; is less than zero.</LI>
+	<LI>JGTZ: Jump if Greater Than Zero. Jump to &lt;addr&gt; if the value in &lt;reg&gt; is greater than zero.</LI>
+</UL>
+</TT>
+
+<P><FONT SIZE="+1">
+<A ID="loadimmediate">
+Load Immediate Instruction
+</A>
+</FONT></P>
+
+<P> There is one load immediate instruction, LdI. It loads a value into a register without referring to memory outside of the instruction.</P>
+
+<P> This is the format of a load immediate instruction:</P>
+
+<CODE> LdI [ABS/REL] &lt;reg&gt; &lt;value&gt;</CODE>
+
+<P> <CODE>&lt;value&gt;</CODE> can be either a number or a label. If it's a label, then the number that gets loaded is the location of that label. If REL is specified, then the number used is the location of the label from the beginning of the program. If ABS is specified, then the number is the location of the label relative to this instruction, which can be negative. If neither one is specified, the label is absolute. It is legal to specify ABS or REL with a number value, but it has no effect. </P>
+
+<TT>
+<UL>
+	<LI>LdI: Load the value &lt;value&gt; into &lt;reg&gt;.</LI>
+</UL>
+</TT>
+
+<P><FONT SIZE="+1">
+<A ID="nop">
+NOP Instruction
+</A>
+</FONT></P>
+
+<P> The NOP instruction has no effect (No Operation). It is used to create or fill dead space in code, or to hold numerical constants in memory.</P>
+
+<P> This is the format of a NOP instruction:</P>
+
+<CODE> NOP [value] </CODE>
+
+<P> When no value is specified, a value of 0 is assumed. If a value is specified, then the memory at the NOP's location is set to the given value. If you use very large positive or negative numbers, the resulting instruction may no longer be a NOP. Anything that fills the top five bits of the instruction with something other than all 0's or all 1's (anything more than about 134 million or less than -134 million) may change the instruction to something else. This will not affect the value stored in memory, but it could cause unintended effects if the instruction is actually executed.</P>
+
+<TT>
+<UL>
+    <LI>NOP: Do absolutely nothing.</LI>
+</UL>
+</TT>
+
+<P><FONT SIZE="+1">
+<A ID="registeronly">
+Register-Only Instructions
+</A>
+</FONT></P>
+
+<P> Register-only instructions are instructions that operate only on registers. They do not operate on memory. These are mostly math instructions and similar things.</P>
+
+<P> This is the format of a register-only instruction:</P>
+
+<CODE> &lt;op&gt; &lt;src1&gt; &lt;src2&gt; &lt;dest&gt;</CODE>
+
+<P> Register-only instructions do something with the values in &lt;src1&gt; and &lt;src2&gt; and place the result into &lt;dest&gt;. Any two or all three operands may refer to the same register without problems.</P>
+
+<P> Instruction reference:</P>
+
+<TT>
+<UL>
+	<LI>Move: Copy the value in &lt;src1&gt; to &lt;dest&gt;. This instruction does not use &lt;src2&gt;.</LI>
+	<LI>Add: Compute &lt;src1&gt; + &lt;src2&gt; and put the result into &lt;dest&gt;.</LI>
+	<LI>Sub: Compute &lt;src1&gt; - &lt;src2&gt; and put the result into &lt;dest&gt;.</LI>
+	<LI>Mul: Compute &lt;src1&gt; * &lt;src2&gt; and put the result into &lt;dest&gt;.</LI>
+	<LI>Div: Compute &lt;src1&gt; / &lt;src2&gt; and put the result into &lt;dest&gt;. (The result of dividing by zero is undefined.)</LI>
+	<LI>Mod: Compute &lt;src1&gt; mod &lt;src2&gt; and put the result into &lt;dest&gt;. (The result of mod zero is undefined.)</LI>
+	<LI>Cmp: Compare &lt;src1&gt; and &lt;src2&gt;. Put -1, 0, or 1 into &lt;dest&gt; if &lt;src1&gt; is less than, equal to, or greater than &lt;src2&gt;, respectively.</LI>
+</UL>
+</TT>
+
+<P><FONT SIZE="+1">
+<A ID="loadpc">
+Load PC Instruction
+</A>
+</FONT></P>
+
+<P> The load PC instruction lets you get the current program counter (that is, the location of the currently-executing instruction).</P>
+
+<CODE> LdPC &lt;reg&gt; </CODE>
+
+<P> This instruction can be used to implement basic subroutines, like this:</P>
+
+<PRE>
+LdI r1  3
+LdPC    r0       # put the current PC in r0
+Add r31  r1  r0  # add 3 to the PC to make it point past the jump,
+                 # and put result in r31
+Jump    subroutine
+...more code...
+
+subroutine:
+...code...
+Jump    r31 # the return location is stored in r31, jump there to return
+</PRE>
+
+<TT>
+<UL>
+	<LI>LdPC: Load the current program counter into &lt;reg&gt;.</LI>
+</UL>
+</TT>
+
+<P><FONT SIZE="+1">
+<A ID="trap">
+Trap Instructions
+</A>
+</FONT></P>
+
+<P> Trap instructions are instructions that operate on the environment of the program, and not just on the virtual machine. These instructions are for things like movement, eating, getting the animal's current amount of energy, and so on.</P>
+
+<P> There is actually only one trap instruction, with an operand that specifies what that instruction should do. However, there are several instructions you can use that generate a trap with the appropriate operand, and they can be treated as actual instructions for the purposes of your program.</P>
+
+<P> This is the format of a trap instruction:</P>
+
+<CODE> Trap &lt;code&gt; &lt;reg&gt;</CODE>
+
+<P> This is the format of a trap pseudo-instruction:</P>
+
+<CODE> &lt;op&gt; &lt;reg&gt;</CODE>
+
+<P> &lt;code&gt; may be from 0 to 15. Not all codes are used. Any code that is not on the list will simply sleep your program until the next step in the world. If the trap needs some value from your program, it uses the value in &lt;reg&gt;. If the trap returns some value to your program, it places the returned value in &lt;reg&gt;.</P>
+
+<P> Instruction reference:</P>
+
+<TT>
+<UL>
+	<LI>Trap: Execute the action corresponding to &lt;code&gt; giving it the value in &lt;reg&gt; as an argument if necessary, and placing the action's return value in &lt;reg&gt; if there is one.</LI>
+	<LI>Dir: (Trap code 0) Change the animal's current facing by the value in &lt;reg&gt;. Positive values are counter-clockwise. So for example if the animal is facing north, changing its direction by 1 will make it face west, changing by 2 will turn it around, and changing it by -5 will make it face east. There is no penalty for passing values larger than 4 or less than -4.</LI>
+	<LI>Enrg: (Trap code 1) Get the animal's current energy and put it into &lt;reg&gt;. Note that although energy is internally stored as floating-point (it can contain fractional values), registers can only contain integer values and so you get the animal's energy rounded down to the nearest integer.</LI>
+	<LI>Spwn: (Trap code 2) Attempt to reproduce and place the child in the square directly in front of the animal. This costs an amount of energy determined by the arena's settings. If the animal does not have that much energy, it loses half of its remaining energy. Reproduction can fail if the square directly in front of the animal is occupied, in which case it still loses the reproduction energy. If reproduction is successful, 1 is placed into &lt;reg&gt;. If it is not successful, 0 is placed into &lt;reg&gt;. After executing this instruction, your program's execution is stopped until the next world step.</LI>
+	<LI>Eat: (Trap code 3) Attempt to eat the object in the square directly in front of the animal. Eating requires 2 energy and will fail the square in front of the animal is empty or contains a barrier. It may also fail if the square contains another animal; see the User's Guide <A HREF="help.html#worldmechanics">World Mechanics section</A> for details. If eating is unsuccessful, 0 is placed into &lt;reg&gt;. Otherwise 1 placed into &lt;reg&gt;. After executing this instruction, your program's execution is stopped until the next world step.</LI>
+	<LI>Fwd: (Trap code 4) Attempt to move forward into the square directly in front of the animal. This costs energy according to a relation described in the User's Guide <A HREF="help.html#worldmechanics">World Mechanics section</A>. It will fail if the square is occupied. If movement is unsuccessful, 0 is placed into &lt;reg&gt;. Otherwise 1 is placed into &lt;reg&gt;. After executing this instruction, your program's execution is stopped until the next world step.</LI>
+	<LI>Look: (Trap code 5) See whether the square directly in front of the animal is occupied. This gives the same return values as the Fwd instruction, but without the effect of actually moving the animal. This is useful because it costs no energy to execute, and attempting to move off the edge of the world can sometimes result in the death of the animal, whereas this instruction will accurately report that the move is not allowed.</LI>
+	<LI>Give: (Trap code 6) Give an amount of energy equal to &lt;reg&gt; to an animal in the square directly in front of the animal. If there is an animal in the square, the energy is transferred. If the square is empty, the amount of energy to give is negative, or the amount of energy to give is greater than the amount of energy the animal has, the instruction fails. There is no report on the success or failure of the attempt, although it can be ascertained by looking at the animal's energy before and after the attempt. After executing this instruction, your program's execution is stopped until the next world step.</LI>
+	<LI>Slp: (Trap code 7) Sleep execution of the animal's program until the next world step. The operand is ignored.</LI>
+	<LI>Send: (Trap code 8) Send a message to all nearby animals. The value in &lt;reg&gt; is placed into the message register of any animals within one square of the animal, including diagonals. There is no guarantee that the message will not be overwritten before any receiving animals get a chance to read it; no queueing of messages is performed. No indication of success or failure is returned.</LI>
+	<LI>Read: (Trap code 9) Read the contents of the animal's message register and place it into &lt;reg&gt;. The animal's message register is then set to 0. The animal's message register is also set to 0 if it has never received a message, so 0 can serve as a good sentinel value to indicate if a new message has arrived or not.</LI>
+</UL>
+</TT>
+
+<P><FONT SIZE="+2">
+<A ID="examples">
+Examples
+</A>
+</FONT></P>
+
+<P> Here are some examples to give you a feel for how these programs work.</P>
+
+<HR></HR>
+<P> This is the default program that is loaded into all arenas by default, and it is what you create with the square tool by default if you don't change the genome. It's a very simple program.</P>
+<PRE>
+# default program for new creatures
+#
+# a simple algorithm: move until you can't, eat what's there, turn, repeat
+# after eating, check current energy, if it's enough, spawn a copy
+#
+# filled with lots of sleeps so that there is ample room for improvement
+
+mainloop:
+slp	r0	# sleep
+
+ldI		r0	1
+
+slp	r0	# sleep
+
+dir	r0	# turn
+
+no_turn:
+slp	r0	# sleep
+
+fwd	r0	# move
+
+slp	r0	# sleep
+
+jnez	r0	no_turn	# loop if move successful
+
+# if we get here that mean we can't move, so eat!
+
+eat	r0	#eat
+
+slp	r0	# sleep
+
+enrg	r0	# get current energy
+
+slp	r0	# sleep
+
+ldI		r1	300
+
+slp	r0	# sleep
+
+cmp		r0	r1	r2
+
+slp	r0	# sleep
+
+jltz	r2	mainloop	# if energy is less than 300, go to beginning
+
+# if we get here, we have enough energy to spawn!
+
+slp	r0	# sleep
+
+spwn	r0	# spawn
+
+slp	r0	# sleep
+
+jump	mainloop	# now go back to the beginning no matter what
+</PRE>
+
+<P> There's a few things of note here. This can be a good place to start your own programs. It shows how to do basic operations like movement, checking if there was a barrier, and spawning only if there's enough available energy.</P>
+
+<P> Notice how this is actually a fairly bad program from a survival point of view. There are sleep opcodes all over the place, which makes it execute very slowly. It waits until its energy is over 300 before reproducing, even though by default animals can reproduce with only 200 energy. Its movement pattern is not very good. Mostly these problems are there to give room for improvement. The sleep opcodes can be replaced by mutation without destroying the existing instructions, which may allow program changes more easily. When writing your own programs, you may want to follow this example to allow room for improvement, or you may go straight to writing a lean, fast, take-over-the-world animal.</P>
+
+<P> Also note the copious use of comments. Some of them are fairly dumb, but some of them explain things that are not readily obvious. Although comments are ignored, they are saved and will be redisplayed if you look at your genome's disassembly.</P>
+
+<HR></HR>
+
+<P> This is a program that was used to validate the virtual machine. It's not actually useful from the point of view of successfully reproducing. In fact, if you create a new genome with this program and put it in an animal, that animal will simply sit still until it dies. But it was verified to actually do what it's supposed to do.</P>
+
+<P> This example is interesting because it does some more interesting things with structure and data than the default program. The default program stores everything in registers, and in fact a lot of basic ideas can work with just the 32 available registers, but more complicated programs will require storage in memory.</P>
+
+<P> This program is a prime-number generator. It works by checking each odd integer against a list of known primes. If the integer is divisible by a number in the list, it is rejected. If it is not divisible by any number in the list, it is accepted and added to the list. It's not the most sophisticated algorithm, but it's not totally naive either. The notable elements are the main loop for primality testing, and the storage for the primes list.</P>
+<PRE>
+# Primes generator
+#
+#  r1 = base of prime array
+#  r2 = end of prime array
+#  r3 = current number to test
+
+LdI	r10	1	# constant
+LdI	r11	2	# constant
+LdI	r12	1024
+Mul	r12	r12	r12	# how many primes to generate
+
+LdI	r1	100
+Add	r1	r10	r2
+
+
+LdI	r3	2	# 2 is the first prime, preloaded
+Stor	r3	r1	# save the 2 to the base of the prime array
+
+LdI	r3	3	# start out by testing 3
+
+outerloop:
+LdI	r4	0	# r4 = current test position in prime array
+
+innerloop:		# do {
+Load	r5	r4	# load prime at r4 into r5
+mod	r3	r5	r6     # r6 = r3 % r5
+JEQZ	r6	failedPrimeTest
+Add	r4	r10	r4	# r4++
+Cmp	r4	r2	r6	# r6 = r4 cmp r2
+JNEZ	r6	innerloop	# } while(r4 != r2);
+
+	# if we arrive here, we have succeeded in the prime test
+
+Trap	0	r3		# send new prime out
+Stor	r3	r2		# add new prime to the list
+Add	r2	r10	r2	# r2++
+
+failedPrimeTest:
+Add	r3	r11	r3	# r3 += 2
+
+Sub	r2	r1	r20	# r20 = r2 - r2 (length of array)
+
+Cmp	r12	r20	r21	# r21 = r20 cmp r21
+JNEZ	r21	outerloop	# loop while the array is too small
+
+Trap	1	r20
+</PRE>
+
+<P> This program was run with a version of the virtual machine that automatically gave some padding at the end of a program for storage. This program will not work as intended in the current virtual machine without adding quite a bit of manual padding with NOPS at the end. Also, the trap codes for this virtual machine don't correspond to the trap codes that exist now, so ignore any weirdness from them.</P>
+
+<P> Note the use of comments to emulate structured programming. It's usually nicer to work with the idea of loops and blocks, but with assembly there are only jump instructions. The appropriate labels and jumps are commented to show how they work to create loops.</P>
+
+<P> This program also shows how you can use register addressing with load and store opcodes to index into arrays, which may be useful if you are doing something complicated.</P>
+
+<HR></HR>
+
+<P> One way to find out new and useful ways of doing this is to simply start a world and let it run for a long time, then check out the genomes that have been produced. This is evolution in action, genetic programming with your program code. Genetic programming usually produces a lot of very strange code, but it's code that gets the job done. It can be difficult to figure out what a piece of evolved code is doing and how it's doing it, but interesting.</P>
+
+<P> I'll leave you with two annotated programs that I pulled from an arena. I originally did this as part of a report for a class, but you may find it interesting or informative.</P>
+
+<P> Excerpt:</P>
+
+<P> I have included below two annotated program listings from animals at the 100,000th timestep in two different simulations. They both work in a fairly similar manner, but the way they accomplish what they do is extremely different.</P>
+
+<P> The main things to look for here are the very strange and roundabout way that these programs accomplish what they want done. There are lots of instructions with no effect, and lots of other instructions that express a simple idea in a complicated way. But genetic programming doesn't believe that simpler is better, it just uses whatever works.</P>
+
+<P> This program comes from a 200x200 arena with a standard mutation and food-growth rate. The arena was filled with food value of 50, then 10% barriers and finally 1% animals. This was what appeared to be a typical animal alive at this point in time.</P>
+
+<PRE>
+		# These first lines only get executed once the animal has spawned, or when
+		# a new animal first awakens as a child. It consists of a single movement,
+		# followed by a change in direction.
+L0:	NOP	# (134217727)
+L1:	Trap	4	r5
+L2:	JNEZ	r0	r1	# This line seems to have no effect, which is typical of genetic programs.
+L3:	Trap	0	r0
+
+		# Lines 4 through 10 appear to be the main loop
+L4:	LdI	r0	0	# This line does nothing; r0's value is overwritten on line 6
+L5:	Trap	7	r14	# A sleep opcode, to slow down the animal's movement.
+L6:	Trap	4	r0	# Move forward, store the success or failure into register 4.
+L7:	NOP	# (-134217728)
+L8:	NOP	# (-1)
+L9:	Div	r0	r0	r0	# Divide r0 by itself and place the result into r0 also.
+L10:	JNEZ abs	r0	4	# If r0 does not contain 0, jump back to line 4.
+		# The loop termination mechanism here is pretty bizarre. The division on line 9
+		# should always produce a 1 in r0, since dividing a number by itself is always 1.
+		# However division by zero apparently produces a 0 in the result register. Thus,
+		# the loop termination conditions translate into, "jump to line 4 if r0 contains 1".
+		# The loop as a whole translates to "Move forward until you bump into something."
+		# This is the exact same theme as the loop from the default program, but expressed
+		# in an entirely different way. This sort of baroque, indirect, strange expression
+		# of a simple concept is a common feature of evolved programs. But do note that
+		# it works just fine, it just seems bizarre to a human programmer.
+
+L11:	JLTZ	r0	r0	# Jump if r0 is less than 0; this should pretty much never happen here.
+L12:	Trap	3	r22	# Eat. This comes right after a failure to move, which was probably tue to hitting food.
+
+		# Lines 13 through 21 appear to have no effect. Register 0 is overwritten later, and
+		# register 31 is never used for anything.
+L13:	Load	r0	r0
+L14:	NOP	# (0)
+L15:	NOP	# (1)
+L16:	NOP	# (1)
+L17:	NOP	# (1)
+L18:	Mod	r0	r0	r0
+L19:	NOP	# (0)
+L20:	Move	r0	r0	r0
+L21:	Cmp	r31	r31	r31
+
+		# Starting here, we have the energy comparison and spawn code.
+L22:	Trap	1	r0
+L23:	LdI	r1	300	# This is the value to compare for energy. The default program has 300,
+					# even though the spawn energy is typically set to 200. Oddly enough this
+					# is not changed. Apparently 300 must be some sort of optimal value,
+					# or is at least not suboptimal enough to be worth changing.
+					
+L24:	Cmp	r0	r1	r2
+L25:	NOP	# (-1)
+L26:	NOP	# (0)
+L27:	JLTZ abs	r2	r30 # If we don't have enough energy, make an absolute jump to r30.
+							# r30 is never used, so it should contain 0. This is another
+							#typically baroque way of saying, jump to line 0.
+
+L28:	Trap	2	r31	# Otherwise there's enough energy to spawn, and this spawns.
+L29:	JLTZ	r0	r1	# Since r0 still contains the current energy, it should never be less than zero,
+						# and so this line should never have any effect (again typical).
+L30:	NOP	# (0)
+L31:	NOP	# (65760)
+L32:	Trap	0	r0	# Set the move direction with the contents of r0. Since move direction
+						# is taken mod 4, and r0 is a relatively large number (the current energy)
+						# this can be considered to be a more or less random value.
+L33:	NOP	# (0)
+L34:	JNEZ abs	r0	0	# Jump to line 0 no matter what. Nearly every program ends with this
+							# line or something very similar, even though the default starting
+							# program doesn't have it. This is because running off the end of
+							# the program results in an unrecoverable error and the eventual
+							# death of the animal, so not having this is a quick way to die.
+</PRE>
+
+<P> The basic theme is similar to the original program; go forward until food is found, eat it, test the current energy and spawn if it's possible, then repeat. But it is much more efficient than the original program, and the code is much more bizarre.</P>
+
+<P> The second program is taken from an arena with the same setup as the first, but with no barriers. It has the same basic theme, but the implementation of that theme is completely different.</P>
+
+<PRE>
+L0:	Mod	r0	r22	r0
+L1:	NOP	# (0)
+L2:	Sub	r0	r3	r24
+L3:	Trap	0	r0
+
+		# Lines 4 through 12 appear to be the main loop, which consists again
+		# of continuous forward movement until a barrier is reached. Notice
+		# how different this loop is from the last program's loop, yet it
+		# expresses the exact same idea.
+		#
+		# Most of the statements here appear to have no effect, except for line 7, 10, and 12.
+L4:	NOP	# (0)
+L5:	LdI	r10	-4087
+L6:	NOP	# (0)
+L7:	Trap	4	r0	# Move forward.
+L8:	Div	r31	r20	r31
+L9:	NOP	# (0)
+L10:	Trap	10	r23	# Sleep for a timestep.
+L11:	NOP	# (0)
+L12:	JNEZ abs	r0	4	# Jump to line 4 if the move was successful.
+
+
+L13:	Div	r0	r0	r0
+L14:	NOP	# (0)
+
+		# This is another typical useless no-effect line. r0 contains either 1 or 0 at
+		# this point. If it contains 0, the jump doesn't happen and execution continues
+		# as normal. If it contains 1, it jumps to line 16, which is the next line anyway.
+		# This sort of instruction that does nothing in a weird way is a typical construction
+		# in these programs.
+L15:	JGTZ	r0	r0
+L16:	Trap	3	r0	# Try to eat whatever the animal bumped in to.
+L17:	NOP	# (0)
+
+L18:	LdI	r0	208	# Load 208 into r0....
+L19:	Mul	r0	r0	r0	# Square it....
+L20:	Trap	1	r0	# And then overwrite it with the current amount of energy the animal has.
+
+L21:	Trap	7	r0	# Sleep.
+L22:	JNEZ	r0	r0	# This jump will always be attempted, since the current energy is never 0.
+						# But it will almost always fail, because r0's current energy is almost
+						# certainly beyond the bounds of the program; in that case execution simply
+						# continues at the next line. But there is a chance if energy is low, depending
+						# on what exactly is in r0, execution could skip over all the spawning
+						# procedure and go back to eating, which is what it would need to do anyway.
+						
+L23:	LdI	r1	300	# Again 300, no change here either.
+L24:	Cmp	r0	r1	r2
+
+		# More statements with no effect.
+L25:	Mod	r18	r0	r0
+L26:	LdI	r0	224
+L27:	NOP	# (0)
+L28:	Add	r31	r31	r31
+
+L29:	JLTZ abs	r2	0	# If there is not enough energy, go back to line 0.
+
+L30:	NOP	# (-1)
+L31:	NOP	# (134217726)
+L32:	JGTZ abs	r0	r1	# This is another jump that's always true but always fails because
+							# the jump destination is always outside of the memory space.
+							
+L33:	NOP	# (0)
+L34:	Div	r0	r1	r17
+L35:	JLTZ	r0	r0	# r0 cannot be less than zero, so this instruction again has no effect.
+L36:	NOP	# (1)
+L37:	Move	r0	r0	r24
+L38:	Mul	r21	r0	r0
+L39:	Trap	2	r0	# Spawn and put the result into r0.
+
+L40:	NOP	# (0)
+
+L41:	Jump abs	r0	r0	# Jump unconditionally to r0. At this point, r0 contains either
+							# 0 (if the spawn failed) or 1 (if the spawn succeeded), so this
+							# jumps to line 0 or 1. Interestingly enough, both lines 0 and 1
+							# appear to have no effect or purpose, meaning that there is no
+							# real point in jumping to r0. Again, a strange roundabout way
+							# to accomplish the goal of going back to the beginning of the program.
+
+L42:	Move	r0	r2	r0
+L43:	NOP	# (0)
+
+L44:	Jump abs	r0	0	# Again this guard to prevent the fatal error of running off the end
+							# of the program. It's especially interesting that this is still here,
+							# since the program will almost never get here. Line 41 will take
+							# care of redirecting all normal program flow to the beginning
+							# of the program. But it still has some value; the mysterious line 22,
+							# the almost-certainly-failed jump into la-la land, does have a small but
+							# nonzero chance of landing on line 42, 43, or 44, at which point a different
+							# instruction here would result in certain death for the animal. Apparently
+							# that chance is significant enough to guard against mutations on this
+							# instruction.
+</PRE>
+
+</BODY>
+</HTML>

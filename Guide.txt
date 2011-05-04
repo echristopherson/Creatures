@@ -1,0 +1,82 @@
+Creatures semi-user's guide
+
+Quick-Start Guide
+-----------------
+
+Run Creatures by double-clicking it. You'll see a new arena window, currently all black, a Control Panel, a Drawing Panel, and a Tool Options window. Click the "Sq" button (for Square) in the drawing panel. The Tool Options window will change to show the options available for the square tool. Select the Food button, and enter 150 for Food Value. Then move to the arena window and click. This should leave a green square behind. It may be necessary to click twice, once to activate the window and a second time to place the food.
+
+Back to the Tool Options window, click the Animal button. Change the Coverage to a small value, around 5%, and then click over the square you made before. You should leave a speckling of blue animals behind. Again you may need to click twice. Once you've done that, click Run in the Control panel, and off you go!
+
+
+Arena Settings
+--------------
+
+You can get to this window from the Window menu. It allows you to change various parameters about the current arena.
+
+Mutation rate: The rate at which animals are mutated. This is per animal per timestep; so a mutation rate of .01 means that each animal has a 1% chance of being mutated each step.
+
+Food growth rate: This is likewise per food piece per timestep.
+
+Spawn Energy: How much energy an animal needs to produce a child.
+
+Arena edges: Wrap means the arena works like a torus, with animals going off the top and coming back up on the bottom. Block means the edge acts as a wall. Kill means that an animal attempting to move off the world is immediately killed.
+
+Bias food growth: This option allows you to play with the food growth routines. Normally when a piece of food reproduces, the child's food value is either +1 or -1 the parent's food value, with a 50% probability. This option allows you to skew those odds to make the food value in the arena change over time. Towards is what food value you are targeting, and Proportion is how often the child's food value will move in that direction. A proportion of 50% makes the situation act like normal. A proportion less than 50% makes no real sense. The higher the proportion, the faster the change will happen. This is a good way to study the long-term effects of gradually reduced or increased food supply.
+
+Stop when population is below: This is a way to have a failsafe in case something goes wrong and all the animals die. When studying situations where survival is marginal, it's possible for the population to drop dangerously low. If all the animals die, their genome and the situation are lost. By setting a value here, the simulation will automatically stop when the population drops too low.
+
+
+Interface Reference
+-------------------
+
+Please note that a great deal of the interface is either non-functional or ugly. There is however still a lot of functionality to be had.
+
+
+Drawing Panel
+-------------
+
+A brief tour of the drawing panel. From left to right, the buttons are:
+
+h: not implemented
+L: draw lines of barriers
+Sq: draw squares of food, animals, or barriers
+\: not implemented
+S: not implemented
+I: inspector; see a disassembly of the creature you click on.
+RC: Region Create
+RS: Region Select
+
+
+Square Tool
+-----------
+
+The square tool places squares of objects in the arena. There are several options for how to use this tool.
+
+First, you can select what kind of object to create, either food, animals, or barriers. Then, the square can be configured in size and coverage. Coverage is a percentage of the area of the square that will actually contain the object in question once the mouse is clicked. This is useful for placing scattered animals or barriers.
+
+If you're placing animals or barriers, those are all of the options. (The Genome text field for animals doesn't work.) If you're placing food, you have two additional options. Food Value is the energy value of each piece of food you place. This can range from 0 to 255. Typical values are around 100, although it depends greatly on what you want to do. Second is the overwrite checkbox. If this is not checked, then other objects will not be erased when you attempt to put food there. This is very useful for placing food near barriers or animals without accidentally erasing them.
+
+Note that food with value 0 is empty space. Using the overwrite checkbox with food value 0 is a way to have an eraser.
+
+
+Regions
+-------
+
+Regions are a way to change different parameters in different areas of the arena. They are created with the region create tool, by clicking and dragging to form a rectangular region. Once created, they cannot be moved or resized (this is dumb but I have not implemented that). The region select tool can be used to remove them (by selecting and then pressing delete) or to modify the region's parameters by double-clicking.
+
+Double-clicking a region with the region select tool brings up the Region Inspector. The region inspector has some parameters from the Arena Settings window, and they work the same except that their effects are purely local. Also note that a high mutation rate in a region can make the program very slow.
+
+
+How it All Works
+----------------
+
+The animals all exist in a square region that is, depending on the settings, either topologically like a torus (wraparound) or a square. Each animal has a certain amount of energy, and each plant has a certain amount of energy to give when it's eaten. The animals begin with 10 energy, and if they drop below 2 they die. The amount of energy required to make a child is user-configurable. Setting this amount to less than 10 can have very interesting effects. If an animal attempts to spawn and does not have enough energy to do so, its energy is reduced by half, so it is to the advantage of the animals to know when they have enough energy, and not just try spawning all the time.
+
+Each animal loses 1/8th of a point of energy each timestep, along with an extra, slowly-increasing penalty if they have over 100 energy, meaning they have to keep well-fed.
+
+An animal loses energy for moving depending on how long ago it last moved; it goes by the inverse square of the number of timesteps since the animal last moved, meaning a slower-moving animal can get places with less energy than a faster-moving one.
+
+Eating requires 8 energy whether the attempt to eat succeeds or not. So it is advantageous to only try eating when there's something there to eat.
+
+The arena is a standard chessboard-style grid with varying neighbor rules depending on the situation. Movement occurs only in the four cardinal directions. The animals have a "set direction" opcode, and a "move forward" opcode, which is how they get around. Eating and spawning also take place in the current forward direction, and a use of the "give energy" opcode operates on the animal, if any, residing in the adjacent forward square. There is also a "send message" opcode, which sets the message register of any animals in the eight surrounding squares; this is the only place the world mechanics where the diagonal neighbor rules are used.
+

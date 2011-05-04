@@ -1,0 +1,30 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {toggleRun = id; }; 
+            CLASS = CreaturesView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {newTextArea = id; }; 
+            SUPERCLASS = NSView; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {setColor = id; showCOG = id; showDisassembly = id; showParent = id; }; 
+            CLASS = GenomeWindowController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                colorWell = NSColorWell; 
+                commentTextView = NSTextView; 
+                lifetimeField = NSFormCell; 
+                mutationsField = NSFormCell; 
+                parentButton = NSButton; 
+                populationCurrentField = NSFormCell; 
+                populationPeakField = NSFormCell; 
+                populationTotalField = NSFormCell; 
+                showCOGButton = NSButton; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

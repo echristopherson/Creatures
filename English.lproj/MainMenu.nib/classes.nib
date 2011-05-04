@@ -1,0 +1,141 @@
+{
+    IBClasses = (
+        {
+            CLASS = CornerViewScrollView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {cornerView = NSView; }; 
+            SUPERCLASS = NSScrollView; 
+        }, 
+        {
+            ACTIONS = {
+                allowedSpawnBehaviorChanged = id; 
+                biasFoodAmountChanged = id; 
+                biasFoodCheckboxClicked = id; 
+                biasFoodProportionChanged = id; 
+                birthMutationRateChanged = id; 
+                doRegister = id; 
+                edgeBehaviorChanged = id; 
+                foodGrowthIntervalChanged = id; 
+                mutationRateChanged = id; 
+                new = id; 
+                newArenaCancel = id; 
+                newArenaOK = id; 
+                open = id; 
+                openArenaSettingsWindow = id; 
+                openFamilyTreeWindow = id; 
+                openGenomeWindow = id; 
+                openWebPage = id; 
+                purchase = id; 
+                registrationInfo = id; 
+                removeOldGenomes = id; 
+                save = id; 
+                saveAs = id; 
+                setDisplayInterval = id; 
+                showHelp = id; 
+                spawnEnergyChanged = id; 
+                stopThresholdPopulationChanged = id; 
+                stopThresholdPopulationCheckboxClicked = id; 
+                toggleRun = id; 
+                toolChanged = id; 
+                update = id; 
+            }; 
+            CLASS = CreatureController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                allowedSpawnBehaviorRadio = NSMatrix; 
+                arenaSettingsWindow = NSWindow; 
+                biasFoodAmountField = NSTextField; 
+                biasFoodCheckbox = NSButton; 
+                biasFoodProportionField = NSTextField; 
+                birthMutationRateField = NSTextField; 
+                circleToolButton = NSButtonCell; 
+                controlPanel = NSPanel; 
+                drawingPanel = NSPanel; 
+                edgeBehaviorRadio = NSMatrix; 
+                enterSerialMenuItem = NSMenuItem; 
+                foodGrowthIntervalField = NSTextField; 
+                genomeField = GenomeDragAcceptTextField; 
+                genomeList = id; 
+                handToolButton = NSButtonCell; 
+                inspectToolButton = NSButtonCell; 
+                mainWindow = NSWindow; 
+                mutationRateField = NSTextField; 
+                newArenaPanel = NSPanel; 
+                pencilToolButton = NSButtonCell; 
+                populationBox = id; 
+                purchaseMenuItem = NSMenuItem; 
+                registrationInfoMenuItem = NSMenuItem; 
+                removeOldGenomesField = NSTextField; 
+                removeOldGenomesPanel = NSPanel; 
+                runButton = id; 
+                runMenuItem = id; 
+                saveTimer = id; 
+                scrollView = NSScrollView; 
+                selectToolButton = NSButtonCell; 
+                spawnEnergyField = NSTextField; 
+                squareToolButton = NSButtonCell; 
+                stepBox = id; 
+                stepTimer = id; 
+                stopThresholdPopulationCheckbox = NSButton; 
+                stopThresholdPopulationField = NSTextField; 
+                toolOptionsPanel = NSPanel; 
+                toolOptionsTabView = NSTabView; 
+                toolSelectMatrix = NSMatrix; 
+                view = CreaturesView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {zoomIn = id; zoomOut = id; }; 
+            CLASS = CreaturesView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {controller = CreatureController; scrollView = NSScrollView; }; 
+            SUPERCLASS = NSOpenGLView; 
+        }, 
+        {
+            ACTIONS = {deselected = id; selected = id; }; 
+            CLASS = DrawingTool; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {GUIObject = id; controller = CreatureController; settingsView = NSView; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                purchase = id; 
+                reloadTree = id; 
+                removeOldGenomes = id; 
+                zoomIn = id; 
+                zoomOut = id; 
+            }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = GenomeDragAcceptTextField; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSTextField; 
+        }, 
+        {CLASS = HandTool; LANGUAGE = ObjC; SUPERCLASS = DrawingTool; }, 
+        {CLASS = InspectTool; LANGUAGE = ObjC; SUPERCLASS = DrawingTool; }, 
+        {CLASS = LineTool; LANGUAGE = ObjC; SUPERCLASS = DrawingTool; }, 
+        {CLASS = RegionCreateTool; LANGUAGE = ObjC; SUPERCLASS = RegionTool; }, 
+        {CLASS = RegionSelectTool; LANGUAGE = ObjC; SUPERCLASS = RegionTool; }, 
+        {CLASS = RegionTool; LANGUAGE = ObjC; SUPERCLASS = DrawingTool; }, 
+        {
+            CLASS = SquareTool; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                coverageSlider = NSSlider; 
+                creatureTypeMatrix = NSMatrix; 
+                foodValueField = NSTextField; 
+                genomeField = NSTextField; 
+                overwriteCheckbox = NSButton; 
+                radiusSlider = NSSlider; 
+            }; 
+            SUPERCLASS = DrawingTool; 
+        }, 
+        {CLASS = ZoomTool; LANGUAGE = ObjC; SUPERCLASS = DrawingTool; }
+    ); 
+    IBVersion = 1; 
+}

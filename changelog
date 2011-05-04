@@ -1,0 +1,99 @@
+beta 7
+------
+Fixed a dumb bug that caused an uncaught exception if the inspector was used on a barrier.
+
+Fixed a bug where changing a Genome's color would also temporarily change the color of that Genome's comment.
+
+Fixed a bug where placing creatures with a Genome other than the default wouldn't correctly set the creatures' Genome, resulting in misapplied statistics and other incorrect behavior.
+
+You can now attempt to save your arena if the error dialog appears, although it still won't let you continue running the program, which is intentional.
+
+Fixed several problems related to having various windows open when creating new arenas. Windows that can have many instances (assembler, genome info) are closed, and windows that only appear once (genome list) are correctly updated.
+
+beta 6
+------
+Added extra runloop modes for the NSTimer so that the world runs under more circumstances. The world now continues to run while holding down the mouse button in a button, a scroll bar, or a slider, and whenever a dialog is up.
+
+Fixed a problem with window zooming where the window would get placed at the bottom of the screen when zoomed. Since the window is zoomed by the program on startup, the window's saved position was not working. All of this is now fixed.
+
+The screenshots in the help are now updated to the most recent version of Creatures, and are taken with 10.3.
+
+Added key equivalents to the Genome List and Family Tree items in the Window menu.
+
+beta 5
+------
+For some reason, gcc has decided that it no longer likes my nested functions, so I removed all of them. This fixes a couple of crashes that may or may not have been in previous versions, depending on how gcc was feeling at the time.
+
+Worked around a very evil bug in WebKit and Cocoa that was causing an uncaught exception if you opened the Help window in-program and then tried to change the current tool.
+
+Previously, the error report for an uncaught exception displayed the stack trace for the uncaught exception handler, and didn't show any information about where the exception was thrown, which was exceptionally dumb. This is now much improved.
+
+The Run menu item has now been moved to the Arena menu, which makes a lot more sense.
+
+The register table in the creature inspector is now marked as non-editable.
+
+The Family Tree window can now be "reloaded", which regenerates the tree to incorporate any new genomes that have appeared sincethe window was opened. Reload can be accessed from the Arena menu, or from a button next to the scroll bar.
+
+Both the Family Tree window and the Arena window now have zoom buttons next to their scroll bars, for easy access to zoom in/out.
+
+The Family Tree now scrolls to the first top-level genome when opened, instead of the (usually empty) top-left corner like before.
+
+A minimum arena size is now enforced to keep things reasonable. A maximum arena size of 10,000x10,000 has been enforced in the nib for a long time, but now a warning is popped up if the total arena area is greater than 10,000,000 because of memory concerns. If the user still agrees to make an arena of that size after the warning, the new size is not saved to defaults; that way if the large arena hoses the machine and Creatures has to be force-quit, it won't happen again when Creatures is restarted.
+
+Old genomes can be removed based on how far in the past they are from a "live" genome. This can cut down on memory requirements, file sizes, and load/save times for long-running worlds.
+
+beta 4
+------
+eSellerate is now integrated. You can buy a serial number from inside the program, or enter a number bought from the web store. Saving, creating large arenas, and saving Genomes in the library are non-functional if the user has not registered.
+
+All changes in the Arena Settings window now mark the document as "dirty" and needing to be saved.
+
+The stack trace code (used for error reports, not usually seen) no longer depends on the presence of /usr/bin/atos; it will produce reasonable numeric output in that case.
+
+The zoom tool was broken before because I accidentally removed a critical method from the CreaturesView class; this is fixed.
+
+The draw panel is now a utility window. The draw panel and control panel now only activate when necessary, which is only if you're editing text in them, meaning you no longer have click an extra time to activate the Arena after choosing a tool or tweaking a slider.
+
+All user-visible strings are now in Localizable.strings, meaning the entire app can be localized (although who knows if it'll ever actually happen).
+
+All changes in the Arena Settings window now take effect immediately; for text boxes, they take effect as you type.
+
+A very small bug in the coordinate system conversion for tool clicks was leading to an off-by-one error sometimes, making it hard to click on exactly the desired square. This is fixed.
+
+The Inspector tool now searches all adjacent squares if the clicked-on square is empty. If the eight adjacent squares contain exactly one animal, an inspector for that animal is opened. This makes it easier to get the inspector for a lone creature.
+
+Any uncaught exceptions thrown inside a timer (such as while the simulation is running, which is where most of the code executes) are now caught at the base level and an error is properly thrown, instead of failing silently like before.
+
+The cursors for the zoom tool now have white borders so you can acutally see them over the black arena.
+
+Creatures documents now have icons. If you can't see them, remove ~/Library/Caches/LS* (I think that's the right path, at least) and restart the Finder.
+
+The screenshot of the Draw panel has been updated to reflect the utility window.
+
+beta 3
+------
+The zoom tool now works with the family tree window.
+
+Fixed various cosmetic issues with the arena settings window and other areas.
+
+New animal inspector window, totally redone from before.
+
+Better error handling. Any failed assertions and certain uncaught exceptions should pop up a window with details and an offer to send off an e-mail report, please use it if it happens.
+
+The whole silly Display Interval thing has been done, and there's a much better way to control the speed of your graphics now.
+
+Probably some little things I forgot about.
+
+beta 2
+------
+Various optimizations in the virtual machine. Caching instance variables leads to a significant speed improvement.
+
+Fixed a potential stack overflow when opening files that have a lot of genomes. Previously the genomes were unarchived recursively, now they're unarchived sequentially. No change of the save format was needed for this, so old saves still work.
+
+Fixed a problem where the arena settings window didn't update if it's open and a new arena is created or loaded.
+
+New icon!
+
+beta 1
+------
+First beta release.

@@ -1,0 +1,29 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                newClicked = id; 
+                registerClick = id; 
+                setFilterExtinct = id; 
+                setFilterUnique = id; 
+                setUpdateAutomatically = id; 
+                update = id; 
+            }; 
+            CLASS = GenomeListController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                creaturesView = id; 
+                filterExtinctBox = NSButton; 
+                filterUniqueBox = NSButton; 
+                sortIdentifier = id; 
+                table = NSTableView; 
+                updateAutomaticallyBox = NSButton; 
+                updateTimer = id; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {CLASS = NoSelectionTableView; LANGUAGE = ObjC; SUPERCLASS = NSTableView; }
+    ); 
+    IBVersion = 1; 
+}

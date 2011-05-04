@@ -1,0 +1,11 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {newArenaCancel = id; newArenaOK = id; }; 
+            CLASS = NSObject; 
+            LANGUAGE = ObjC; 
+        }
+    ); 
+    IBVersion = 1; 
+}

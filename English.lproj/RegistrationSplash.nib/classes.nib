@@ -1,0 +1,13 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {doRegister = id; notYet = id; purchase = id; }; 
+            CLASS = RegistrationSplashController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {messageField = NSTextField; notYetButton = NSButton; }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

@@ -1,0 +1,18 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {quit = id; saveAs = id; sendEmail = id; }; 
+            CLASS = ErrorPanelController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                cantSaveMessage = NSTextField; 
+                errorField = NSTextField; 
+                quitButton = NSButton; 
+                reportTextView = NSTextView; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

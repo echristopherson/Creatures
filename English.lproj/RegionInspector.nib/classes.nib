@@ -1,0 +1,26 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                biasFoodAmountChanged = id; 
+                biasFoodCheckboxClicked = id; 
+                biasFoodProportionChanged = id; 
+                foodGrowthRateChanged = id; 
+                mutationRateChanged = id; 
+            }; 
+            CLASS = RegionInspectorController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                biasFoodAmountField = NSTextField; 
+                biasFoodCheckbox = NSButton; 
+                biasFoodProportionField = NSTextField; 
+                coordinatesField = NSTextField; 
+                foodGrowthRateField = NSTextField; 
+                mutationRateField = NSTextField; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

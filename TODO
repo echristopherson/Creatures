@@ -1,0 +1,90 @@
+TODO file:
+
+done
+--------
+integrate esellerate
+made the document ask for save when any changes are mode, not just running
+fix menu items that incorrectly function while modal alerts are running
+make StackTrace not depend on /usr/bin/atos (do something reasonable if it's not there)
+fix centerInView crash with CreaturesView
+make draw panel a utility window
+localization support (moving constant strings into a .strings file)
+make arena settings take effect while typing // implement controlTextDidChange: to make the control send its action message
+make inspector search adjacent squares if the target square is empty
+catch uncaught exceptions thrown inside timers (if possible) // not possible in general, but it's easy enough to wrap everything that's timer-callable in an NS_DURING handler
+white border for zoom tool
+make document icon
+update screenshots
+add registration info for registered users somewhere
+
+fix crash related to nested function in Genome enableCulling
+fix bug where clicking on a tool with the help open generates an uncaught exception // this is totally baffling to me. I think I should redo the whole options panel system and make it so that we manage the views directly -- update: fixed, it's an evil WebKit problem with posing and so on
+fix uncaught exception reporting (stack traces)
+move Run menu item to Arena menu
+make register table in creature inspector non-editable
+family tree reload button // if this is going next to the scroll bar, looks like it will need a custom NSScrollView subclass, override -tile
+add zoom buttons next to reload
+make family tree scroll to the first genome when opened
+add zoom buttons in scroll view for arena
+add some very basic limits on resources so the user can't easily try to suck up fifteen terabytes of RAM // a hard limit on x and y sizes was already there, but it's now better
+allow removal of genome history to cut down on file size and slowdowns when running for a very long time
+make icons for buttons
+
+change step timer modes so that the arena runs during control tracking
+fix problem where window is always at bottom of screen on startup
+update screenshots in help
+add key equivalents for things
+
+fix inspector tool not working with barriers
+fix where genome color panel changes comment text color
+add '...' to New menu item
+broken "show genome" button? // it was the square tool not setting the genomes properly
+add ability to save to error dialog
+tooltips
+make genome windows close (and any misc. windows) when making new arena
+fix genome list not updated when making new arena, and genome library not correctly loaded
+
+post 1.0:
+save speedup
+retain ability to read old-style saves // check, but it should work now
+birth mutations
+mating
+better error handling in custom archiver
+update docs
+fixed genome list crash
+
+ldi now accepts labels
+nop now accepts numeric constants
+disassembly and assembler windows now can use find panel on 10.3
+add ldPC opcode
+make trap operations return either 0 or 1, not 'nonzero'
+better behavior when PC is out of bounds
+
+fixed broken PC oob handling
+fix disassembly of ldpc instruction
+fixed custom archiver on Jaguar
+fixed zoom tool centering
+Added delayed performs for genome culling to possibly remove bugs and improve performance
+
+post 1.1:
+fixed neighbor finding code
+changed genome list update behavior to be lazy, which gives better performance
+fixed window title behavior when creating a new arena
+
+todo now
+--------
+fix bug where genome list isn't properly populated on initial program load
+smooth out delays due to genome culling
+beep when stopping due to low population
+
+todo far-future
+--------
+eyedropper
+drag source in genome window
+screensaver
+networking
+applescript support
+debugger
+more senses for creatures
+statistics graph/output
+extra tools(?)

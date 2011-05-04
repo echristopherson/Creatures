@@ -1,0 +1,28 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {showGenome = id; }; 
+            CLASS = CreatureInspectorWindowController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                ageField = NSTextField; 
+                disassemblyTextView = NSTextView; 
+                energyField = NSTextField; 
+                messageField = NSTextField; 
+                mutationsField = NSTextField; 
+                pcField = NSTextField; 
+                showGenomeButton = NSButton; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {
+            ACTIONS = {toggleRun = id; }; 
+            CLASS = CreaturesView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {newTextArea = id; }; 
+            SUPERCLASS = NSView; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

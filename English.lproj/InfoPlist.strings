@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleGetInfoString</key>
+	<string>Creatures 1.1.1, Copyright 2003 Michael Ash.</string>
+	<key>CFBundleName</key>
+	<string>Creatures</string>
+	<key>CFBundleShortVersionString</key>
+	<string>Creatures 1.1.1</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright 2003 Michael Ash</string>
+</dict>
+</plist>
