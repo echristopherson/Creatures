@@ -1,4 +1,5 @@
-build
-Creatures.xcodeproj/eric.*
+/build/
+/Creatures.xcodeproj/eric.*
+.DS_Store
 *.swp
 *~
