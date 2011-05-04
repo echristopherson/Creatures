@@ -7,13 +7,15 @@
  *
  */
 
+// EAC: changed log functions to use const on C types to suppress warnings
+
 #import <Cocoa/Cocoa.h>
 #import "Debug.h"
 #import "ErrorPanelController.h"
 #import "StackTrace.h"
 
 
-void LogErrorv(BOOL fatal, char *file, char *function, int line, NSString *format, va_list args)
+void LogErrorv(const BOOL fatal, const char *file, const char *function, const int line, NSString *format, va_list args)
 {
 	NSString *userErrorString = [[NSString alloc] initWithFormat:format arguments:args];
 	NSString *error = [NSString stringWithFormat:@"Error occured at %s:%d (%s): %@", file, line, function, userErrorString];
@@ -31,7 +33,7 @@ void LogErrorv(BOOL fatal, char *file, char *function, int line, NSString *forma
 	[userErrorString release];
 }
 
-void LogAssertionFailure(char *condition, char *file, char *function, int line, NSString *format, ...)
+void LogAssertionFailure(const char *condition, const char *file, const char *function, const int line, NSString *format, ...)
 {
 	va_list args;
 	va_start(args, format);
@@ -40,7 +42,7 @@ void LogAssertionFailure(char *condition, char *file, char *function, int line, 
 	abort();
 }
 
-void LogError(BOOL fatal, char *file, char *function, int line, NSString *format, ...)
+void LogError(BOOL fatal, const char *file, const char *function, const int line, NSString *format, ...)
 {
 	va_list args;
 	va_start(args, format);
