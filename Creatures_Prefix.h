@@ -7,7 +7,7 @@
  *
  */
 
-#define MAC_OS_X_VERSION_MAX_ALLOWED MAC_OS_X_VERSION_10_2
+#define MAC_OS_X_VERSION_MAX_ALLOWED MAC_OS_X_VERSION_10_5
 
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
