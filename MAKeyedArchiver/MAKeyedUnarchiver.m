@@ -155,7 +155,15 @@
 	if(len == 0)
 		return 0;
 	int offset = [context offsetForKey:key];
-	memcpy( ((void *)&val) + (sizeof(val) - len), [archive bytes] + offset, len);
+	//memcpy( ((void *)&val) + (sizeof(val) - len), [archive bytes] + offset, len);
+	// EAC:
+	// For xSize of 300, [archive bytes]+offset holds the bytes 0x2c 01 00 00, which equates to 0x0000012c = 300.
+	// val holds the bytes 0x00 00 00 00 2c 01 00 00, which equates to 0x0000012C00000000.
+	// So we see that four zero bytes are added before the original int's bytes.
+	// Mac OS X on the PPC used big-endian mode; x86 is always little-endian.
+	// decodeIntForKey: casts val=0x0000012C00000000 implicitly to int, thus truncating it to 0.
+	// The above memcpy does: copy len bytes from archives' bytes + offset, and store it in the address of val _plus 4 bytes_. I believe this was some sort of PPC big-endian hack. Here's the replacement:
+	memcpy(&val, [archive bytes] + offset, len);
 	return val;
 }
 
