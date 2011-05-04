@@ -166,10 +166,26 @@
 				_r[(_memory[_PC].reg.dest % VM_NUM_REGS)] = _r[(_memory[_PC].reg.source1 % VM_NUM_REGS)] * _r[(_memory[_PC].reg.source2 % VM_NUM_REGS)];
 				break;
 			case opDiv:
-				_r[(_memory[_PC].reg.dest % VM_NUM_REGS)] = _r[(_memory[_PC].reg.source1 % VM_NUM_REGS)] / _r[(_memory[_PC].reg.source2 % VM_NUM_REGS)];
+				//_r[(_memory[_PC].reg.dest % VM_NUM_REGS)] = _r[(_memory[_PC].reg.source1 % VM_NUM_REGS)] / _r[(_memory[_PC].reg.source2 % VM_NUM_REGS)];
+				{
+					// EAC:
+					unsigned int source1 = _r[(_memory[_PC].reg.source1 % VM_NUM_REGS)];
+					unsigned int source2 = _r[(_memory[_PC].reg.source2 % VM_NUM_REGS)];
+					_r[(_memory[_PC].reg.dest % VM_NUM_REGS)] = (source2 == 0 ?
+						0 : source1 / source2
+					);
+				}
 				break;
 			case opMod:
-				_r[(_memory[_PC].reg.dest % VM_NUM_REGS)] = _r[(_memory[_PC].reg.source1 % VM_NUM_REGS)] % _r[(_memory[_PC].reg.source2 % VM_NUM_REGS)];
+				//_r[(_memory[_PC].reg.dest % VM_NUM_REGS)] = _r[(_memory[_PC].reg.source1 % VM_NUM_REGS)] % _r[(_memory[_PC].reg.source2 % VM_NUM_REGS)];
+				{
+					// EAC:
+					unsigned int source1 = _r[(_memory[_PC].reg.source1 % VM_NUM_REGS)];
+					unsigned int source2 = _r[(_memory[_PC].reg.source2 % VM_NUM_REGS)];
+					_r[(_memory[_PC].reg.dest % VM_NUM_REGS)] = (source2 == 0 ?
+						0 : source1 % source2
+					);
+				}
 				break;
 			case opCmp:
 				if(_r[(_memory[_PC].reg.source1 % VM_NUM_REGS)] < _r[(_memory[_PC].reg.source2 % VM_NUM_REGS)])
