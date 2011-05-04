@@ -181,7 +181,9 @@ static int sortFunction(id g1, id g2, void *object)
 			int menuIndex = 0;
 			while(menuIndex < [tableHeaderContextMenu numberOfItems] && [[[obj headerCell] title] localizedCompare:[[tableHeaderContextMenu itemAtIndex:menuIndex] title]] == NSOrderedDescending)
 				menuIndex++;
-			id <NSMenuItem> item = [tableHeaderContextMenu insertItemWithTitle:[[obj headerCell] title] action:@selector(contextMenuSelected:) keyEquivalent:@"" atIndex:menuIndex];
+			//id <NSMenuItem> item = [tableHeaderContextMenu insertItemWithTitle:[[obj headerCell] title] action:@selector(contextMenuSelected:) keyEquivalent:@"" atIndex:menuIndex];
+			// EAC:
+			NSMenuItem *item = [tableHeaderContextMenu insertItemWithTitle:[[obj headerCell] title] action:@selector(contextMenuSelected:) keyEquivalent:@"" atIndex:menuIndex];
 			[item setTarget:self];
 			[item setRepresentedObject:obj];
 			if([[visibleDictionary objectForKey:[obj identifier]] boolValue])
