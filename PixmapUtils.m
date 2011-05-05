@@ -10,17 +10,17 @@
 
 void EncodePixel24(Pixel24 p, NSCoder *coder)
 {
-	[coder encodeValueOfObjCType:@encode(int) at:&p.r];
-	[coder encodeValueOfObjCType:@encode(int) at:&p.g];
-	[coder encodeValueOfObjCType:@encode(int) at:&p.b];
+	[coder encodeValueOfObjCType:@encode(unsigned char) at:&p.r];
+	[coder encodeValueOfObjCType:@encode(unsigned char) at:&p.g];
+	[coder encodeValueOfObjCType:@encode(unsigned char) at:&p.b];
 }
 
 Pixel24 DecodePixel24(NSCoder *coder)
 {
 	Pixel24 p;
-	[coder decodeValueOfObjCType:@encode(int) at:&p.r];
-	[coder decodeValueOfObjCType:@encode(int) at:&p.g];
-	[coder decodeValueOfObjCType:@encode(int) at:&p.b];
+	[coder decodeValueOfObjCType:@encode(unsigned char) at:&p.r];
+	[coder decodeValueOfObjCType:@encode(unsigned char) at:&p.g];
+	[coder decodeValueOfObjCType:@encode(unsigned char) at:&p.b];
 	return p;
 }
 
